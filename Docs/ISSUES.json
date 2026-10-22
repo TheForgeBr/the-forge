@@ -46,6 +46,11 @@
       "description": "Lançamento"
     },
     {
+      "name": "etapa-9",
+      "color": "8a7a6a",
+      "description": "Manutenção depois do lançamento"
+    },
+    {
       "name": "docs",
       "color": "d4c5f9",
       "description": "Documentação e ADRs"
@@ -461,6 +466,11 @@
       "title": "8.4 Arquivar o repositório RhuanMr/RhuanMarques",
       "body": "História: Como dono do GitHub, quero o repositório do site antigo arquivado, preservando o histórico sem deixá-lo parecer ativo.\n\nContexto: depende de 8.3.\n\nEspecificações técnicas:\n- Conferir que nada do repositório antigo fica sem cópia (imagens, textos) e que o backup do vault cobre o que importa.\n- Acrescentar ao README do repositório antigo um aviso com o link do novo site.\n- Arquivar o repositório (Settings, Archive) pelo usuário; não apagar.\n- Registrar em `Docs/lancamento.md`.\n\nCritérios de aceite: RhuanMr/RhuanMarques aparece como arquivado e o README aponta para o novo site.\n\nTestes esperados: não se aplica; verificação manual.\n\nComo testar: abrir o repositório no GitHub e conferir o selo de arquivado.",
       "labels": ["etapa-8", "github"]
+    },
+    {
+      "title": "9.1 Organizar as pastas de componentes e scripts por assunto, sem mudar código",
+      "body": "História: Como dono do código, quero achar qualquer arquivo pelo assunto (a sala, o fluxo, a função), para conseguir mexer no site sozinho sem depender de busca.\n\nContexto: hoje `app/componentes/` tem 30 arquivos numa pasta só (salas, menu, idioma, carregamento, runas e apoio misturados), e `scripts/` mistura geradores, verificações e o carregador dos posts. A pedido do usuário, esta issue é só de organização: **nada de refatoração**. Uma refatoração geral traria bugs novos; o objetivo é só a visualização dos arquivos.\n\nRegra principal (o que pode e o que não pode):\n- Pode: mover e renomear pastas com `git mv` (o histórico de cada arquivo continua), ajustar os caminhos de `import` e os caminhos nos scripts do `package.json`, no `render.yaml` e na documentação.\n- Não pode: mudar qualquer linha de lógica, nome de função, componente, prop, classe CSS ou texto. Nenhum arquivo é dividido nem juntado.\n- Se mover um arquivo exigir mudar código além do import, ele fica onde está e isso é anotado na issue.\n\nEspecificações técnicas (proposta; o usuário aprova a árvore antes de mover):\n\n```text\napp/componentes/\n  salas/          uma pasta por sala, com o componente e o teste ao lado\n    home/         SalaHome\n    projetos/     SalaProjetos\n    experiencias/ SalaExperiencias\n    sobre/        SalaSobre\n    posts/        SalaPosts, PaginaDoPost\n    contato/      SalaContato\n    404/          SalaNaoEncontrada\n    Sala.tsx      sala provisória (genérica)\n  navegacao/      Cabecalho (menu), Rodape, AnuncioDeSala (foco e aviso na troca de sala)\n  idioma/         SeletorDeIdioma, AvisoDeIdioma e o teste idioma.test.tsx\n  carregamento/   Carregamento, MarteloEBigorna\n  marca/          Runa\n  apoio/          hidratado.ts\nscripts/\n  geradores/      gerar-tokens, gerar-logo, gerar-cartoes, gerar-banner, gerar-imagens\n  verificacoes/   verificar-rotas, verificar-fontes, orcamento, privacidade, contraste\n  conteudo/       posts, markdown, rss, sitemap\n  rotas.mjs       fica na raiz de scripts/ (é a fonte única das rotas)\n  sync-issues.mjs fica na raiz de scripts/\n```\n\n- Cada pasta nova ganha um `README.md` curto: o que tem ali e onde fica o assunto vizinho (por exemplo, \"o estilo desta sala está em app/estilos/salas.css, seção Posts\").\n- O mapa do repositório no `CLAUDE.md` e no `README.md` passa a refletir a árvore nova.\n- `app/cena/`, `app/i18n/`, `app/conteudo/`, `app/estilos/` e `app/routes/` já estão separados por assunto e não mudam.\n- Uma issue, mas em dois commits: primeiro `app/componentes/`, depois `scripts/`, cada um com o check passando.\n\nCritérios de aceite:\n- `git diff --stat -M` mostra só renomeações (100% de semelhança) e linhas de `import` ou de caminho alteradas; nenhuma outra linha muda.\n- O build gera os mesmos HTML: o `build/client` antes e depois difere só nos nomes com hash dos assets.\n- O orçamento de JS e o Lighthouse não mudam.\n\nTestes esperados: não há teste novo de comportamento; a garantia é que os 325 testes existentes, o `npm run check` e a `verificar:rotas` passem sem mudar nenhum teste além dos imports.\n\nComo testar: `npm run check`; comparar o HTML de `build/client` antes e depois (`diff -r` ignorando `assets/`); abrir o site no `npm run dev` e passar pelas 6 salas, um post e a 404.",
+      "labels": ["etapa-9", "docs"]
     }
   ]
 }
