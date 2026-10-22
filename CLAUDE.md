@@ -19,6 +19,7 @@ app/componentes/      SalaHome, SalaProjetos, Cabecalho (menu das salas), Rodape
 app/site.ts           URL_BASE (VITE_URL_BASE no build) e metaDaSala (título, descrição, canônica, hreflang, Open Graph e Twitter)
 app/cena/             CenaForja (faixa das 6 salas, montada uma vez no layout raiz), câmera e canvas de partículas
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts
+app/imagens/sobre/    imagem da sala Sobre: o arquivo presente (montagem, encapuzado) escolhe a variante
 app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão), base.css, layout.css, cena.css e salas.css
 conteudo/posts/       posts em Markdown, um arquivo por idioma
 marca/                tokens.json (fonte única de cores e fontes), logo gerado por npm run logo, runas/ (24 x 24)

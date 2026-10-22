@@ -58,13 +58,31 @@ export const en: Dicionario = {
   'experiencias.atual': 'Current',
   'sala.sobre.titulo': 'About and skills',
   'sala.sobre.descricao': 'Who Rhuan Marques is and the tools of the trade.',
-  'sala.sobre.texto': "The smith's workbench is being arranged.",
+  'sala.sobre.texto': 'Who forges, and the tools of the trade.',
   'sobre.p1':
     'I have been a full-stack developer since 2021, with a strong mobile background (React Native) and production apps for Android, iOS and the web.',
   'sobre.p2':
     'Today I build complete applications with AI agents, from requirement to test: end-to-end TypeScript, Node.js, PostgreSQL, React and React Native.',
   'sobre.p3':
     'I value recorded decisions, clear acceptance criteria and deliveries verified by tests. This website is the forge where I show that work.',
+  'sobre.imagem.ferreiro':
+    'Rhuan Marques as a blacksmith, in front of the forge.',
+  'sobre.skills': 'Skills',
+  'sobre.legenda': 'Levels',
+  'sobre.todas': 'See all skills',
+  'nivel.avancado': 'advanced',
+  'nivel.intermediario': 'intermediate',
+  'nivel.basico': 'basic',
+  'categoria.linguagens': 'Languages',
+  'categoria.frontend': 'Frontend',
+  'categoria.mobile': 'Mobile',
+  'categoria.backend': 'Backend',
+  'categoria.dados': 'Data',
+  'categoria.ia': 'AI and agents',
+  'categoria.testes': 'Testing',
+  'categoria.infra': 'Infrastructure',
+  'categoria.plataformas': 'Platforms',
+  'categoria.processo': 'Process',
   'sobre.imagem.alt':
     'The Forge BR logo: an anvil inside a ring, with a star above it.',
   'sala.posts.titulo': 'Posts',

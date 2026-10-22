@@ -340,6 +340,29 @@
         "Em 360 px não há rolagem lateral."
       ],
       "seFalhar": "Anote a largura, o cargo e o que difere do Stitch, com um print."
+    },
+    {
+      "id": "sala-sobre",
+      "titulo": "Sala Sobre e skills",
+      "area": "Salas",
+      "issues": [37],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra /sobre.",
+        "Compare com a tela \"The Forge BR - Sobre e Skills\" do Stitch em 360 px e em 1280 px.",
+        "Abra \"Ver todas as skills\", também com o JavaScript desligado.",
+        "Copie uma imagem quadrada para app/imagens/sobre/encapuzado.webp, rode o build de novo e abra /sobre; depois renomeie para montagem.webp e repita; por fim apague o arquivo.",
+        "Abra /en/about."
+      ],
+      "esperado": [
+        "O cartão do perfil mostra a imagem, o nome, o cargo e os três parágrafos provisórios.",
+        "A legenda explica as três marcas; Linguagens, Frontend, Mobile, Backend e IA e agentes ficam à vista, e cada chip mostra o nível em marcas.",
+        "Dentro de cada grupo, as skills avançadas vêm primeiro e, no mesmo nível, quem começou antes.",
+        "\"Ver todas as skills\" abre Dados, Testes, Infraestrutura, Plataformas e Processo, mesmo sem JavaScript.",
+        "Sem arquivo, a imagem é o símbolo da marca; com encapuzado ou montagem, aparece a imagem, e a montagem vence o encapuzado.",
+        "Em inglês, textos, níveis, grupos e o alt da imagem mudam.",
+        "Em 360 px não há rolagem lateral."
+      ],
+      "seFalhar": "Anote a largura, o grupo ou a variante que falhou, com um print."
     }
   ]
 }

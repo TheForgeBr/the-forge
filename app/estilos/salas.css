@@ -422,3 +422,183 @@
     max-width: 56rem;
   }
 }
+
+/* Sobre e skills, a bancada (issue 4.4): o perfil numa placa de pedra e as
+   skills em grupos, com o nível em três marcas. */
+.perfil {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: var(--espaco-4);
+  align-items: center;
+  margin-top: var(--espaco-8);
+  padding: var(--espaco-6);
+  background: color-mix(in srgb, var(--cor-pedra) 92%, transparent);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+}
+
+.perfil h2 {
+  margin: 0;
+  font-size: var(--tamanho-xl);
+}
+
+.perfil .cargo {
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-sm);
+  font-weight: 400;
+}
+
+.imagem-sobre {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  background: var(--cor-fuligem);
+}
+
+.imagem-marca {
+  box-sizing: border-box;
+  padding: var(--espaco-2);
+}
+
+.perfil-texto {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: var(--espaco-3);
+}
+
+.perfil-texto p {
+  margin: 0;
+}
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-6);
+  margin: 0 0 var(--espaco-4);
+  padding: var(--espaco-3) var(--espaco-4);
+  list-style: none;
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  color: var(--cor-cinza-brasa);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+}
+
+.grupos {
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+.grupo-skills {
+  padding: var(--espaco-4) var(--espaco-6) var(--espaco-6);
+  background: color-mix(in srgb, var(--cor-pedra) 92%, transparent);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+}
+
+.grupo-ia {
+  border-color: color-mix(in srgb, var(--cor-magia) 50%, var(--cor-ferro));
+}
+
+.grupo-skills h3 {
+  margin: 0 0 var(--espaco-3);
+  color: var(--cor-ouro-forja);
+  font-size: var(--tamanho-base);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.grupo-ia h3 {
+  color: var(--cor-magia);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  padding: var(--espaco-1) var(--espaco-3);
+  background: var(--cor-fuligem);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-sm);
+}
+
+.skills .nivel-avancado {
+  border-color: color-mix(in srgb, var(--cor-ouro-forja) 45%, var(--cor-ferro));
+}
+
+.skills .nivel-basico {
+  color: var(--cor-cinza-brasa);
+}
+
+.marcas {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.marcas span {
+  width: 0;
+  height: 0;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid var(--cor-ferro);
+  border-left: 4px solid transparent;
+}
+
+.marcas .cheia {
+  border-bottom-color: var(--cor-ouro-forja);
+}
+
+.todas-as-skills {
+  margin-top: var(--espaco-4);
+}
+
+.todas-as-skills summary {
+  padding: var(--espaco-4) var(--espaco-6);
+  background: color-mix(in srgb, var(--cor-pedra) 92%, transparent);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.todas-as-skills summary:focus-visible {
+  outline: 2px solid var(--cor-ouro-forja);
+  outline-offset: 3px;
+}
+
+.todas-as-skills[open] summary {
+  margin-bottom: var(--espaco-4);
+}
+
+@media (min-width: 48rem) {
+  .perfil {
+    grid-template-columns: 12rem 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+  }
+
+  .perfil .imagem-sobre {
+    grid-row: 1 / 3;
+  }
+
+  .perfil-texto {
+    grid-column: 2;
+  }
+
+  .grupos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
