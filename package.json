@@ -15,7 +15,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "typecheck": "react-router typegen && tsc --noEmit",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run verificar:tokens && npm run verificar:logo && npm run verificar:cartoes && npm run build && npm run verificar:rotas && npm run verificar:fontes && npm run orcamento && npm run verificar:privacidade",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run verificar:tokens && npm run verificar:logo && npm run verificar:cartoes && npm run verificar:banner && npm run build && npm run verificar:rotas && npm run verificar:fontes && npm run orcamento && npm run verificar:privacidade",
     "test": "vitest run",
     "verificar:rotas": "node scripts/verificar-rotas.mjs",
     "tokens": "node scripts/gerar-tokens.mjs",
@@ -27,7 +27,9 @@
     "verificar:privacidade": "node scripts/privacidade.mjs",
     "imagens": "node scripts/gerar-imagens.mjs",
     "cartoes": "node scripts/gerar-cartoes.mjs",
-    "verificar:cartoes": "node scripts/gerar-cartoes.mjs --verificar"
+    "verificar:cartoes": "node scripts/gerar-cartoes.mjs --verificar",
+    "banner": "node scripts/gerar-banner.mjs",
+    "verificar:banner": "node scripts/gerar-banner.mjs --verificar"
   },
   "dependencies": {
     "@fontsource/cinzel": "^5.3.0",

@@ -560,6 +560,22 @@
         "A verificação acusa o cartão desatualizado e pede npm run cartoes; depois de gerar, passa."
       ],
       "seFalhar": "Anote o projeto, o idioma e tire um print do cartão."
+    },
+    {
+      "id": "banner-do-github",
+      "titulo": "Banner dos perfis do GitHub",
+      "area": "Marca",
+      "issues": [54],
+      "passos": [
+        "Abra public/banner/banner.svg e banner.en.svg no navegador.",
+        "Cole num README de teste: ![The Forge BR](https://the-forge-96d7.onrender.com/banner/banner.svg).",
+        "Veja o README no GitHub com o tema claro e depois com o escuro."
+      ],
+      "esperado": [
+        "O banner mostra a forja da Home escurecida ao fundo, o símbolo da marca, Rhuan Marques com o degradê de brasa, o cargo e a frase, em português (e em inglês no .en).",
+        "No GitHub claro e no escuro, o banner fica legível: ele tem fundo próprio."
+      ],
+      "seFalhar": "Anote o tema do GitHub e tire um print."
     }
   ]
 }
