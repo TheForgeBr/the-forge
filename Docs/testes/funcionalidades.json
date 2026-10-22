@@ -127,7 +127,7 @@
         "Cada clique leva à mesma sala no outro idioma: /projetos ↔ /en/projects, /experiencias ↔ /en/experience, /sobre ↔ /en/about, /posts ↔ /en/posts, /contato ↔ /en/contact.",
         "O código-fonte de /en/about tem `<html lang=\"en\">` e três `<link rel=\"alternate\">`: pt-BR para /sobre, en para /en/about e x-default para /sobre.",
         "/en/nao-existe mostra \"Page not found\" e o link \"Back to the forge\" leva a /en.",
-        "Com o navegador em inglês aparece \"This page is also available in English.\" com o link \"Read in English\" para /en/about; depois de \"Close\" e recarregar, o aviso não volta.",
+        "Com o navegador em inglês aparece, numa barra fixa no pé da tela, \"This page is also available in English.\" com o link \"Read in English\" para /en/about; a página não se desloca quando a barra surge; depois de \"Close\" e recarregar, o aviso não volta.",
         "O Console não mostra erro de hidratação."
       ],
       "seFalhar": "Anote a sala, o idioma e o que apareceu; copie o erro do Console, se houver."
@@ -527,6 +527,22 @@
         "Com movimento reduzido, nada respira: o degradê e o reflexo ficam parados."
       ],
       "seFalhar": "Anote a sala, o elemento e um print."
+    },
+    {
+      "id": "sem-deslocamento-na-carga",
+      "titulo": "A página não pula enquanto carrega (CLS)",
+      "area": "Desempenho",
+      "issues": [51],
+      "passos": [
+        "No celular (ou DevTools em modo celular), abra a Home numa janela anônima.",
+        "Repare no topo e no texto durante a carga.",
+        "Com JavaScript desligado, recarregue."
+      ],
+      "esperado": [
+        "O topo já aparece com o botão Abrir menu (ou só o logo, por um instante) e o conteúdo não sobe nem desce quando a página termina de carregar.",
+        "Sem JavaScript, os links das salas aparecem abertos no topo."
+      ],
+      "seFalhar": "Grave a tela da carga ou anote o elemento que se mexeu."
     }
   ]
 }

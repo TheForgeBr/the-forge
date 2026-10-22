@@ -54,12 +54,12 @@ export function Layout({ children }: { children: ReactNode }) {
       <body>
         <CenaForja />
         <Carregamento />
-        <AvisoDeIdioma />
         <Cabecalho />
         <main id="conteudo" tabIndex={-1}>
           {children}
         </main>
         <Rodape />
+        <AvisoDeIdioma />
         <AnuncioDeSala />
         <ScrollRestoration />
         <Scripts />

@@ -10,11 +10,13 @@ export const CHAVE_VISITA = 'forja:visitou';
 const ATRIBUTO = 'data-carregando';
 
 /**
- * Corpo do script inline do <head>, que roda antes de qualquer bundle. É um
+ * Corpo do script inline do <head>, que roda antes de qualquer bundle. Também
+ * marca o <html> com data-js antes da primeira pintura: o menu do celular já
+ * começa fechado e a hidratação não desloca a página (CLS, 6.5). É um
  * texto fixo (e não o toString de uma função) para sair igual no pré-render e
  * no navegador; os testes executam este mesmo texto.
  */
-export const CORPO_DO_SCRIPT = `var h=window.document.documentElement;try{if(window.localStorage.getItem(${JSON.stringify(CHAVE_VISITA)}))return}catch(e){}window.setTimeout(function(){if(!window.__forjaPronta)h.setAttribute(${JSON.stringify(ATRIBUTO)},"")},${ATRASO});window.setTimeout(function(){h.removeAttribute(${JSON.stringify(ATRIBUTO)})},${TRAVA});`;
+export const CORPO_DO_SCRIPT = `var h=window.document.documentElement;h.setAttribute("data-js","");try{if(window.localStorage.getItem(${JSON.stringify(CHAVE_VISITA)}))return}catch(e){}window.setTimeout(function(){if(!window.__forjaPronta)h.setAttribute(${JSON.stringify(ATRIBUTO)},"")},${ATRASO});window.setTimeout(function(){h.removeAttribute(${JSON.stringify(ATRIBUTO)})},${TRAVA});`;
 
 export const SCRIPT_DO_CARREGAMENTO = `(function(window){${CORPO_DO_SCRIPT}})(window);`;
 

@@ -107,3 +107,21 @@ describe('carregamento (issue 6.4)', () => {
     );
   });
 });
+
+describe('marca de JavaScript (6.5)', () => {
+  it('o script marca o <html> com data-js antes da primeira pintura, mesmo na segunda visita', () => {
+    const marcados: string[] = [];
+    const j = {
+      document: {
+        documentElement: {
+          setAttribute: (n: string) => marcados.push(n),
+          removeAttribute: () => {},
+        },
+      },
+      localStorage: { getItem: () => '1', setItem: () => {} },
+      setTimeout: () => 0,
+    } as unknown as JanelaDoCarregamento;
+    iniciarCarregamento(j);
+    expect(marcados).toContain('data-js');
+  });
+});

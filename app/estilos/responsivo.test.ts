@@ -109,3 +109,28 @@ describe('forja fria da 404 (6.13)', () => {
     expect(cena).not.toMatch(/\.cena\[data-apagada\] \{/);
   });
 });
+
+describe('aviso de idioma sem deslocar a página (6.5)', () => {
+  it('é uma barra fixa: aparece depois da hidratação sem empurrar o conteúdo', () => {
+    const aviso =
+      /\.aviso-idioma \{([^}]*)\}/.exec(css('layout.css'))?.[1] ?? '';
+    expect(aviso).toMatch(/position: fixed;/);
+    expect(aviso).toMatch(/bottom: /);
+  });
+
+  it('vem depois do rodapé no HTML, para o Tab seguir a ordem visual', () => {
+    const raiz = readFileSync(join(__dirname, '../root.tsx'), 'utf8');
+    expect(raiz.indexOf('<AvisoDeIdioma />')).toBeGreaterThan(
+      raiz.indexOf('<Rodape />'),
+    );
+  });
+});
+
+describe('menu do celular sem deslocar a página (6.5)', () => {
+  it('com JavaScript, o menu já começa fechado antes da hidratação', () => {
+    const layout = css('layout.css');
+    expect(layout).toMatch(
+      /html\[data-js\] \.cabecalho\[data-menu='sem-js'\] \.cabecalho-salas[^{]*\{\s*display: none;/,
+    );
+  });
+});

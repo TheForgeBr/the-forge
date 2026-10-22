@@ -50,15 +50,24 @@ main h1:focus {
   outline: none;
 }
 
+/* Barra fixa no pé da tela: o aviso só aparece depois da hidratação, e no
+   topo ele empurrava a página inteira (CLS de 0,34 medido na 6.5). */
 .aviso-idioma {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: var(--espaco-3);
   padding: var(--espaco-2) var(--espaco-4);
-  background: var(--cor-pedra);
-  border-bottom: 1px solid var(--cor-ferro);
+  background: color-mix(in srgb, var(--cor-pedra) 92%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--cor-ferro);
   color: var(--cor-cinza-brasa);
   font-size: var(--tamanho-sm);
 }
@@ -126,7 +135,11 @@ main h1:focus {
   flex-basis: 100%;
 }
 
-.cabecalho[data-menu='fechado'] .cabecalho-salas {
+/* Com JavaScript (data-js, posto pelo script do <head>), o menu já começa
+   fechado no pré-render: sem isso, ele fechava na hidratação e a página subia
+   (CLS de 0,34 no celular, medido na 6.5). Sem JS, os links ficam à vista. */
+.cabecalho[data-menu='fechado'] .cabecalho-salas,
+html[data-js] .cabecalho[data-menu='sem-js'] .cabecalho-salas {
   display: none;
 }
 
@@ -233,7 +246,8 @@ main:focus {
   }
 
   .cabecalho-salas,
-  .cabecalho[data-menu='fechado'] .cabecalho-salas {
+  .cabecalho[data-menu='fechado'] .cabecalho-salas,
+  html[data-js] .cabecalho[data-menu='sem-js'] .cabecalho-salas {
     display: flex;
     flex-basis: auto;
     align-items: center;
