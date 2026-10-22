@@ -27,7 +27,7 @@ conteudo/posts/       posts em Markdown, um arquivo por idioma
 marca/                tokens.json (fonte única de cores e fontes), logo gerado por npm run logo, runas/ (24 x 24)
 scripts/rotas.mjs     SALAS com o caminho em pt e en: rotas, pré-render e verificação leem daqui
 scripts/              verificar-rotas.mjs, geradores (tokens, cartões, RSS), sincronização de issues
-public/curriculo/     PDF do currículo, publicado pelo Memento (ADR 0005)
+public/curriculo/     PDF do currículo, publicado pelo Memento (ADR 0005): no repositório do Memento, npm run curriculo -- --vault "<vault>" --publicar "<este repo>" e depois commit chore(curriculo): atualiza PDF
 Docs/adr/             decisões de arquitetura; leia antes de mudar a estrutura
 Docs/ISSUES.json      texto das issues, sincronizado com o GitHub
 Docs/testes/          Guia de Testes manuais

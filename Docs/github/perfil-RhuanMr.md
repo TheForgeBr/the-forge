@@ -1,8 +1,6 @@
 <!--
 README do perfil RhuanMr (issue 7.4). Copie este arquivo para o README.md do
 repositório RhuanMr/RhuanMr. As imagens vêm do site publicado.
-Depois da 7.1 (currículo em PDF), acrescente na seção Contato:
-- [Currículo em PDF](https://the-forge-96d7.onrender.com/curriculo/Rhuan-Marques-Curriculo.pdf)
 -->
 
 <a href="https://the-forge-96d7.onrender.com">
@@ -30,6 +28,7 @@ A linha do tempo completa está em [Experiências](https://the-forge-96d7.onrend
 
 ## Contato
 
+- [Currículo em PDF](https://the-forge-96d7.onrender.com/curriculo/Rhuan-Marques-Curriculo.pdf)
 - [LinkedIn](https://www.linkedin.com/in/rhuan-marques-714b4a1aa/)
 - E-mail: rhuan.marques.robias@gmail.com
 - [Todos os canais no site](https://the-forge-96d7.onrender.com/contato)

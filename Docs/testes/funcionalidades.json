@@ -397,7 +397,7 @@
       ],
       "esperado": [
         "O WhatsApp abre a conversa com o seu número; o E-mail abre o programa de e-mail com o seu endereço; LinkedIn e GitHub abrem os seus perfis.",
-        "O currículo baixa um arquivo; até a issue 7.1 publicar o PDF, o arquivo baixado é a página 404, não o currículo.",
+        "O currículo baixa o PDF Rhuan-Marques-Curriculo.pdf, que abre com o currículo atual.",
         "Em inglês, os rótulos e a linha \"I reply in Portuguese and English.\" mudam.",
         "Em 360 px não há rolagem lateral."
       ],
@@ -593,6 +593,23 @@
         "Os links do site, da versão em inglês, do LinkedIn e de Contato abrem o lugar certo."
       ],
       "seFalhar": "Anote o link ou a imagem que falhou e tire um print."
+    },
+    {
+      "id": "curriculo-publicado",
+      "titulo": "Currículo em PDF baixável no site",
+      "area": "Conteúdo",
+      "issues": [52],
+      "passos": [
+        "No site publicado, abra /contato e clique em Baixar currículo (PDF).",
+        "Abra direto https://the-forge-96d7.onrender.com/curriculo/Rhuan-Marques-Curriculo.pdf.",
+        "Para atualizar: rode /curriculo no Claude Code, publique com --publicar e faça o commit chore(curriculo): atualiza PDF."
+      ],
+      "esperado": [
+        "O PDF baixa e abre, com 2 páginas, o link do site no cabeçalho e os dados batendo com o site.",
+        "O link direto abre o mesmo arquivo.",
+        "Depois de publicar uma versão nova, o botão baixa a versão nova."
+      ],
+      "seFalhar": "Anote se baixou outro arquivo (por exemplo, a página 404) ou se o PDF não abriu."
     }
   ]
 }
