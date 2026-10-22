@@ -484,6 +484,25 @@
         "No celular, rolar e trocar de sala segue fluido."
       ],
       "seFalhar": "Anote o aparelho, a sala e um print; no desktop, grave a aba Desempenho por 5 segundos."
+    },
+    {
+      "id": "martelo-na-bigorna",
+      "titulo": "Martelo batendo na bigorna da Home",
+      "area": "Cena",
+      "issues": [49],
+      "passos": [
+        "Abra a Home no site publicado (desktop) e olhe o canto inferior direito.",
+        "Conte algumas batidas.",
+        "Ligue Reduzir movimento no sistema e recarregue a Home.",
+        "Abra a Home no celular."
+      ],
+      "esperado": [
+        "O martelo sobe devagar, segura no alto e desce rápido; a cada batida, um leque de faíscas sai do ponto onde a cabeça encosta na bigorna.",
+        "Uma batida a cada 2,6 s, sem som.",
+        "Com movimento reduzido, o martelo fica parado no alto e não há faíscas.",
+        "No celular, a bigorna fica mais apagada, atrás do texto, sem esconder nada."
+      ],
+      "seFalhar": "Anote o navegador, a largura e um print do momento da batida."
     }
   ]
 }

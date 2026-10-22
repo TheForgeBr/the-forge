@@ -78,8 +78,11 @@ export function CenaForja() {
             className={`cena-sala cena-sala-${AMBIENTES[s]}`}
             data-ambiente={AMBIENTES[s]}
           >
-            <Runa nome={s} />
-            {s === 'home' && <Faiscas ativo={sala === 'home' && !!naSala} />}
+            {s === 'home' ? (
+              <Faiscas ativo={sala === 'home' && !!naSala} />
+            ) : (
+              <Runa nome={s} />
+            )}
           </div>
         ))}
       </div>

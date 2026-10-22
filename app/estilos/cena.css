@@ -81,3 +81,47 @@
   width: 100%;
   height: 40vh;
 }
+
+/* Martelo e bigorna da Home (issue 6.3), atrás do conteúdo. A pose parada é
+   o martelo no alto (ANGULO_LEVANTADO em golpe.ts): é o que fica com
+   movimento reduzido. O laço das faíscas gira o martelo pelo style. */
+.bigorna-martelo {
+  position: absolute;
+  right: 6vw;
+  bottom: 6vh;
+  width: min(42vmin, 380px);
+  opacity: 0.35;
+}
+
+.bigorna {
+  fill: var(--cor-ferro);
+  stroke: var(--cor-ouro-forja);
+  stroke-width: 0.6;
+}
+
+.martelo {
+  transform-box: view-box;
+  transform-origin: 104px 56px;
+  /* rotate positivo levanta a cabeça (o y do SVG cresce para baixo). */
+  transform: rotate(35deg);
+}
+
+.martelo-cabeca {
+  fill: var(--cor-cinza-brasa);
+}
+
+.martelo-cabo {
+  fill: var(--cor-ferro);
+  stroke: var(--cor-cinza-brasa);
+  stroke-width: 0.5;
+}
+
+.ponto-de-impacto {
+  fill: none;
+}
+
+@media (min-width: 64rem) {
+  .bigorna-martelo {
+    opacity: 0.6;
+  }
+}

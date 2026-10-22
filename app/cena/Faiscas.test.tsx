@@ -33,7 +33,12 @@ describe('Faiscas', () => {
     const { container } = render(<Faiscas ativo />);
     expect(iniciar).not.toHaveBeenCalled();
     await esperarCarga();
-    expect(iniciar).toHaveBeenCalledWith(container.querySelector('canvas'));
+    expect(iniciar).toHaveBeenCalledWith(container.querySelector('canvas'), {
+      martelo: {
+        cabeca: container.querySelector('.martelo'),
+        impacto: container.querySelector('.ponto-de-impacto'),
+      },
+    });
   });
 
   it('com movimento reduzido, nada anima: o motor nem é ligado', async () => {
@@ -66,6 +71,29 @@ describe('Faiscas', () => {
     sistemaCom(false);
     const { container } = render(<Faiscas ativo />);
     expect(container.querySelector('canvas')).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+  });
+});
+
+describe('martelo com movimento reduzido', () => {
+  it('fica parado no alto: o motor não liga e não há transform no JS', async () => {
+    vi.useFakeTimers();
+    sistemaCom(true);
+    const { container } = render(<Faiscas ativo />);
+    await esperarCarga();
+    expect(iniciar).not.toHaveBeenCalled();
+    const martelo = container.querySelector<SVGGElement>('.martelo');
+    expect(martelo).not.toBeNull();
+    // A pose levantada vem do CSS (cena.css); o JS não mexe no martelo.
+    expect(martelo?.style.transform).toBe('');
+  });
+
+  it('a bigorna e o martelo são só decoração', () => {
+    sistemaCom(false);
+    const { container } = render(<Faiscas ativo />);
+    expect(container.querySelector('svg')).toHaveAttribute(
       'aria-hidden',
       'true',
     );
