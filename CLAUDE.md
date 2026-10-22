@@ -16,6 +16,7 @@ app/routes.ts         rotas do React Router
 app/routes/           uma rota por sala: home, projetos, experiencias, sobre, posts, contato
 app/cena/             CenaForja, câmera e canvas de partículas
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en)
+app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão)
 conteudo/posts/       posts em Markdown, um arquivo por idioma
 marca/                tokens.json (fonte única de cores e fontes), logo e runas em SVG
 scripts/rotas.mjs     lista única das rotas: o pré-render e a verificação leem daqui
@@ -35,7 +36,9 @@ npm run dev              # servidor de desenvolvimento
 npm run build            # gera build/client com o HTML de cada rota
 npm test                 # Vitest
 npm run verificar:rotas  # confere lang, <title> e <h1> no HTML de cada rota (depois do build)
-npm run check            # formato, lint, tipos, testes, build e verificação; rode antes de cada commit
+npm run tokens           # gera app/estilos/tokens.css a partir de marca/tokens.json
+npm run verificar:tokens # falha se o tokens.css estiver desatualizado em relação ao JSON
+npm run check            # formato, lint, tipos, testes, tokens, build e verificação das rotas; rode antes de cada commit
 npm run format           # aplica o Prettier
 node scripts/sync-issues.mjs [--dry-run]  # cria ou atualiza as issues do GitHub a partir de Docs/ISSUES.json
 ```

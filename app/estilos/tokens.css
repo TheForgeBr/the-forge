@@ -1,0 +1,33 @@
+/* Gerado por scripts/gerar-tokens.mjs a partir de marca/tokens.json.
+   Não edite à mão: mude o JSON e rode `npm run tokens`. */
+:root {
+  --cor-fuligem: #0E0B0A;
+  --cor-pedra: #1C1613;
+  --cor-ferro: #3A302A;
+  --cor-pergaminho: #EDE3D3;
+  --cor-cinza-brasa: #A89A8A;
+  --cor-ouro-forja: #F6A43A;
+  --cor-brasa: #E8661E;
+  --cor-chama: #D9381E;
+  --cor-magia: #4FE3E0;
+  --cor-tengwar: #2F7FD8;
+  --fonte-titulo: 'Cinzel', 'Georgia', serif;
+  --fonte-texto: 'Source Sans 3', system-ui, sans-serif;
+  --fonte-codigo: 'JetBrains Mono', ui-monospace, monospace;
+  --tamanho-xs: 0.75rem;
+  --tamanho-sm: 0.875rem;
+  --tamanho-base: 1rem;
+  --tamanho-lg: 1.25rem;
+  --tamanho-xl: 1.5rem;
+  --tamanho-2xl: 2rem;
+  --tamanho-3xl: 2.5rem;
+  --tamanho-4xl: 3.5rem;
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 0.75rem;
+  --espaco-4: 1rem;
+  --espaco-6: 1.5rem;
+  --espaco-8: 2rem;
+  --espaco-12: 3rem;
+  --espaco-16: 4rem;
+}

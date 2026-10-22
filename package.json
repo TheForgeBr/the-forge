@@ -15,9 +15,11 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "typecheck": "react-router typegen && tsc --noEmit",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build && npm run verificar:rotas",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run verificar:tokens && npm run build && npm run verificar:rotas",
     "test": "vitest run",
-    "verificar:rotas": "node scripts/verificar-rotas.mjs"
+    "verificar:rotas": "node scripts/verificar-rotas.mjs",
+    "tokens": "node scripts/gerar-tokens.mjs",
+    "verificar:tokens": "node scripts/gerar-tokens.mjs --verificar"
   },
   "dependencies": {
     "@react-router/node": "^7.18.4",

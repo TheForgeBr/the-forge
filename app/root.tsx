@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
 } from 'react-router';
 import type { Route } from './+types/root';
+import './estilos/tokens.css';
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
