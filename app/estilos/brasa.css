@@ -1,0 +1,134 @@
+/* Magia da forja (pedido do usuário em 2026-10-22, com os ambientes
+   pintados): o site respira. O fogo queima dentro das letras de títulos e
+   botões, num degradê das cores da chama (brasa, ouro) às da magia (ciano),
+   recortado no desenho de cada letra, sem vazar para fora dele. A cada 6 s o
+   degradê anda e o brilho sobe e volta, como uma respiração; as sombras de
+   cartões e botões refletem as mesmas cores no mesmo ritmo. Só cores dos
+   tokens; o texto corrido continua em pergaminho. O brilho só sobe a partir
+   do normal, então o contraste nunca fica abaixo do conferido no teste
+   (4,5:1 sobre fuligem e pedra). Com movimento reduzido, nada respira. */
+:root {
+  --degrade-brasa: linear-gradient(
+    100deg,
+    var(--cor-brasa),
+    var(--cor-ouro-forja) 30%,
+    var(--cor-magia) 55%,
+    var(--cor-ouro-forja) 80%,
+    var(--cor-brasa)
+  );
+  --sombra-brasa:
+    0 10px 28px -16px color-mix(in srgb, var(--cor-brasa) 80%, transparent),
+    0 0 26px -12px color-mix(in srgb, var(--cor-magia) 60%, transparent);
+  --respiracao: 6s;
+}
+
+/* Letras em brasa: o degradê é o próprio texto. */
+main h1,
+.titulo-secao,
+.cargo,
+.carregamento-nome,
+.botao,
+.cabecalho .botao-contato {
+  background-image: var(--degrade-brasa);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: respirar-letras var(--respiracao) ease-in-out infinite;
+}
+
+/* Botões: fundo escuro de pedra e borda discreta; o fogo fica nas letras. */
+.botao,
+.botao.botao-secundario,
+.cabecalho .botao-contato {
+  background-color: var(--cor-pedra);
+  border: 1px solid color-mix(in srgb, var(--cor-brasa) 55%, var(--cor-ferro));
+}
+
+/* As runas dos botões têm cor própria (o texto é transparente). */
+.botao .runa,
+.cabecalho .botao-contato .runa {
+  color: var(--cor-ouro-forja);
+}
+
+/* O reflexo da forja nas sombras: uma camada atrás de cada peça, que só muda
+   a opacidade (barato de animar, inclusive no celular). */
+.botao,
+.cabecalho .botao-contato,
+.cartao-projeto,
+.cartao-destaque,
+.cartao-experiencia,
+.grupo-skills,
+.perfil,
+.canal {
+  position: relative;
+  isolation: isolate;
+}
+
+.botao::after,
+.cabecalho .botao-contato::after,
+.cartao-projeto::after,
+.cartao-destaque::after,
+.cartao-experiencia::after,
+.grupo-skills::after,
+.perfil::after,
+.canal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: var(--sombra-brasa);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: respirar-sombra var(--respiracao) ease-in-out infinite;
+}
+
+.botao:hover::after,
+.cabecalho .botao-contato:hover::after,
+.cartao-destaque:hover::after,
+.canal:hover::after {
+  opacity: 1;
+  animation: none;
+}
+
+@keyframes respirar-letras {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.25);
+  }
+}
+
+@keyframes respirar-sombra {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main h1,
+  .titulo-secao,
+  .cargo,
+  .carregamento-nome,
+  .botao,
+  .cabecalho .botao-contato,
+  .botao::after,
+  .cabecalho .botao-contato::after,
+  .cartao-projeto::after,
+  .cartao-destaque::after,
+  .cartao-experiencia::after,
+  .grupo-skills::after,
+  .perfil::after,
+  .canal::after {
+    animation: none;
+  }
+}

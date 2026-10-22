@@ -22,7 +22,7 @@ app/cena/             CenaForja (faixa das 6 salas, montada uma vez no layout ra
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts
 app/imagens/sobre/    imagem da sala Sobre: o arquivo presente (montagem, encapuzado) escolhe a variante
 app/imagens/salas/    ambiente pintado de cada sala (e 404/), celular e desktop em AVIF e WebP, até 150 KB cada (ambientes.tsx)
-app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão), base.css, layout.css, cena.css e salas.css
+app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão), base.css, layout.css, cena.css, salas.css, carregamento.css e brasa.css (letras em brasa que respiram)
 conteudo/posts/       posts em Markdown, um arquivo por idioma
 marca/                tokens.json (fonte única de cores e fontes), logo gerado por npm run logo, runas/ (24 x 24)
 scripts/rotas.mjs     SALAS com o caminho em pt e en: rotas, pré-render e verificação leem daqui
