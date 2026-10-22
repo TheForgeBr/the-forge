@@ -15,7 +15,7 @@ app/root.tsx          layout raiz (a CenaForja vai morar aqui; ADR 0002)
 app/routes.ts         rotas do React Router
 app/routes/           uma rota por sala: home, projetos, experiencias, sobre, posts, contato
 app/cena/             CenaForja, câmera e canvas de partículas
-app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en)
+app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts
 app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão)
 conteudo/posts/       posts em Markdown, um arquivo por idioma
 marca/                tokens.json (fonte única de cores e fontes), logo e runas em SVG

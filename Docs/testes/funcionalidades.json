@@ -75,6 +75,21 @@
         "O verificar:fontes diz \"5 @font-face permitidos\" e o peso dos woff2 em KB."
       ],
       "seFalhar": "Tire um print da página e da aba Rede e anote qual fonte ou acento saiu errado."
+    },
+    {
+      "id": "conteudo-dois-idiomas",
+      "titulo": "Conteúdo sem tradução não compila",
+      "area": "Conteúdo",
+      "issues": [18],
+      "passos": [
+        "Em `app/conteudo/conteudo.test.ts`, no objeto `skill`, apague a parte `en: 'TypeScript'` do campo `nome`.",
+        "Rode `npm run typecheck`.",
+        "Desfaça a mudança com `git checkout app/conteudo/conteudo.test.ts`."
+      ],
+      "esperado": [
+        "O typecheck falha apontando a linha do `nome` e dizendo que a propriedade `en` está faltando."
+      ],
+      "seFalhar": "Copie a saída do typecheck."
     }
   ]
 }
