@@ -23,7 +23,7 @@ Lista dos projetos do vault do Memento avaliados para a sala Projetos. Regra do 
 
 | Projeto                      | Estado                 | Motivo                        |
 | ---------------------------- | ---------------------- | ----------------------------- |
-| MentorIA                     | ideia com protótipo    | não marcado pelo usuário      |
+| MentorIA                     | não informado na nota  | não marcado pelo usuário      |
 | Alexandria                   | planejado              | não marcado pelo usuário      |
 | CompanhIA                    | sem resumo na nota     | não marcado pelo usuário      |
 | Fluidum (Liguid-UI-Project)  | prova de conceito      | não marcado; virou o Morpheus |
