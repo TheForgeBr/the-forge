@@ -2,12 +2,17 @@
 
 Registro das telas de cada sala (issues 1.5 a 1.7). Uma sala só começa a ser implementada com a tela aprovada pelo usuário. Os prompts estão em [stitch.md](stitch.md). Projeto no Stitch: [The Forge BR](https://stitch.withgoogle.com/projects/11099715265393590579), com o sistema visual da marca (o Stitch não tem Cinzel: os títulos usam EB Garamond só no protótipo).
 
-| Sala               | Tamanho | Link no Stitch                                                                                   | Data       | Status         |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------ | ---------- | -------------- |
-| Home (bigorna)     | celular | [The Forge BR - Home](https://stitch.withgoogle.com/projects/11099715265393590579)               | 2026-10-22 | aprovada (POC) |
-| Home (bigorna)     | desktop | [The Forge BR - Home (Desktop)](https://stitch.withgoogle.com/projects/11099715265393590579)     | 2026-10-22 | aprovada (POC) |
-| Projetos (arsenal) | celular | [The Forge BR - Projetos (Mobile)](https://stitch.withgoogle.com/projects/11099715265393590579)  | 2026-10-22 | aprovada (POC) |
-| Projetos (arsenal) | desktop | [The Forge BR - Projetos (Desktop)](https://stitch.withgoogle.com/projects/11099715265393590579) | 2026-10-22 | aprovada (POC) |
+| Sala                     | Tamanho | Link no Stitch                                                                                   | Data       | Status         |
+| ------------------------ | ------- | ------------------------------------------------------------------------------------------------ | ---------- | -------------- |
+| Home (bigorna)           | celular | [The Forge BR - Home](https://stitch.withgoogle.com/projects/11099715265393590579)               | 2026-10-22 | aprovada (POC) |
+| Home (bigorna)           | desktop | [The Forge BR - Home (Desktop)](https://stitch.withgoogle.com/projects/11099715265393590579)     | 2026-10-22 | aprovada (POC) |
+| Projetos (arsenal)       | celular | [The Forge BR - Projetos (Mobile)](https://stitch.withgoogle.com/projects/11099715265393590579)  | 2026-10-22 | aprovada (POC) |
+| Projetos (arsenal)       | desktop | [The Forge BR - Projetos (Desktop)](https://stitch.withgoogle.com/projects/11099715265393590579) | 2026-10-22 | aprovada (POC) |
+| Experiências (corredor)  | celular | [The Forge BR - Experiências](https://stitch.withgoogle.com/projects/11099715265393590579)       | 2026-10-22 | aprovada (POC) |
+| Sobre e skills (bancada) | celular | [The Forge BR - Sobre e Skills](https://stitch.withgoogle.com/projects/11099715265393590579)     | 2026-10-22 | aprovada (POC) |
+| Contato (portão)         | celular | [The Forge BR - Contato](https://stitch.withgoogle.com/projects/11099715265393590579)            | 2026-10-22 | aprovada (POC) |
+| 404 (forja apagada)      | celular | [The Forge BR - 404](https://stitch.withgoogle.com/projects/11099715265393590579)                | 2026-10-22 | aprovada (POC) |
+| Posts (biblioteca)       | celular | [The Forge BR - Posts](https://stitch.withgoogle.com/projects/11099715265393590579)              | 2026-10-22 | aprovada (POC) |
 
 ## Observações
 
@@ -18,3 +23,5 @@ Registro das telas de cada sala (issues 1.5 a 1.7). Uma sala só começa a ser i
 - Telas de 2026-10-22 geradas com o conteúdo aprovado (10 projetos da 2.2, SETA-AI só com o papel, © 2026 e as runas ᚦᛖ ᚠᛟᚱᚷᛖ no rodapé). O Stitch acrescentou rótulos de categoria nos cartões de Projetos (EdTech, E-commerce, HealthTech...), que não vêm do vault. Projetos no celular saiu na largura de desktop e foi pedida a conversão para 390 px.
 - As quatro telas da 1.5 foram aprovadas como POC em 2026-10-22.
 - Encaixe com a cena persistente (ADR 0002 e 0003): a imagem de cada sala não é um banner da página, e sim um trecho de uma faixa larga com as seis salas lado a lado, montada uma vez no layout raiz. Na troca de rota, o conteúdo sai (cerca de 200 ms), a câmera desliza até a sala nova (cerca de 700 ms) com uma onda da fumaça laranja e azul escondendo a emenda entre as imagens, e o conteúdo novo entra; topo, botões e barra inferior não se movem. Com movimento reduzido, a imagem troca num esmaecer de 150 ms. Por isso, na implementação, a faixa do arsenal em Projetos deixa de ser uma caixa com borda e vira a própria cena atrás da página.
+- Telas da 1.6 e da 1.7 (Experiências, Sobre e skills, Contato, 404 e Posts) aprovadas como POC em 2026-10-22, só no celular: o desktop segue o padrão da Home e de Projetos (conteúdo à esquerda em até 72rem, cena atrás). A tela de carregamento fica como referência para a 6.4.
+- Em Experiências, o Stitch inventou descrições e entregas; no site entram só o resumo e as entregas de experiencias.ts.
