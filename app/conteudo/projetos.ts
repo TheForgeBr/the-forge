@@ -76,8 +76,8 @@ export const projetos: readonly Projeto[] = [
     id: 'rumo',
     titulo: { pt: 'Rumo', en: 'Rumo' },
     papel: {
-      pt: 'Requisitos, testes manuais e revisão do código feito com IA',
-      en: 'Requirements, manual testing and review of AI-written code',
+      pt: 'Desenvolvedor: requisitos, testes manuais e revisão do código feito com IA',
+      en: 'Developer: requirements, manual testing and review of AI-written code',
     },
     resumo: {
       pt: 'Plataforma de estudos para concursos que liga metas, sessões de estudo, revisões espaçadas, avaliações e progresso. API em NestJS, app em Expo que funciona offline e versão web em React, com testes de unidade, integração e ponta a ponta.',
@@ -122,6 +122,7 @@ export const projetos: readonly Projeto[] = [
       en: 'Local job aggregator: it reads, with the user’s own account, recent messages from Telegram job groups, extracts and normalizes each posting and builds a spreadsheet to search and apply one by one.',
     },
     stack: ['TypeScript', 'Node.js', 'React', 'Vite'],
+    // O link do repositório entra quando o código subir para o GitHub.
     estado: 'pausado',
     privacidade: 'completo',
     destaque: false,
