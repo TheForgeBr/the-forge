@@ -1,4 +1,3 @@
-import { useAnimate } from 'motion/react-mini';
 import { useLayoutEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
 import { SALAS } from '../../scripts/rotas.mjs';
@@ -9,7 +8,7 @@ import {
   posicaoDaSala,
   type PosicaoDaCamera,
 } from './camera';
-import { useMovimentoReduzido } from './movimento';
+import { useAnimacao } from './movimento';
 
 // Ambiente de cada sala, na ordem da faixa (ADR 0002). Camadas estáticas por
 // enquanto: fogo e faíscas chegam na Etapa 6.
@@ -31,30 +30,28 @@ export function transformDaCamera({ x, y, zoom }: PosicaoDaCamera) {
  * rotas. Só decora (aria-hidden, sem foco); o conteúdo de cada sala é HTML
  * normal por cima, legível sem ela.
  *
- * Câmera (3.4): o React já põe a faixa na posição da sala nova, e o Motion
- * (versão mini, pela Web Animations API) só anima a passagem da posição
- * antiga para ela. A navegação não espera: URL, foco e conteúdo mudam na hora.
- * Quem entra direto numa sala já começa nela, sem animar.
+ * Câmera (3.4): o React já põe a faixa na posição da sala nova, e
+ * useAnimacao (o Motion mini, pela Web Animations API) só anima a passagem da
+ * posição antiga para ela; com movimento reduzido, não anima (3.6). A
+ * navegação não espera: URL, foco e conteúdo mudam na hora. Quem entra
+ * direto numa sala já começa nela, sem animar.
  */
 export function CenaForja() {
   const { pathname } = useLocation();
   const sala = salaDoCaminho(pathname) ?? 'home';
   const destino = transformDaCamera(posicaoDaSala(sala));
-  const reduzido = useMovimentoReduzido();
-  const [faixa, animar] = useAnimate<HTMLDivElement>();
+  const { ref: faixa, animar, reduzido } = useAnimacao<HTMLDivElement>();
   const anterior = useRef(destino);
 
   useLayoutEffect(() => {
     const origem = anterior.current;
     anterior.current = destino;
-    // Sem a Web Animations API (navegador antigo), a câmera só troca de sala.
-    if (origem === destino || reduzido || !faixa.current?.animate) return;
+    if (origem === destino) return;
     animar(
-      faixa.current,
       { transform: [origem, destino] },
       { duration: DURACAO_DA_VIAGEM, ease: [0.65, 0, 0.35, 1] },
     );
-  }, [destino, reduzido, animar, faixa]);
+  }, [destino, animar]);
 
   return (
     <div className="cena" aria-hidden="true" data-sala={sala}>
