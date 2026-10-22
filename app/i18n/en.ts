@@ -100,7 +100,8 @@ export const en: Dicionario = {
   'contato.idiomas': 'I reply in Portuguese and English.',
 
   'erro.404.titulo': 'Page not found',
-  'erro.404.texto': 'This room does not exist in the forge.',
+  'erro.404.chamada': 'This room does not exist in the forge.',
+  'erro.404.texto': 'The path you followed led to a stone wall.',
   'erro.outro.titulo': 'Something went wrong in the forge',
   'erro.outro.texto': 'Try reloading the page in a moment.',
   'erro.rotulo': 'Error',

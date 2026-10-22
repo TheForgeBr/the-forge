@@ -32,6 +32,7 @@ function montar(rota: string) {
           { index: true, element: <h1>Início</h1> },
           { path: 'projetos', element: <h1>Projetos</h1> },
           { path: 'contato', element: <h1>Contato</h1> },
+          { path: '*', element: <h1>404</h1> },
         ],
       },
     ],
@@ -140,5 +141,21 @@ describe('câmera', () => {
     fireEvent.click(screen.getByRole('link', { name: 'Projetos' }));
     await screen.findByRole('heading', { name: 'Projetos' });
     expect(viagens).not.toHaveBeenCalled();
+  });
+});
+
+describe('forja apagada', () => {
+  it('numa rota fora das salas, a cena fica na bigorna e apagada', () => {
+    const { container } = montar('/nao-existe');
+    const cena = container.querySelector('.cena');
+    expect(cena).toHaveAttribute('data-sala', 'home');
+    expect(cena).toHaveAttribute('data-apagada');
+  });
+
+  it('numa sala, a cena não fica apagada', () => {
+    const { container } = montar('/projetos');
+    expect(container.querySelector('.cena')).not.toHaveAttribute(
+      'data-apagada',
+    );
   });
 });

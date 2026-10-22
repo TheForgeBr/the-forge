@@ -46,3 +46,20 @@ describe('problemasDoHtml', () => {
     ).toContain(problema);
   });
 });
+
+describe('páginas 404', () => {
+  const pagina404 = valido.replace(
+    '</head>',
+    '<meta name="robots" content="noindex"/></head>',
+  );
+
+  it('aceita a 404 com noindex', () => {
+    expect(problemasDoHtml(pagina404, { noindex: true })).toEqual([]);
+  });
+
+  it('acusa a 404 sem noindex', () => {
+    expect(problemasDoHtml(valido, { noindex: true })).toContain(
+      'sem <meta name="robots" content="noindex">',
+    );
+  });
+});

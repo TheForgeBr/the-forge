@@ -20,11 +20,11 @@ describe('render.yaml', () => {
     expect(faltando).toEqual([]);
   });
 
-  it('o fallback geral vem por último, depois das regras das rotas', () => {
+  it('as rotas desconhecidas caem na 404 do idioma, nas últimas regras', () => {
     const lista = regras();
-    expect(lista.at(-1)).toEqual({
-      origem: '/*',
-      destino: '/__spa-fallback.html',
-    });
+    expect(lista.slice(-2)).toEqual([
+      { origem: '/en/*', destino: '/en/404/index.html' },
+      { origem: '/*', destino: '/404/index.html' },
+    ]);
   });
 });

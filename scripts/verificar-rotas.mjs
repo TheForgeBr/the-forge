@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SALAS } from './rotas.mjs';
+import { PAGINAS_404, SALAS } from './rotas.mjs';
 
 const LANG = { pt: 'pt-BR', en: 'en' };
 
@@ -27,6 +27,13 @@ export function problemasDoHtml(html, esperado = {}) {
     problemas.push(`lang="${lang}" no <html>, esperado "${esperado.lang}"`);
   if (!/<title>[^<]+<\/title>/i.test(html)) problemas.push('sem <title>');
   if (!/<h1[\s>]/i.test(html)) problemas.push('sem <h1>');
+  if (
+    esperado.noindex &&
+    !/<meta\b(?=[^>]*\sname="robots")(?=[^>]*\scontent="noindex")[^>]*>/i.test(
+      html,
+    )
+  )
+    problemas.push('sem <meta name="robots" content="noindex">');
   for (const [hreflang, caminho] of Object.entries(esperado.alternativos ?? {}))
     if (!temAlternativo(html, hreflang, caminho))
       problemas.push(
@@ -66,6 +73,22 @@ function main() {
         falhas++;
       }
     }
+  // A 404 de cada idioma (issue 4.6): sem hreflang, mas com noindex.
+  for (const idioma of ['pt', 'en']) {
+    const rota = PAGINAS_404[idioma];
+    const arquivo = arquivoDaRota(dirBuild, rota);
+    const problemas = fs.existsSync(arquivo)
+      ? problemasDoHtml(fs.readFileSync(arquivo, 'utf8'), {
+          lang: LANG[idioma],
+          noindex: true,
+        })
+      : [`não existe ${path.relative(process.cwd(), arquivo)}`];
+    rotas++;
+    for (const p of problemas) {
+      process.stderr.write(`${rota}: ${p}\n`);
+      falhas++;
+    }
+  }
   if (falhas) process.exit(1);
   process.stdout.write(`${rotas} rota(s) com HTML completo\n`);
 }

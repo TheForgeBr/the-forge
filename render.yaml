@@ -47,8 +47,11 @@ services:
       - type: rewrite
         source: /en/contact
         destination: /en/contact/index.html
-      # Rotas sem arquivo pré-renderizado caem no fallback do React Router,
-      # que mostra a página de erro do site. Arquivos existentes têm prioridade.
+      # Rotas sem arquivo pré-renderizado caem na 404 da forja (issue 4.6),
+      # pré-renderizada em cada idioma. Arquivos existentes têm prioridade.
+      - type: rewrite
+        source: /en/*
+        destination: /en/404/index.html
       - type: rewrite
         source: /*
-        destination: /__spa-fallback.html
+        destination: /404/index.html

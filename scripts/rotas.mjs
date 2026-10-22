@@ -11,3 +11,6 @@ export const SALAS = [
 ];
 
 export const ROTAS = SALAS.flatMap(({ pt, en }) => [pt, en]);
+
+// Página de qualquer endereço fora das salas (issue 4.6), uma por idioma.
+export const PAGINAS_404 = { pt: '/404', en: '/en/404' };

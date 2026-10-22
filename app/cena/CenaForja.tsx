@@ -38,7 +38,9 @@ export function transformDaCamera({ x, y, zoom }: PosicaoDaCamera) {
  */
 export function CenaForja() {
   const { pathname } = useLocation();
-  const sala = salaDoCaminho(pathname) ?? 'home';
+  // Fora das salas (a 404), a câmera fica na bigorna, com a forja apagada.
+  const naSala = salaDoCaminho(pathname);
+  const sala = naSala ?? 'home';
   const destino = transformDaCamera(posicaoDaSala(sala));
   const { ref: faixa, animar, reduzido } = useAnimacao<HTMLDivElement>();
   const anterior = useRef(destino);
@@ -54,7 +56,12 @@ export function CenaForja() {
   }, [destino, animar]);
 
   return (
-    <div className="cena" aria-hidden="true" data-sala={sala}>
+    <div
+      className="cena"
+      aria-hidden="true"
+      data-sala={sala}
+      data-apagada={naSala ? undefined : ''}
+    >
       <div
         ref={faixa}
         className="cena-faixa"

@@ -20,7 +20,7 @@ O site é só arquivos estáticos (ADR 0001). O deploy precisa ser grátis, auto
 
 - **Static Site do Render**, no plano grátis, em `*.onrender.com` no começo; domínio próprio fica para depois.
 - Build: `npm ci && npm run build`. Pasta publicada: `build/client`.
-- Regra de rewrite de `/*` para `/__spa-fallback.html`: rotas sem arquivo mostram a página de erro do site. A configuração fica em `render.yaml` e em `Docs/deploy.md`.
+- Regra de rewrite de `/*` para `/__spa-fallback.html`: rotas sem arquivo mostram a página de erro do site. Trocada em 2026-10-22 (issue 4.6) por `/en/*` para `/en/404/index.html` e `/*` para `/404/index.html`: a 404 pré-renderizada tem o mesmo HTML que o React Router monta no navegador, com `noindex`. A configuração fica em `render.yaml` e em `Docs/deploy.md`.
 - Deploy automático a cada push na `main`.
 
 ## Consequências

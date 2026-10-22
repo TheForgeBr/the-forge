@@ -33,7 +33,7 @@
       ],
       "esperado": [
         "A página mostra \"olá forja\".",
-        "A rota inexistente mostra a página de erro do site, não a do Render.",
+        "A rota inexistente mostra a 404 da forja (ver o item 404 temática), não a página do Render.",
         "O push dispara um deploy novo, que termina como Live."
       ],
       "seFalhar": "Copie o log do deploy no painel do Render."
@@ -363,6 +363,26 @@
         "Em 360 px não há rolagem lateral."
       ],
       "seFalhar": "Anote a largura, o grupo ou a variante que falhou, com um print."
+    },
+    {
+      "id": "pagina-404",
+      "titulo": "404 temática: a forja apagada",
+      "area": "Salas",
+      "issues": [39],
+      "passos": [
+        "No site publicado, abra /qualquer-coisa e /en/qualquer-coisa.",
+        "Na 404, abra o DevTools e veja o console e o <head>.",
+        "Clique em Projetos, volte e clique em Voltar à forja.",
+        "Compare com a tela \"The Forge BR - 404\" do Stitch em 360 px."
+      ],
+      "esperado": [
+        "Aparece \"404\" grande, o título \"Esta sala não existe na forja.\" (em inglês, \"This room does not exist in the forge.\"), o texto da parede de pedra, o botão Voltar à forja e os links Projetos e Contato.",
+        "A cena fica na bigorna, sem cor e mais escura, e volta ao normal ao entrar numa sala.",
+        "O <head> tem <meta name=\"robots\" content=\"noindex\"> e o título \"Página não encontrada | The Forge BR\".",
+        "O console não mostra erro de hidratação (#418).",
+        "Os links levam às salas no mesmo idioma, sem recarregar a página."
+      ],
+      "seFalhar": "Anote o endereço aberto, o idioma e o erro do console, com um print."
     }
   ]
 }

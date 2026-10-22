@@ -14,7 +14,10 @@ describe('ErroDaForja', () => {
   it('mostra a página de erro do site para rota inexistente', () => {
     erroEm('/nao-existe', 404);
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Página não encontrada' }),
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'Esta sala não existe na forja.',
+      }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: 'Voltar à forja' }),
@@ -24,7 +27,10 @@ describe('ErroDaForja', () => {
   it('fala inglês numa rota /en inexistente e volta para a Home em inglês', () => {
     erroEm('/en/missing', 404);
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Page not found' }),
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'This room does not exist in the forge.',
+      }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: 'Back to the forge' }),

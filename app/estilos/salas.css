@@ -602,3 +602,55 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* 404, a forja apagada (issue 4.6): centrada, com o número em ferro e um
+   brilho fraco de brasa nas bordas. */
+.sala-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-4);
+  min-height: 60vh;
+  justify-content: center;
+  max-width: 36rem;
+  text-align: center;
+}
+
+.codigo-404 {
+  margin: 0;
+  color: var(--cor-ferro);
+  font-family: var(--fonte-titulo);
+  font-size: clamp(5rem, 25vw, 9rem);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow:
+    0 0 1px var(--cor-cinza-brasa),
+    0 0 24px color-mix(in srgb, var(--cor-brasa) 45%, transparent);
+}
+
+.sala-404 h1 {
+  margin: 0;
+  font-size: var(--tamanho-2xl);
+}
+
+.texto-404 {
+  margin: 0;
+  color: var(--cor-cinza-brasa);
+}
+
+.sala-404 .botao {
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.links-404 {
+  display: flex;
+  gap: var(--espaco-6);
+  margin: 0;
+}
+
+.links-404 a {
+  color: var(--cor-pergaminho);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-sm);
+}

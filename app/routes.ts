@@ -10,4 +10,8 @@ export default SALAS.flatMap(({ sala, pt, en }) => {
       : route(pt.slice(1), arquivo, { id: `${sala}-pt` }),
     route(en.slice(1), arquivo, { id: `${sala}-en` }),
   ];
-}) satisfies RouteConfig;
+}).concat([
+  // Qualquer outro endereço: a 404 (issue 4.6), com /en/* antes do geral.
+  route('en/*', 'routes/nao-encontrada.tsx', { id: '404-en' }),
+  route('*', 'routes/nao-encontrada.tsx', { id: '404-pt' }),
+]) satisfies RouteConfig;

@@ -54,3 +54,9 @@
     ),
     var(--cor-fuligem);
 }
+
+/* Fora das salas (a 404, issue 4.6), a forja está apagada: sem cor de brasa
+   e mais escura. É estático, então não depende do movimento reduzido. */
+.cena[data-apagada] {
+  filter: grayscale(0.85) brightness(0.45);
+}

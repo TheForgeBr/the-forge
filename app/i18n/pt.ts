@@ -103,7 +103,8 @@ export const pt = {
   'contato.idiomas': 'Respondo em português e em inglês.',
 
   'erro.404.titulo': 'Página não encontrada',
-  'erro.404.texto': 'Esta sala não existe na forja.',
+  'erro.404.chamada': 'Esta sala não existe na forja.',
+  'erro.404.texto': 'O caminho que você seguiu levou a uma parede de pedra.',
   'erro.outro.titulo': 'Algo deu errado na forja',
   'erro.outro.texto': 'Tente recarregar a página em instantes.',
   'erro.rotulo': 'Erro',
