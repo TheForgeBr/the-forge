@@ -99,3 +99,13 @@ describe('rodapé no fim da tela', () => {
     expect(layout).toMatch(/main \{[^}]*flex: 1;/);
   });
 });
+
+describe('forja fria da 404 (6.13)', () => {
+  it('o filtro de forja apagada só vale sem a imagem da forja fria', () => {
+    const cena = css('cena.css');
+    expect(cena).toMatch(
+      /\.cena\[data-apagada\]:not\(:has\(\.ambiente\)\) \{\s*filter:/,
+    );
+    expect(cena).not.toMatch(/\.cena\[data-apagada\] \{/);
+  });
+});

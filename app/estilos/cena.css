@@ -57,7 +57,9 @@
 
 /* Fora das salas (a 404, issue 4.6), a forja está apagada: sem cor de brasa
    e mais escura. É estático, então não depende do movimento reduzido. */
-.cena[data-apagada] {
+/* Com a imagem da forja fria (6.13), ela já é apagada: o filtro escurecia
+   demais e a sumia. O filtro fica só para quando não há imagem. */
+.cena[data-apagada]:not(:has(.ambiente)) {
   filter: grayscale(0.85) brightness(0.45);
 }
 
