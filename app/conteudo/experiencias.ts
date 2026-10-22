@@ -41,14 +41,23 @@ export const experiencias: readonly Experiencia[] = [
         'Evolução e sustentação com React, Material UI, Atomic Design e arquitetura hexagonal, integradas a GraphQL e a um BFF em NestJS.',
         'Correção de bugs e incidentes e a troca do envio de arquivos de base64 para multipart.',
         'Trabalho com design, produto e backend, usando Figma e Jira.',
+        'Criação de agentes no VS Code com o GitHub Copilot para automatizar tarefas, e validação de funcionalidades feitas com apoio de IA.',
       ],
       en: [
         'Evolved and maintained the platform with React, Material UI, Atomic Design and hexagonal architecture, integrated with GraphQL and a NestJS BFF.',
         'Fixed bugs and incidents and switched file uploads from base64 to multipart.',
         'Worked with design, product and backend teams, using Figma and Jira.',
+        'Built VS Code agents with GitHub Copilot to automate tasks, and validated features developed with AI assistance.',
       ],
     },
-    stack: ['React', 'Material UI', 'GraphQL', 'NestJS', 'Jest'],
+    stack: [
+      'React',
+      'Material UI',
+      'GraphQL',
+      'NestJS',
+      'Jest',
+      'GitHub Copilot',
+    ],
     periodo: { inicio: '2026-05', fim: '2026-09' },
     privacidade: 'completo',
     destaque: true,
@@ -91,11 +100,13 @@ export const experiencias: readonly Experiencia[] = [
     },
     entregas: {
       pt: [
+        'Vitrine digital para encontrar produtos e bancas de uma feira de Brasília.',
         'Aplicações em React e Next.js com Firebase (Cloud Functions e Realtime Database).',
         'Sites para clientes como a SIG BR e um artista de NFTs, com deploy em Netlify, Firebase Hosting e HostGator.',
         'Levantamento de requisitos e relacionamento direto com os clientes.',
       ],
       en: [
+        'Digital storefront to find products and stalls at a street market in Brasília.',
         'React and Next.js apps with Firebase (Cloud Functions and Realtime Database).',
         'Websites for clients such as SIG BR and an NFT artist, deployed on Netlify, Firebase Hosting and HostGator.',
         'Requirements gathering and direct relationship with clients.',
