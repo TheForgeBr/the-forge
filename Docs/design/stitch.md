@@ -67,3 +67,77 @@ Tela Projetos do The Forge BR, celular. A sala é o arsenal da forja: os projeto
 ```text
 A mesma tela Projetos em desktop: grade de três colunas de cartões, com o destaque ocupando duas colunas no topo. O arsenal aparece nas bordas da tela como ambientação, sem passar por trás dos cartões.
 ```
+
+## Telas das issues 1.6 e 1.7 (celular primeiro)
+
+Os textos são os provisórios da 2.6 e os dados reais de `app/conteudo/`. Cole no projeto "The Forge BR" do Stitch, uma tela por vez, depois da tela "The Forge BR - Projetos" (celular), que serve de referência de estilo.
+
+### Experiências (corredor das crônicas), celular
+
+```text
+Tela Experiências do The Forge BR, celular (390 px), em português, no mesmo estilo da tela "The Forge BR - Projetos" deste projeto (mesmo topo, faixa "Currículo" e "Contato", "Pular a cena", barra inferior com Jornada ativo e rodapé com "© 2026 Rhuan Marques. Forjado com código e magia." e as runas "ᚦᛖ ᚠᛟᚱᚷᛖ").
+Faixa de imagem escurecida no topo: corredor de pedra com tochas e placas de metal gravadas, semi-realista, com a fumaça em degradê de laranja para azul.
+Título "Experiências" com a runa Raidho (ᚱ) e a linha "A jornada desde 2021."
+Linha do tempo vertical, da mais recente à mais antiga, com marcador de brasa, período em fonte mono, empresa, papel e chips de stack:
+set/2026 – atual · SETA-AI · Desenvolvedor (só chips: TypeScript, Fastify, PostgreSQL, Next.js)
+mai – set/2026 · NAVA Technology for Business · Desenvolvedor React sênior, em consultoria para o Banco BMG
+dez/2024 – abr/2026 · Natural Fluency · Desenvolvedor mobile e web, responsável pelo produto inteiro
+mai/2022 – fev/2023 · Freelancer · Desenvolvedor web
+mai – set/2022 · MediPreço · Desenvolvedor mobile júnior
+nov/2021 – abr/2022 · CIT · Desenvolvedor mobile pleno
+out – nov/2021 · Contele Soluções Tecnológicas · Desenvolvedor mobile
+abr – set/2021 · Ponto a Ponto (PaP) · Tester e desenvolvedor mobile júnior
+O item atual tem o marcador em ouro. Não invente datas, números nem descrições.
+```
+
+### Sobre e skills (bancada), celular
+
+```text
+Tela Sobre e skills do The Forge BR, celular (390 px), em português, no mesmo estilo da tela "The Forge BR - Projetos" (topo, faixa "Currículo" e "Contato", "Pular a cena", barra inferior com Sobre ativo e rodapé com as runas "ᚦᛖ ᚠᛟᚱᚷᛖ").
+Faixa de imagem escurecida: bancada de madeira com ferramentas, um notebook com código azul e a fumaça em degradê de laranja para azul.
+Título "Sobre e skills" com a runa Mannaz (ᛗ).
+Bloco de imagem quadrado para a foto do dono; nesta versão, a variante "só a marca": o logo (anel aberto com </> no alto, estrela e bigorna) grande sobre fundo pedra.
+Três parágrafos: "Sou desenvolvedor full-stack desde 2021, com base forte em mobile (React Native) e aplicações em produção para Android, iOS e web." / "Hoje construo aplicações completas com agentes de IA, do requisito ao teste: TypeScript de ponta a ponta, Node.js, PostgreSQL, React e React Native." / "Gosto de decisões registradas, critérios de aceite claros e entregas verificadas por testes. Este site é a forja onde mostro esse trabalho."
+Skills em grupos, com título em serifada pequena e chips em fonte mono; o nível aparece como três marcas (cheias = avançado, duas = intermediário, uma = básico):
+Linguagens: TypeScript, JavaScript (avançado); Python, Java (intermediário); PHP (básico)
+Frontend: React, Next.js, Tailwind CSS, Styled Components, Angular, Vite, Material UI, Atomic Design (avançado)
+Mobile: React Native, Expo, EAS Build e Submit (avançado)
+Backend: Node.js, Express (avançado); NestJS, Fastify (intermediário); GraphQL (básico)
+IA: Claude Code, Cursor, ChatGPT e Azure AI Speech (avançado); GitHub Copilot, RAG, MCP (intermediário); LangGraph.js, Ollama (básico)
+Os outros grupos (Dados, Testes, Infra, Plataformas, Processo) ficam num botão "Ver todas as skills". Não invente skills nem anos.
+```
+
+### Contato (portão), celular
+
+```text
+Tela Contato do The Forge BR, celular (390 px), em português, no mesmo estilo da tela "The Forge BR - Projetos" (topo, faixa "Currículo" e "Contato", "Pular a cena", barra inferior com Contato ativo e rodapé com as runas "ᚦᛖ ᚠᛟᚱᚷᛖ").
+Faixa de imagem escurecida: grande portão de madeira e ferro entreaberto, com a luz da forja vindo de dentro e a fumaça em degradê.
+Título "Contato" com a runa Gebo (ᚷ) e o convite "Quer conversar sobre uma vaga ou um projeto? Escolha o canal."
+Quatro botões grandes, um por linha, em pedra com borda de ferro e ícone: "WhatsApp", "E-mail", "LinkedIn" e "GitHub", só com o rótulo, sem número nem endereço.
+Destaque em brasa: "Baixar currículo (PDF)", com a runa de baixar. Linha final: "Respondo em português e em inglês."
+Não invente telefone, e-mail nem endereço.
+```
+
+### 404 (forja apagada), celular
+
+```text
+Tela 404 do The Forge BR, celular (390 px), em português, com o mesmo topo e rodapé da tela "The Forge BR - Projetos".
+Fundo semi-realista bem escuro de uma bigorna fria, sem fogo, com cinzas e um último fio de fumaça azul subindo.
+"404" grande em serifada, em ferro com um brilho fraco de brasa nas bordas. Título "Esta sala não existe na forja." Texto "O caminho que você seguiu levou a uma parede de pedra."
+Botão em brasa "Voltar à forja" e links discretos para Projetos e Contato.
+```
+
+### Posts (biblioteca), celular, estado vazio
+
+```text
+Tela Posts do The Forge BR, celular (390 px), em português, no estado vazio, no mesmo estilo da tela "The Forge BR - Projetos" (topo, faixa, "Pular a cena", barra inferior e rodapé com as runas "ᚦᛖ ᚠᛟᚱᚷᛖ").
+Faixa de imagem escurecida: estantes de pedra com livros antigos e pergaminhos, uma tela com código azul entre eles e a fumaça em degradê.
+Título "Posts" com a runa Ansuz (ᚨ). No centro, um pergaminho em branco em traço, o texto "Os primeiros textos ainda estão na bigorna." e o link "Assinar o RSS".
+Abaixo, dois cartões esmaecidos marcados como "exemplo", com data em fonte mono, "Título do post" e duas linhas de resumo.
+```
+
+### Carregamento (referência para a 6.4), celular
+
+```text
+Tela de carregamento do The Forge BR, celular (390 px): fundo fuligem, no centro o logo animado em quadros (o martelo feito de < / > descendo sobre a bigorna, o anel se fechando e o </> se formando no alto) e, abaixo, o nome "Rhuan Marques" e "Desenvolvedor full-stack" já legíveis. Sem barra de porcentagem.
+```
