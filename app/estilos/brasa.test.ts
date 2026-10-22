@@ -73,3 +73,18 @@ describe('brasa viva', () => {
       expect(reduzido).toContain(seletor);
   });
 });
+
+describe('reflexo sem pisar em outros estilos', () => {
+  it('não usa um ::before ou ::after que outra folha já usa', () => {
+    const outros = ['salas.css', 'layout.css', 'cena.css']
+      .map((f) => readFileSync(join(__dirname, f), 'utf8'))
+      .join('\n');
+    const usados = new Set(
+      [...outros.matchAll(/([.\w-]+)::(before|after)/g)].map((m) => m[0]),
+    );
+    const daBrasa = [...css.matchAll(/([.\w-]+)::(before|after)/g)].map(
+      (m) => m[0],
+    );
+    expect(daBrasa.filter((p) => usados.has(p))).toEqual([]);
+  });
+});

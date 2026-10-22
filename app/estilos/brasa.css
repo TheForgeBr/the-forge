@@ -82,7 +82,7 @@ main h1,
 .cartao-experiencia::after,
 .grupo-skills::after,
 .perfil::after,
-.canal::after {
+.canal::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -141,7 +141,7 @@ main h1,
   .cartao-experiencia::after,
   .grupo-skills::after,
   .perfil::after,
-  .canal::after {
+  .canal::before {
     animation: none;
   }
 }
