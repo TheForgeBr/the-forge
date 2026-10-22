@@ -1,0 +1,18 @@
+# Blueprint do Render (ADR 0007). No painel: New > Blueprint > este repositório.
+services:
+  - type: web
+    name: the-forge
+    runtime: static
+    branch: main
+    autoDeployTrigger: commit
+    buildCommand: npm ci && npm run build
+    staticPublishPath: build/client
+    envVars:
+      - key: NODE_VERSION
+        value: 22.19.0
+    routes:
+      # Rotas sem arquivo pré-renderizado caem no fallback do React Router,
+      # que mostra a página de erro do site. Arquivos existentes têm prioridade.
+      - type: rewrite
+        source: /*
+        destination: /__spa-fallback.html
