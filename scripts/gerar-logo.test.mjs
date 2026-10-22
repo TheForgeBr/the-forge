@@ -28,18 +28,36 @@ describe('caminhoDoTexto', () => {
   });
 });
 
-describe.each(Object.keys(arquivos))('%s', (arquivo) => {
-  const svg = arquivos[arquivo];
+describe.each(Object.keys(arquivos).filter((a) => a.endsWith('.svg')))(
+  '%s',
+  (arquivo) => {
+    const svg = arquivos[arquivo];
 
-  it('tem <title>, viewBox e nenhum texto que dependa de fonte', () => {
-    expect(svg).toMatch(/<title id="titulo">The Forge BR<\/title>/);
-    expect(svg).toMatch(/viewBox="0 0 \d+ \d+"/);
-    expect(svg).not.toMatch(/<text[\s>]|font-family/);
-  });
+    it('tem <title>, viewBox e nenhum texto que dependa de fonte', () => {
+      expect(svg).toMatch(/<title id="titulo">The Forge BR<\/title>/);
+      expect(svg).toMatch(/viewBox="0 0 \d+ \d+"/);
+      expect(svg).not.toMatch(/<text[\s>]|font-family/);
+    });
 
-  it('usa só cores da paleta', () => {
-    const paleta = new Set(Object.values(cores).map((c) => c.toUpperCase()));
-    expect([...coresDoSvg(svg)].filter((c) => !paleta.has(c))).toEqual([]);
+    it('usa só cores da paleta', () => {
+      const paleta = new Set(Object.values(cores).map((c) => c.toUpperCase()));
+      expect([...coresDoSvg(svg)].filter((c) => !paleta.has(c))).toEqual([]);
+    });
+  },
+);
+
+// Largura e altura ficam nos bytes 16 a 23 do cabeçalho IHDR do PNG.
+const dimensoes = (png) => [png.readUInt32BE(16), png.readUInt32BE(20)];
+
+describe('PNG de ícone e Open Graph', () => {
+  it.each([
+    ['public/favicon-32.png', 32, 32],
+    ['public/apple-touch-icon.png', 180, 180],
+    ['public/og/padrao.png', 1200, 630],
+  ])('%s tem %i x %i', (arquivo, largura, altura) => {
+    const png = arquivos[arquivo];
+    expect(png.subarray(1, 4).toString()).toBe('PNG');
+    expect(dimensoes(png)).toEqual([largura, altura]);
   });
 });
 

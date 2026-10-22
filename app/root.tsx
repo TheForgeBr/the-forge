@@ -17,6 +17,8 @@ import './estilos/base.css';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'icon', href: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
   ...linksDasFontes(),
 ];
 

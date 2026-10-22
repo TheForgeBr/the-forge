@@ -5,3 +5,6 @@ marca/logo-claro.svg linguist-generated=true
 marca/simbolo.svg linguist-generated=true
 marca/simbolo-claro.svg linguist-generated=true
 public/favicon.svg linguist-generated=true
+public/favicon-32.png binary linguist-generated=true
+public/apple-touch-icon.png binary linguist-generated=true
+public/og/padrao.png binary linguist-generated=true

@@ -1,10 +1,11 @@
-// Gera o logo em SVG a partir de marca/tokens.json e da Cinzel do @fontsource
-// (issue 1.3, ADR 0006). O letreiro vira caminho: o SVG não depende de fonte
+// Gera o logo, os ícones e a imagem Open Graph de reserva a partir de
+// marca/tokens.json e da Cinzel do @fontsource (issue 1.3, ADR 0006). O letreiro vira caminho: o SVG não depende de fonte
 // instalada, como o GitHub exige. Com --verificar, só falha se algum arquivo
 // estiver desatualizado.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Resvg } from '@resvg/resvg-js';
 import opentype from 'opentype.js';
 
 const FONTES = 'node_modules/@fontsource/cinzel/files';
@@ -85,16 +86,52 @@ function svg(viewBox, titulo, corpo) {
 }
 
 export function svgDoLogo(cores, fontes) {
+  const { largura, corpo } = conteudoDoLogo(cores, fontes);
+  return svg(`0 0 ${largura} 96`, 'The Forge BR', corpo);
+}
+
+function conteudoDoLogo(cores, fontes) {
   const nome = caminhoDoTexto(fontes[700], 'THE FORGE', 84, 58, 34, 2);
   const br = caminhoDoTexto(fontes[600], 'BR', nome.fim + 12, 58, 22, 2);
-  const largura = Math.ceil(br.fim + 4);
-  return svg(
-    `0 0 ${largura} 96`,
-    'The Forge BR',
-    `<g transform="translate(0 16)">${pecasDoSimbolo(cores)}</g>` +
+  return {
+    largura: Math.ceil(br.fim + 4),
+    corpo:
+      `<g transform="translate(0 16)">${pecasDoSimbolo(cores)}</g>` +
       `<path fill="${cores.texto}" d="${nome.d}"/>` +
       `<path fill="${cores.br}" d="${br.d}"/>`,
+  };
+}
+
+/** Símbolo sobre um quadrado de fundo, para os ícones em PNG. */
+export function svgDoIcone(cores, fundo, raio) {
+  return svg(
+    '0 0 64 64',
+    'The Forge BR',
+    `<rect width="64" height="64" rx="${raio}" fill="${fundo}"/>` +
+      `<g transform="translate(6 6) scale(0.8125)">${pecasDoSimbolo(cores)}</g>`,
   );
+}
+
+/** Imagem Open Graph de reserva (1200 x 630): o logo no centro, sobre fuligem. */
+export function svgDaImagemOg(cores, fundo, fontes) {
+  const { largura, corpo } = conteudoDoLogo(cores, fontes);
+  const w = 880;
+  const h = (w * 96) / largura;
+  return svg(
+    '0 0 1200 630',
+    'The Forge BR',
+    `<rect width="1200" height="630" fill="${fundo}"/>` +
+      `<svg x="${(1200 - w) / 2}" y="${((630 - h) / 2).toFixed(2)}" width="${w}" height="${h.toFixed(2)}" viewBox="0 0 ${largura} 96">${corpo}</svg>`,
+  );
+}
+
+export function png(svgTexto, largura) {
+  return new Resvg(svgTexto, {
+    fitTo: { mode: 'width', value: largura },
+    font: { loadSystemFonts: false },
+  })
+    .render()
+    .asPng();
 }
 
 export function svgDoSimbolo(cores) {
@@ -122,7 +159,25 @@ export function arquivosDoLogo(cores, fontes) {
     'marca/simbolo.svg': svgDoSimbolo(escuro),
     'marca/simbolo-claro.svg': svgDoSimbolo(claro),
     'public/favicon.svg': svgDoFavicon({ escuro, claro }),
+    // PNG para navegadores sem favicon SVG e para a tela inicial do iPhone,
+    // que arredonda os cantos sozinha.
+    'public/favicon-32.png': png(svgDoIcone(escuro, cores.fuligem, 12), 32),
+    'public/apple-touch-icon.png': png(
+      svgDoIcone(escuro, cores.fuligem, 0),
+      180,
+    ),
+    'public/og/padrao.png': png(
+      svgDaImagemOg(escuro, cores.fuligem, fontes),
+      1200,
+    ),
   };
+}
+
+function igual(arquivo, conteudo) {
+  if (!fs.existsSync(arquivo)) return false;
+  return Buffer.isBuffer(conteudo)
+    ? fs.readFileSync(arquivo).equals(conteudo)
+    : fs.readFileSync(arquivo, 'utf8').replace(/\r\n/g, '\n') === conteudo;
 }
 
 export function carregarFontes() {
@@ -134,9 +189,7 @@ function main() {
   const arquivos = arquivosDoLogo(cores, carregarFontes());
   if (process.argv.includes('--verificar')) {
     const desatualizados = Object.entries(arquivos).filter(
-      ([arquivo, conteudo]) =>
-        !fs.existsSync(arquivo) ||
-        fs.readFileSync(arquivo, 'utf8').replace(/\r\n/g, '\n') !== conteudo,
+      ([arquivo, conteudo]) => !igual(arquivo, conteudo),
     );
     for (const [arquivo] of desatualizados)
       process.stderr.write(
