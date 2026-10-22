@@ -1,6 +1,17 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { createMemoryRouter, Link, Outlet, RouterProvider } from 'react-router';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { SALAS } from '../../scripts/rotas.mjs';
+import { POSICOES } from './camera';
+
+// O jsdom não tem a Web Animations API: o useAnimate do Motion vira um espião
+// que registra cada viagem pedida, e a faixa ganha um animate de mentira.
+const viagens = vi.hoisted(() => vi.fn());
+vi.mock('motion/react-mini', async () => {
+  const { createRef } = await import('react');
+  return { useAnimate: () => [createRef(), viagens] };
+});
+HTMLElement.prototype.animate ??= (() => ({})) as never;
 import { CenaForja } from './CenaForja';
 
 // Um layout como o raiz: a cena fica fora do Outlet, que troca com a rota.
@@ -71,6 +82,63 @@ describe('CenaForja', () => {
   it('entra direto na sala da rota, com a faixa na posição dela', () => {
     const { container } = montar('/contato');
     const faixa = container.querySelector<HTMLElement>('.cena-faixa');
-    expect(faixa?.style.transform).toBe('translateX(-500vw)');
+    expect(faixa?.style.transform).toBe('translate(-500vw, 0vh) scale(1)');
+  });
+});
+
+describe('câmera', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    viagens.mockClear();
+  });
+
+  it('tem uma posição para cada sala, cada uma num lugar diferente', () => {
+    expect(Object.keys(POSICOES).sort()).toEqual(
+      SALAS.map((s) => s.sala).sort(),
+    );
+    const lugares = Object.values(POSICOES).map((p) => `${p.x},${p.y}`);
+    expect(new Set(lugares).size).toBe(SALAS.length);
+  });
+
+  it('a navegação não espera a viagem: conteúdo e destino mudam na hora', async () => {
+    const { container } = montar('/');
+    const inicio = Date.now();
+    fireEvent.click(screen.getByRole('link', { name: 'Contato' }));
+    await screen.findByRole('heading', { name: 'Contato' }, { timeout: 300 });
+    expect(Date.now() - inicio).toBeLessThan(750);
+    expect(
+      container.querySelector<HTMLElement>('.cena-faixa')?.style.transform,
+    ).toBe('translate(-500vw, 0vh) scale(1)');
+    expect(viagens).toHaveBeenCalledWith(
+      expect.any(HTMLElement),
+      {
+        transform: [
+          'translate(0vw, 0vh) scale(1)',
+          'translate(-500vw, 0vh) scale(1)',
+        ],
+      },
+      expect.objectContaining({ duration: 0.75 }),
+    );
+  });
+
+  it('entrar direto numa sala não pede viagem', () => {
+    montar('/contato');
+    expect(viagens).not.toHaveBeenCalled();
+  });
+
+  it('com movimento reduzido no sistema, a câmera não viaja', async () => {
+    vi.stubGlobal('matchMedia', (q: string) => ({
+      matches: q.includes('reduce'),
+      addEventListener: () => {},
+      removeEventListener: () => {},
+    }));
+    const { container } = montar('/');
+    expect(container.querySelector('.cena-faixa')).toHaveAttribute(
+      'data-movimento',
+      'reduzido',
+    );
+    fireEvent.click(screen.getByRole('link', { name: 'Projetos' }));
+    await screen.findByRole('heading', { name: 'Projetos' });
+    expect(viagens).not.toHaveBeenCalled();
   });
 });

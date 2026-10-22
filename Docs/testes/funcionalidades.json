@@ -220,6 +220,25 @@
         "Sem JavaScript, /contato mostra o conteúdo e o fundo já com a runa do Contato."
       ],
       "seFalhar": "Anote a sala e tire um print do fundo."
+    },
+    {
+      "id": "camera-entre-salas",
+      "titulo": "Câmera viajando entre as salas",
+      "area": "Cena",
+      "issues": [28],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra a Home.",
+        "Clique em Contato no menu, depois em Projetos, e use o botão voltar do navegador.",
+        "Abra /contato direto numa aba nova.",
+        "Ligue \"reduzir movimento\" no sistema (Windows: Configurações > Acessibilidade > Efeitos visuais > Efeitos de animação desligado) e navegue de novo."
+      ],
+      "esperado": [
+        "Ao clicar, o conteúdo da sala nova aparece na hora e o fundo desliza até a sala, em menos de um segundo.",
+        "O botão voltar leva à sala anterior e o fundo volta junto.",
+        "/contato aberto direto já começa com o fundo do Contato, sem deslizar.",
+        "Com movimento reduzido, o fundo troca de sala sem deslizar."
+      ],
+      "seFalhar": "Anote de qual sala para qual, o navegador e se o movimento reduzido estava ligado."
     }
   ]
 }
