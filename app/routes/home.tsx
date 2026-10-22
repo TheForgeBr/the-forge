@@ -1,18 +1,16 @@
-export function meta() {
-  return [
-    { title: 'The Forge BR' },
-    { name: 'description', content: 'Site pessoal de Rhuan Marques.' },
-  ];
+import { useTraducao } from '../i18n/idioma';
+import { metaDaSala } from '../site';
+
+export function meta({ location }: { location: { pathname: string } }) {
+  return metaDaSala('home', location.pathname);
 }
 
 export default function Home() {
+  const t = useTraducao();
   return (
     <main>
-      <h1>olá forja</h1>
-      <p>
-        A forja está acendendo: cada sala deste site vai mostrar uma parte do
-        meu trabalho.
-      </p>
+      <h1>{t('sala.home.titulo')}</h1>
+      <p>{t('sala.home.texto')}</p>
       <p>
         <code>git commit -m &quot;olá forja&quot;</code>
       </p>

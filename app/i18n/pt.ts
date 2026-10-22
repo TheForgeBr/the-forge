@@ -1,0 +1,40 @@
+// Textos de interface em português (ADR 0008). As chaves daqui definem o
+// tipo do dicionário: o en.ts precisa ter todas elas.
+export const pt = {
+  'site.nome': 'The Forge BR',
+  'idioma.nome': 'Português',
+  'idioma.ler': 'Ler em português',
+  'aviso.texto': 'Esta página também existe em português.',
+  'aviso.fechar': 'Fechar',
+
+  'sala.home.titulo': 'olá forja',
+  'sala.home.descricao': 'Site pessoal de Rhuan Marques.',
+  'sala.home.texto':
+    'A forja está acendendo: cada sala deste site vai mostrar uma parte do meu trabalho.',
+  'sala.projetos.titulo': 'Projetos',
+  'sala.projetos.descricao': 'Os projetos de Rhuan Marques.',
+  'sala.projetos.texto': 'O arsenal da forja está sendo montado.',
+  'sala.experiencias.titulo': 'Experiências',
+  'sala.experiencias.descricao':
+    'A linha do tempo profissional de Rhuan Marques.',
+  'sala.experiencias.texto': 'A linha do tempo está sendo forjada.',
+  'sala.sobre.titulo': 'Sobre e skills',
+  'sala.sobre.descricao': 'Quem é Rhuan Marques e as ferramentas do ofício.',
+  'sala.sobre.texto': 'A bancada do ferreiro está sendo arrumada.',
+  'sala.posts.titulo': 'Posts',
+  'sala.posts.descricao': 'Textos de Rhuan Marques sobre desenvolvimento.',
+  'sala.posts.texto': 'Os primeiros posts ainda estão na bigorna.',
+  'sala.contato.titulo': 'Contato',
+  'sala.contato.descricao': 'Como falar com Rhuan Marques.',
+  'sala.contato.texto': 'Os meios de contato chegam em breve.',
+
+  'erro.404.titulo': 'Página não encontrada',
+  'erro.404.texto': 'Esta sala não existe na forja.',
+  'erro.outro.titulo': 'Algo deu errado na forja',
+  'erro.outro.texto': 'Tente recarregar a página em instantes.',
+  'erro.rotulo': 'Erro',
+  'erro.voltar': 'Voltar à forja',
+} satisfies Record<string, string>;
+
+export type Chave = keyof typeof pt;
+export type Dicionario = Record<Chave, string>;

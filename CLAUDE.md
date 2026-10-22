@@ -12,14 +12,17 @@ O plano completo está em https://claude.ai/artifact/Bws6bWEvc1nJb1wEu9sg9n.
 
 ```text
 app/root.tsx          layout raiz (a CenaForja vai morar aqui; ADR 0002)
-app/routes.ts         rotas do React Router
-app/routes/           uma rota por sala: home, projetos, experiencias, sobre, posts, contato
+app/routes.ts         rotas do React Router, montadas de SALAS (cada sala em pt e en)
+app/routes/           um arquivo por sala: home, projetos, experiencias, sobre, posts, contato
+app/i18n/             pt.ts e en.ts (textos de interface) e idioma.ts (traduzir, caminhos por idioma)
+app/componentes/      SeletorDeIdioma, AvisoDeIdioma, Sala
+app/site.ts           URL_BASE (VITE_URL_BASE no build) e metaDaSala (título, descrição, hreflang)
 app/cena/             CenaForja, câmera e canvas de partículas
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts
 app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão)
 conteudo/posts/       posts em Markdown, um arquivo por idioma
 marca/                tokens.json (fonte única de cores e fontes), logo e runas em SVG
-scripts/rotas.mjs     lista única das rotas: o pré-render e a verificação leem daqui
+scripts/rotas.mjs     SALAS com o caminho em pt e en: rotas, pré-render e verificação leem daqui
 scripts/              verificar-rotas.mjs, geradores (tokens, cartões, RSS), sincronização de issues
 public/curriculo/     PDF do currículo, publicado pelo Memento (ADR 0005)
 Docs/adr/             decisões de arquitetura; leia antes de mudar a estrutura
@@ -52,7 +55,7 @@ O Guia de Testes manuais fica em `Docs/testes/funcionalidades.json`. Toda mudan�
 - React Router v7 em modo framework, `ssr: false` e pré-render de todas as rotas (ADR 0001).
 - A cena fica montada no layout raiz e nunca desmonta entre rotas; links são `<a>` reais (ADR 0002).
 - Motion para transições e canvas 2D próprio para partículas e fogo; `prefers-reduced-motion` obrigatório (ADR 0003).
-- Orçamento: menos de 150 KB de JavaScript gzip na primeira carga, LCP abaixo de 2,5 s em 4G, Lighthouse acima de 90 no celular (ADR 0003). O limite fica em `marca/orcamento.json` e o `npm run orcamento` confere. Em 2026-10-21 a Home carrega 107,6 KB em 5 arquivos (React e React Router são quase tudo).
+- Orçamento: menos de 150 KB de JavaScript gzip na primeira carga, LCP abaixo de 2,5 s em 4G, Lighthouse acima de 90 no celular (ADR 0003). O limite fica em `marca/orcamento.json` e o `npm run orcamento` confere. Em 2026-10-21 a Home carrega 110,1 KB em 7 arquivos (React e React Router são quase tudo).
 - Sem backend na v1; conteúdo em TypeScript e Markdown no repositório (ADR 0004).
 - Cores e fontes só a partir de `marca/tokens.json` (ADR 0006).
 - Fontes pelo `@fontsource`, só subconjunto latino: Cinzel 600/700, Source Sans 3 400/600, JetBrains Mono 400. No build de 2026-10-21 os 5 woff2 somam 81,0 KB; só Source Sans 3 400 e Cinzel 700 são pré-carregadas (30,2 KB). Peso novo entra em `base.css` e em `scripts/verificar-fontes.mjs`.

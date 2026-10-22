@@ -107,6 +107,29 @@
         "Com o import pesado, o total passa de 150 KB, a saída diz \"Orçamento estourado\" e o comando termina com erro."
       ],
       "seFalhar": "Copie a saída das duas execuções do `npm run orcamento`."
+    },
+    {
+      "id": "idiomas-pt-en",
+      "titulo": "Salas em português e inglês, com seletor e aviso",
+      "area": "Idiomas",
+      "issues": [25],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra o endereço mostrado.",
+        "Abra /projetos e clique em \"English\" no topo; depois clique em \"Português\".",
+        "Repita em /experiencias, /sobre, /posts e /contato.",
+        "Em /en/about, veja o código-fonte da página (Ctrl+U) e procure `lang=` e `hreflang`.",
+        "Abra /en/nao-existe.",
+        "Numa janela anônima com o navegador em inglês (Configurações > Idiomas, inglês no topo), abra /sobre. Clique em \"Close\" e recarregue.",
+        "Abra o Console das Ferramentas do desenvolvedor em qualquer sala e veja se há erro de hidratação (hydration)."
+      ],
+      "esperado": [
+        "Cada clique leva à mesma sala no outro idioma: /projetos ↔ /en/projects, /experiencias ↔ /en/experience, /sobre ↔ /en/about, /posts ↔ /en/posts, /contato ↔ /en/contact.",
+        "O código-fonte de /en/about tem `<html lang=\"en\">` e três `<link rel=\"alternate\">`: pt-BR para /sobre, en para /en/about e x-default para /sobre.",
+        "/en/nao-existe mostra \"Page not found\" e o link \"Back to the forge\" leva a /en.",
+        "Com o navegador em inglês aparece \"This page is also available in English.\" com o link \"Read in English\" para /en/about; depois de \"Close\" e recarregar, o aviso não volta.",
+        "O Console não mostra erro de hidratação."
+      ],
+      "seFalhar": "Anote a sala, o idioma e o que apareceu; copie o erro do Console, se houver."
     }
   ]
 }

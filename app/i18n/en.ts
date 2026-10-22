@@ -1,0 +1,36 @@
+import type { Dicionario } from './pt';
+
+export const en: Dicionario = {
+  'site.nome': 'The Forge BR',
+  'idioma.nome': 'English',
+  'idioma.ler': 'Read in English',
+  'aviso.texto': 'This page is also available in English.',
+  'aviso.fechar': 'Close',
+
+  'sala.home.titulo': 'hello, forge',
+  'sala.home.descricao': 'Personal website of Rhuan Marques.',
+  'sala.home.texto':
+    'The forge is heating up: each room of this site will show a part of my work.',
+  'sala.projetos.titulo': 'Projects',
+  'sala.projetos.descricao': 'Projects by Rhuan Marques.',
+  'sala.projetos.texto': 'The forge armory is being set up.',
+  'sala.experiencias.titulo': 'Experience',
+  'sala.experiencias.descricao': 'The professional timeline of Rhuan Marques.',
+  'sala.experiencias.texto': 'The timeline is being forged.',
+  'sala.sobre.titulo': 'About and skills',
+  'sala.sobre.descricao': 'Who Rhuan Marques is and the tools of the trade.',
+  'sala.sobre.texto': "The smith's workbench is being arranged.",
+  'sala.posts.titulo': 'Posts',
+  'sala.posts.descricao': 'Writing by Rhuan Marques about development.',
+  'sala.posts.texto': 'The first posts are still on the anvil.',
+  'sala.contato.titulo': 'Contact',
+  'sala.contato.descricao': 'How to reach Rhuan Marques.',
+  'sala.contato.texto': 'Contact options are coming soon.',
+
+  'erro.404.titulo': 'Page not found',
+  'erro.404.texto': 'This room does not exist in the forge.',
+  'erro.outro.titulo': 'Something went wrong in the forge',
+  'erro.outro.texto': 'Try reloading the page in a moment.',
+  'erro.rotulo': 'Error',
+  'erro.voltar': 'Back to the forge',
+};
