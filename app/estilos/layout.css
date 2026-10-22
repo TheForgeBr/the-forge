@@ -1,5 +1,24 @@
 /* Layout raiz (issue 3.2): topo fixo, menu das salas e rodapé, pelos tokens.
-   Celular primeiro; a partir de 48rem os links ficam numa linha. */
+   Celular primeiro; os links das salas só ficam numa linha a partir de 64rem:
+   medido na issue 4.7, a linha precisa de uns 870 px e transbordava em 768. */
+
+/* Alvos de toque de pelo menos 44 px (issue 4.7) nos controles avulsos; links
+   dentro de um parágrafo de texto ficam de fora, como o WCAG permite. */
+.pular,
+.cabecalho a,
+.cabecalho button,
+.aviso-idioma a,
+.aviso-idioma button,
+.filtros button,
+.links a,
+.links-404 a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
 
 .pular {
   position: fixed;
@@ -127,7 +146,9 @@ main h1:focus {
   padding: var(--espaco-2) 0;
 }
 
-.cabecalho-salas a[aria-current='page'] {
+/* Só os itens da lista: o botão Contato também fica no nav, e ouro sobre
+   brasa dava contraste 1,62 na sala Contato (axe, issue 4.7). */
+.cabecalho-salas li a[aria-current='page'] {
   color: var(--cor-ouro-forja);
   font-weight: 600;
 }
@@ -151,6 +172,10 @@ main h1:focus {
 
 .cabecalho .botao-contato {
   color: var(--cor-fuligem);
+}
+
+.cabecalho .botao-contato[aria-current='page'] {
+  box-shadow: 0 0 0 2px var(--cor-ouro-forja);
 }
 
 main {
@@ -178,6 +203,12 @@ main:focus {
 }
 
 @media (min-width: 48rem) {
+  main {
+    padding: var(--espaco-12) var(--espaco-8);
+  }
+}
+
+@media (min-width: 64rem) {
   .cabecalho {
     flex-wrap: nowrap;
     padding: var(--espaco-3) var(--espaco-8);
@@ -202,9 +233,5 @@ main:focus {
 
   .cabecalho-acoes {
     padding-top: 0;
-  }
-
-  main {
-    padding: var(--espaco-12) var(--espaco-8);
   }
 }

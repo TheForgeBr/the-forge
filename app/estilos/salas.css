@@ -6,7 +6,10 @@
   margin: 0 auto;
 }
 
+/* Em 320 px, "Experiências" com a runa não cabia em 2,5rem (issue 4.7). */
 .sala-cabecalho h1 {
+  font-size: clamp(var(--tamanho-2xl), 10vw, var(--tamanho-3xl));
+  overflow-wrap: break-word;
   display: flex;
   align-items: center;
   gap: var(--espaco-3);
@@ -67,6 +70,7 @@
 
 .grade-projetos {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--espaco-4);
   margin: 0;
   padding: 0;
@@ -100,6 +104,7 @@
 
 .cartao-topo {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: var(--espaco-3);
@@ -173,13 +178,13 @@
 
 @media (min-width: 48rem) {
   .grade-projetos {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 64rem) {
   .grade-projetos {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .grade-projetos li:has(.em-destaque) {
@@ -314,7 +319,7 @@
 
 @media (min-width: 48rem) {
   .destaques {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -599,7 +604,7 @@
   }
 
   .grupos {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

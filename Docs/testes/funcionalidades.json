@@ -420,6 +420,25 @@
         "Depois do build novo, passa com \"14 rota(s) com HTML completo\"."
       ],
       "seFalhar": "Copie a saída do comando."
+    },
+    {
+      "id": "passada-responsividade-teclado",
+      "titulo": "Responsividade e teclado nas 6 salas e na 404",
+      "area": "Salas",
+      "issues": [40],
+      "passos": [
+        "No DevTools, abra cada sala e a 404 (pt e en) em 320, 360, 768, 1024 e 1440 px.",
+        "Em cada uma, navegue só com Tab e Shift+Tab desde o topo; use o link Pular para o conteúdo.",
+        "Aumente o zoom do navegador para 200% em 1280 px."
+      ],
+      "esperado": [
+        "Nenhuma largura tem rolagem lateral; até 1023 px o topo usa o botão de menu.",
+        "Botões e links avulsos têm pelo menos 44 px de altura.",
+        "O foco é sempre visível (contorno ouro) e segue a ordem da página; Pular leva ao conteúdo.",
+        "Na sala Contato, o botão Contato do topo mantém o texto escuro sobre a brasa, com um anel ouro.",
+        "Em 200%, todo o conteúdo continua acessível, sem texto cortado."
+      ],
+      "seFalhar": "Anote a sala, a largura e o elemento, com um print."
     }
   ]
 }
