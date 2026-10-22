@@ -75,10 +75,16 @@ export interface Periodo {
   readonly fim: Mes | 'atual';
 }
 
+/** De 2 a 4 entregas curtas por experiência (issue 2.4). */
+export const ENTREGAS = { minimo: 2, maximo: 4 } as const;
+
 export type Experiencia = Comum & {
   readonly empresa: string;
   readonly periodo: Periodo;
-} & (Completo | PapelEStack);
+} & (
+    | (Completo & { readonly entregas: Localizado<readonly string[]> })
+    | (PapelEStack & { readonly entregas?: never })
+  );
 
 export type CategoriaSkill =
   | 'linguagens'

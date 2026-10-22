@@ -1,6 +1,7 @@
 // Confere o que o tipo não consegue: texto vazio, id repetido, mês
 // impossível, período invertido, link sem https, resumo longo e ordem.
 import {
+  ENTREGAS,
   ESTADOS_DE_PROJETO,
   IDIOMAS,
   LIMITE_DO_RESUMO,
@@ -97,9 +98,49 @@ export function problemasDasExperiencias(experiencias: readonly Experiencia[]) {
         );
       else if (fim !== 'atual' && fim < inicio)
         problemas.push(`${onde}: periodo.fim ${fim} vem antes de ${inicio}`);
-      return problemas;
+      return [...problemas, ...entregasInvalidas(onde, e.entregas)];
     }),
+    ...foraDaOrdemCronologica(experiencias),
   ];
+}
+
+function entregasInvalidas(
+  onde: string,
+  entregas: Localizado<readonly string[]> | undefined,
+) {
+  if (!entregas) return [];
+  const problemas: string[] = [];
+  for (const idioma of IDIOMAS) {
+    const lista = entregas[idioma];
+    if (lista.length < ENTREGAS.minimo || lista.length > ENTREGAS.maximo)
+      problemas.push(
+        `${onde}: entregas.${idioma} tem ${lista.length} itens (de ${ENTREGAS.minimo} a ${ENTREGAS.maximo})`,
+      );
+    lista.forEach((item, i) => {
+      if (!item.trim())
+        problemas.push(`${onde}: entregas.${idioma}[${i}] está vazia`);
+    });
+  }
+  if (entregas.pt.length !== entregas.en.length)
+    problemas.push(
+      `${onde}: entregas têm ${entregas.pt.length} itens em pt e ${entregas.en.length} em en`,
+    );
+  return problemas;
+}
+
+// Ordem cronológica reversa: a experiência atual primeiro, depois pelo
+// início, do mais recente ao mais antigo.
+function foraDaOrdemCronologica(experiencias: readonly Experiencia[]) {
+  const chave = (e: Experiencia) =>
+    `${e.periodo.fim === 'atual' ? '9999-99' : e.periodo.fim}|${e.periodo.inicio}`;
+  return experiencias.flatMap((e, i) => {
+    const anterior = experiencias[i - 1];
+    return anterior && chave(e) > chave(anterior)
+      ? [
+          `experiencias/${e.id}: vem depois de ${anterior.id}, mas é mais recente; a ordem é cronológica reversa`,
+        ]
+      : [];
+  });
 }
 
 export function problemasDasSkills(skills: readonly Skill[]) {

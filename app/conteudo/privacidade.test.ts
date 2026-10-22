@@ -37,6 +37,7 @@ describe('SETA-AI só com papel e stack', () => {
       ...setaAi,
       privacidade: 'completo',
       resumo: { pt: 'detalhes', en: 'details' },
+      entregas: { pt: ['a', 'b'], en: ['a', 'b'] },
     };
     expect(problemasDaSetaAi([completo])).toEqual([
       'experiencias/seta-ai: SETA-AI precisa ser papel-e-stack, sem resumo nem links',

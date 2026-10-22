@@ -103,6 +103,50 @@ describe('projetos', () => {
   });
 });
 
+describe('experiências', () => {
+  const completa: Experiencia = {
+    ...experiencia,
+    id: 'completa',
+    privacidade: 'completo',
+    resumo: { pt: 'Produto.', en: 'Product.' },
+    entregas: { pt: ['Uma.', 'Duas.'], en: ['One.', 'Two.'] },
+  };
+
+  it('aceita de 2 a 4 entregas com a mesma quantidade nos dois idiomas', () => {
+    expect(problemasDasExperiencias([completa])).toEqual([]);
+  });
+
+  it('acusa entrega a menos e idiomas com quantidades diferentes', () => {
+    const curta: Experiencia = {
+      ...completa,
+      entregas: { pt: ['Uma.'], en: ['One.', 'Two.'] },
+    };
+    expect(problemasDasExperiencias([curta])).toEqual([
+      'experiencias/completa: entregas.pt tem 1 itens (de 2 a 4)',
+      'experiencias/completa: entregas têm 1 itens em pt e 2 em en',
+    ]);
+  });
+
+  it('acusa a lista fora da ordem cronológica reversa', () => {
+    const antiga: Experiencia = {
+      ...completa,
+      id: 'antiga',
+      periodo: { inicio: '2021-04', fim: '2021-09' },
+    };
+    expect(problemasDasExperiencias([antiga, experiencia])).toEqual([
+      'experiencias/empresa-exemplo: vem depois de antiga, mas é mais recente; a ordem é cronológica reversa',
+    ]);
+  });
+
+  it('a linha do tempo real vai de 2021 até hoje, com a atual primeiro', () => {
+    expect(experiencias[0]?.periodo.fim).toBe('atual');
+    expect(experiencias.at(-1)?.periodo.inicio.startsWith('2021')).toBe(true);
+    expect(
+      experiencias.find((e) => e.id === 'seta-ai')?.entregas,
+    ).toBeUndefined();
+  });
+});
+
 describe('validação do conteúdo', () => {
   it('aceita itens de exemplo bem formados', () => {
     expect(problemasDosProjetos([projeto])).toEqual([]);
