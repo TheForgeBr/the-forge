@@ -319,6 +319,27 @@
         "Os textos são provisórios até a versão definitiva da 2.6."
       ],
       "seFalhar": "Tire um print e anote o tamanho da tela."
+    },
+    {
+      "id": "sala-experiencias",
+      "titulo": "Sala Experiências: linha do tempo",
+      "area": "Salas",
+      "issues": [36],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra /experiencias.",
+        "Compare com a tela \"The Forge BR - Experiências\" do Stitch em 360 px (DevTools, modo celular) e em 1280 px.",
+        "Abra /en/experience.",
+        "Desligue o CSS (DevTools, Rendering ou extensão) e leia a página."
+      ],
+      "esperado": [
+        "Oito cargos, da SETA-AI (set/2026 – atual) até a Ponto a Ponto (abr – set/2021), ligados por uma linha vertical.",
+        "Só a SETA-AI tem o marcador em ouro e o selo Atual, e mostra só o papel e a stack, sem resumo nem entregas.",
+        "Cada cargo tem período em fonte mono, empresa, papel, resumo, entregas e chips da stack; no mesmo ano o período fica \"mai – set/2026\".",
+        "Em inglês, os períodos ficam \"Sep 2026 – present\" e \"May – Sep 2026\", e o selo diz Current.",
+        "Sem CSS, a lista continua numerada e legível, na mesma ordem.",
+        "Em 360 px não há rolagem lateral."
+      ],
+      "seFalhar": "Anote a largura, o cargo e o que difere do Stitch, com um print."
     }
   ]
 }

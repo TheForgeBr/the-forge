@@ -317,3 +317,108 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* Experiências, o corredor das crônicas (issue 4.3): uma linha vertical de
+   brasa à esquerda, um marcador por cargo e o atual em ouro. */
+.linha-do-tempo {
+  position: relative;
+  display: grid;
+  gap: var(--espaco-6);
+  margin: var(--espaco-8) 0 0;
+  padding: 0 0 0 var(--espaco-8);
+  list-style: none;
+}
+
+.linha-do-tempo::before {
+  content: '';
+  position: absolute;
+  top: var(--espaco-2);
+  bottom: var(--espaco-2);
+  left: calc(var(--espaco-3) - 1px);
+  width: 2px;
+  background: linear-gradient(
+    var(--cor-ouro-forja),
+    var(--cor-brasa) 30%,
+    var(--cor-ferro)
+  );
+}
+
+.marco {
+  position: relative;
+}
+
+.marco::before {
+  content: '';
+  position: absolute;
+  top: var(--espaco-6);
+  left: calc(-1 * var(--espaco-8) + var(--espaco-3) - 7px);
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--cor-fuligem);
+  border-radius: 50%;
+  background: var(--cor-ferro);
+  box-shadow: 0 0 0 2px var(--cor-ferro);
+}
+
+.marco-atual::before {
+  background: var(--cor-ouro-forja);
+  box-shadow:
+    0 0 0 2px var(--cor-ouro-forja),
+    0 0 12px var(--cor-brasa);
+}
+
+.cartao-experiencia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  padding: var(--espaco-6);
+  background: color-mix(in srgb, var(--cor-pedra) 92%, transparent);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+}
+
+.marco-atual .cartao-experiencia {
+  border-color: var(--cor-ouro-forja);
+}
+
+.cartao-experiencia h2 {
+  margin: 0;
+  font-size: var(--tamanho-xl);
+}
+
+.cartao-experiencia .papel {
+  color: var(--cor-ouro-forja);
+  font-weight: 600;
+}
+
+.periodo {
+  margin: 0;
+  color: var(--cor-ouro-forja);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+}
+
+.selo-atual {
+  flex: none;
+  padding: var(--espaco-1) var(--espaco-2);
+  border: 1px solid var(--cor-magia);
+  border-radius: 4px;
+  color: var(--cor-magia);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+  text-transform: uppercase;
+}
+
+.entregas {
+  display: grid;
+  gap: var(--espaco-2);
+  margin: 0;
+  padding-left: var(--espaco-6);
+  font-size: var(--tamanho-sm);
+}
+
+@media (min-width: 64rem) {
+  .linha-do-tempo {
+    max-width: 56rem;
+  }
+}

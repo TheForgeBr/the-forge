@@ -56,7 +56,9 @@ export const pt = {
   'sala.experiencias.titulo': 'Experiências',
   'sala.experiencias.descricao':
     'A linha do tempo profissional de Rhuan Marques.',
-  'sala.experiencias.texto': 'A linha do tempo está sendo forjada.',
+  'sala.experiencias.texto': 'A jornada desde 2021.',
+  'experiencias.linha': 'Linha do tempo',
+  'experiencias.atual': 'Atual',
   'sala.sobre.titulo': 'Sobre e skills',
   'sala.sobre.descricao': 'Quem é Rhuan Marques e as ferramentas do ofício.',
   'sala.sobre.texto': 'A bancada do ferreiro está sendo arrumada.',
