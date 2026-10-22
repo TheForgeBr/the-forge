@@ -24,7 +24,8 @@
     "verificar:logo": "node scripts/gerar-logo.mjs --verificar",
     "verificar:fontes": "node scripts/verificar-fontes.mjs",
     "orcamento": "node scripts/orcamento.mjs",
-    "verificar:privacidade": "node scripts/privacidade.mjs"
+    "verificar:privacidade": "node scripts/privacidade.mjs",
+    "imagens": "node scripts/gerar-imagens.mjs"
   },
   "dependencies": {
     "@fontsource/cinzel": "^5.3.0",
@@ -54,6 +55,7 @@
     "jsdom": "^29.1.1",
     "opentype.js": "^2.0.0",
     "prettier": "^3.9.9",
+    "sharp": "^0.35.5",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.71.1",
     "vite": "^8.3.3",

@@ -47,6 +47,7 @@ npm run logo             # gera logo, símbolo e favicon em SVG (letreiro em cur
 npm run verificar:logo   # falha se algum SVG do logo estiver desatualizado
 npm run verificar:fontes # confere pesos e subconjunto das fontes no build e mostra o peso em KB
 npm run orcamento        # soma o JS gzip da primeira carga da Home e falha acima de marca/orcamento.json
+npm run imagens -- <sala> <origem-celular> <origem-desktop>  # grava o ambiente da sala em AVIF e WebP (sharp), até 150 KB cada
 npm run verificar:privacidade  # falha se o conteúdo ou o build tiver termo proibido, e-mail, telefone ou caminho de disco
 node scripts/privacidade.mjs --hash "termo"  # gera a linha de hash para um nome reservado em Docs/conteudo/proibidos.json
 npm run check            # formato, lint, tipos, testes, tokens, build e verificação das rotas; rode antes de cada commit
