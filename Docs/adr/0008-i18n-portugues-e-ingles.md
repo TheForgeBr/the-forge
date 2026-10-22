@@ -1,6 +1,6 @@
 # ADR 0008: Português e inglês
 
-- **Status:** proposto
+- **Status:** aceito
 - **Data:** 2026-10-21
 
 ## Contexto
@@ -24,7 +24,7 @@ O site sai em português do Brasil e em inglês já na v1: recrutadores brasilei
 | **Dicionário próprio em TypeScript** | 0 KB de biblioteca; chaves verificadas pelo `tsc` | Sem plural e formatação prontos (pouco usados aqui) |
 | i18next com react-i18next            | Completo                                          | Cerca de 15 a 20 KB gzip a mais no orçamento        |
 
-## Decisão (proposta)
+## Decisão
 
 - **URLs:** português na raiz (`/`, `/projetos`, `/experiencias`, `/sobre`, `/posts`, `/contato`) e inglês em `/en` (`/en`, `/en/projects`, `/en/experience`, `/en/about`, `/en/posts`, `/en/contact`). O par de cada rota fica em `scripts/rotas.mjs`, a mesma lista que o pré-render usa.
 - **Idioma padrão:** português. A primeira visita não redireciona. Se o navegador estiver em inglês, aparece um aviso discreto "Read in English" com o link para a mesma sala em `/en`. A escolha fica guardada no navegador e o aviso não volta.

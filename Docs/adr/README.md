@@ -19,4 +19,4 @@ Cada decisão técnica relevante do site é registrada aqui, com contexto, alter
 | [0005](0005-publicacao-do-curriculo.md)          | PDF do currículo publicado pelo `--publicar` do Memento, com link fixo          | **Aceito** |
 | [0006](0006-marca-como-fonte-unica.md)           | `marca/tokens.json` gera CSS, badges e SVGs                                     | **Aceito** |
 | [0007](0007-deploy-estatico-no-render.md)        | Static Site do Render no plano grátis, deploy no push                           | **Aceito** |
-| [0008](0008-i18n-portugues-e-ingles.md)          | Português na raiz e inglês em `/en`; dicionário próprio                         | Proposto   |
+| [0008](0008-i18n-portugues-e-ingles.md)          | Português na raiz e inglês em `/en`; dicionário próprio                         | **Aceito** |
