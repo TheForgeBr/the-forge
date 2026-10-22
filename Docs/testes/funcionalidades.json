@@ -55,6 +55,26 @@
         "A segunda verificação passa."
       ],
       "seFalhar": "Copie a saída do comando que se comportou diferente e o diff."
+    },
+    {
+      "id": "fontes-da-marca",
+      "titulo": "Fontes Cinzel, Source Sans 3 e JetBrains Mono na Home",
+      "area": "Marca",
+      "issues": [12],
+      "passos": [
+        "Rode `npm run build` e depois `npm run preview`.",
+        "Abra o endereço que o preview mostrar, com as Ferramentas do desenvolvedor abertas na aba Rede, filtro Fonte, e recarregue com o cache desativado.",
+        "Olhe o título, o parágrafo e a linha de código da Home.",
+        "Rode `npm run verificar:fontes`."
+      ],
+      "esperado": [
+        "O fundo é escuro (fuligem) e o texto claro (pergaminho).",
+        "O título \"olá forja\" aparece em Cinzel (letras romanas maiúsculas), com o acento do \"á\" desenhado na mesma fonte.",
+        "O parágrafo usa Source Sans 3, com \"está\" acentuado certo, e a linha `git commit` usa JetBrains Mono.",
+        "A aba Rede mostra só arquivos woff2 com \"latin\" no nome: Source Sans 3 400 e Cinzel 700 carregam primeiro (pré-carregados) e JetBrains Mono 400 logo depois; nenhum latin-ext, itálico ou peso fora da lista.",
+        "O verificar:fontes diz \"5 @font-face permitidos\" e o peso dos woff2 em KB."
+      ],
+      "seFalhar": "Tire um print da página e da aba Rede e anote qual fonte ou acento saiu errado."
     }
   ]
 }

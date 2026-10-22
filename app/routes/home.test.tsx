@@ -9,4 +9,12 @@ describe('Home', () => {
       screen.getByRole('heading', { level: 1, name: 'olá forja' }),
     ).toBeInTheDocument();
   });
+
+  it('tem texto corrido e código, para usar as três famílias de fonte', () => {
+    const { container } = render(<Home />);
+    expect(container.querySelector('p')).toHaveTextContent(
+      'A forja está acendendo',
+    );
+    expect(container.querySelector('code')).toHaveTextContent('git commit');
+  });
 });

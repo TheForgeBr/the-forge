@@ -8,7 +8,11 @@ import {
   ScrollRestoration,
 } from 'react-router';
 import type { Route } from './+types/root';
+import { linksDasFontes } from './estilos/fontes';
 import './estilos/tokens.css';
+import './estilos/base.css';
+
+export const links: Route.LinksFunction = () => linksDasFontes();
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
