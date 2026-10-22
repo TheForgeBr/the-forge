@@ -7,23 +7,67 @@
     { "name": "etapa-4", "color": "c5def5", "description": "Salas" },
     { "name": "etapa-5", "color": "fbca04", "description": "Posts" },
     { "name": "etapa-6", "color": "e8661e", "description": "Forja viva" },
-    { "name": "etapa-7", "color": "4fe3e0", "description": "Currículo e GitHub" },
+    {
+      "name": "etapa-7",
+      "color": "4fe3e0",
+      "description": "Currículo e GitHub"
+    },
     { "name": "etapa-8", "color": "b60205", "description": "Lançamento" },
     { "name": "docs", "color": "d4c5f9", "description": "Documentação e ADRs" },
     { "name": "testes", "color": "bfd4f2", "description": "Testes e medição" },
-    { "name": "marca", "color": "f6a43a", "description": "Paleta, tipografia, logo e runas" },
+    {
+      "name": "marca",
+      "color": "f6a43a",
+      "description": "Paleta, tipografia, logo e runas"
+    },
     { "name": "design", "color": "5319e7", "description": "Telas do Stitch" },
-    { "name": "conteudo", "color": "0e8a16", "description": "Projetos, experiências, skills e textos" },
+    {
+      "name": "conteudo",
+      "color": "0e8a16",
+      "description": "Projetos, experiências, skills e textos"
+    },
     { "name": "i18n", "color": "2f7fd8", "description": "Português e inglês" },
-    { "name": "cena", "color": "d9381e", "description": "Cena da forja, câmera e animações" },
+    {
+      "name": "cena",
+      "color": "d9381e",
+      "description": "Cena da forja, câmera e animações"
+    },
     { "name": "sala", "color": "1c1613", "description": "Página de uma sala" },
-    { "name": "posts", "color": "fbca04", "description": "Posts em Markdown, RSS e sitemap" },
-    { "name": "desempenho", "color": "ededed", "description": "Orçamento de desempenho e Lighthouse" },
-    { "name": "a11y", "color": "0075ca", "description": "Acessibilidade e reduced-motion" },
-    { "name": "deploy", "color": "1d76db", "description": "Publicação no Render" },
-    { "name": "github", "color": "24292f", "description": "Perfil, organização e repositórios no GitHub" },
-    { "name": "pesquisa", "color": "cfd3d7", "description": "Pesquisa e decisão" },
-    { "name": "seguranca", "color": "b60205", "description": "Privacidade do conteúdo publicado" }
+    {
+      "name": "posts",
+      "color": "fbca04",
+      "description": "Posts em Markdown, RSS e sitemap"
+    },
+    {
+      "name": "desempenho",
+      "color": "ededed",
+      "description": "Orçamento de desempenho e Lighthouse"
+    },
+    {
+      "name": "a11y",
+      "color": "0075ca",
+      "description": "Acessibilidade e reduced-motion"
+    },
+    {
+      "name": "deploy",
+      "color": "1d76db",
+      "description": "Publicação no Render"
+    },
+    {
+      "name": "github",
+      "color": "24292f",
+      "description": "Perfil, organização e repositórios no GitHub"
+    },
+    {
+      "name": "pesquisa",
+      "color": "cfd3d7",
+      "description": "Pesquisa e decisão"
+    },
+    {
+      "name": "seguranca",
+      "color": "b60205",
+      "description": "Privacidade do conteúdo publicado"
+    }
   ],
   "issues": [
     {

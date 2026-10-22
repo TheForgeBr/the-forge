@@ -1,6 +1,4 @@
-import type { Route } from './+types/home';
-
-export function meta(_: Route.MetaArgs) {
+export function meta() {
   return [
     { title: 'The Forge BR' },
     { name: 'description', content: 'Site pessoal de Rhuan Marques.' },
