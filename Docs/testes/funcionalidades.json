@@ -610,6 +610,23 @@
         "Depois de publicar uma versão nova, o botão baixa a versão nova."
       ],
       "seFalhar": "Anote se baixou outro arquivo (por exemplo, a página 404) ou se o PDF não abriu."
+    },
+    {
+      "id": "feed-rss",
+      "titulo": "Feed RSS dos posts em cada idioma",
+      "area": "Posts",
+      "issues": [44],
+      "passos": [
+        "Abra https://the-forge-96d7.onrender.com/rss.xml e /en/rss.xml.",
+        "Cole cada endereço em https://validator.w3.org/feed/ e valide.",
+        "Depois que houver posts publicados, assine o feed num leitor (Feedly, Inoreader ou o leitor do celular)."
+      ],
+      "esperado": [
+        "Os dois endereços abrem um XML com o título Posts | The Forge BR, o link da lista de posts do idioma e o idioma certo (pt-BR ou en).",
+        "O validador aceita os dois feeds; sem posts, o feed é válido e vazio.",
+        "Cada post publicado aparece no feed do seu idioma, com título, link para o post, data e resumo."
+      ],
+      "seFalhar": "Anote o endereço, a mensagem do validador e se o problema é no feed em português ou em inglês."
     }
   ]
 }
