@@ -79,3 +79,13 @@ describe('runa da sala com ambiente (6.6)', () => {
     );
   });
 });
+
+describe('rodapé translúcido', () => {
+  it('deixa ver o ambiente, com desfoque para o texto continuar legível', () => {
+    const rodape = /\.rodape \{([^}]*)\}/.exec(css('layout.css'))?.[1] ?? '';
+    expect(rodape).toMatch(
+      /color-mix\(in srgb, var\(--cor-fuligem\) \d+%, transparent\)/,
+    );
+    expect(rodape).toMatch(/backdrop-filter: blur\(/);
+  });
+});

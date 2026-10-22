@@ -187,7 +187,11 @@ main:focus {
 }
 
 .rodape {
-  background: var(--cor-fuligem);
+  /* Translúcido sobre o ambiente da sala; o desfoque mantém o texto cinza
+     legível por cima da imagem. */
+  background: color-mix(in srgb, var(--cor-fuligem) 60%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   padding: var(--espaco-8) var(--espaco-4);
   border-top: 1px solid var(--cor-ferro);
   color: var(--cor-cinza-brasa);
