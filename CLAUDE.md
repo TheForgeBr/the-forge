@@ -18,7 +18,7 @@ app/i18n/             pt.ts e en.ts (textos de interface) e idioma.ts (traduzir,
 app/carregamento.ts   tela de carregamento (6.4): script inline do <head> (primeira visita, só depois de 300 ms) e marcarPronto
 app/componentes/      Carregamento e MarteloEBigorna (martelo élfico em SVG, batida em CSS), SalaHome, SalaProjetos, Cabecalho (menu das salas), Rodape, AnuncioDeSala (foco e aria-live na troca de sala), SeletorDeIdioma, AvisoDeIdioma, Sala e Runa (SVGs de marca/runas, cor por currentColor)
 app/site.ts           URL_BASE (VITE_URL_BASE no build) e metaDaSala (título, descrição, canônica, hreflang, Open Graph e Twitter)
-app/cena/             CenaForja (faixa das 6 salas, montada uma vez no layout raiz), câmera, Faiscas (canvas na sala da Home, saindo da forja da imagem) e Fogo (base da cena, intensidade por sala em intensidade.ts); os motores particulas.ts e chamas.ts chegam por importação dinâmica e usam o laço de laco.ts (pausa com a aba oculta)
+app/cena/             CenaForja (faixa das 6 salas, montada uma vez no layout raiz), câmera, Faiscas (canvas na sala da Home, saindo da forja da imagem); o motor particulas.ts chega por importação dinâmica e usa o laço de laco.ts (pausa com a aba oculta)
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts
 app/imagens/sobre/    imagem da sala Sobre: o arquivo presente (montagem, encapuzado) escolhe a variante
 app/imagens/salas/    ambiente pintado de cada sala (e 404/), celular e desktop em AVIF e WebP, até 150 KB cada (ambientes.tsx)

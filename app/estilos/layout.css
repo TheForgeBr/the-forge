@@ -187,7 +187,6 @@ main:focus {
 }
 
 .rodape {
-  /* Fundo sólido: o texto cinza do rodapé não fica sobre o fogo (6.2). */
   background: var(--cor-fuligem);
   padding: var(--espaco-8) var(--espaco-4);
   border-top: 1px solid var(--cor-ferro);

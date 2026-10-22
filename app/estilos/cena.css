@@ -70,18 +70,6 @@
   height: 100%;
 }
 
-/* Fogo da forja (issue 6.2): o canvas tem 96 colunas e o CSS o amplia na base
-   da tela; a suavização da ampliação vira o desfoque da chama. Fica atrás do
-   conteúdo, e a opacidade máxima de 55% mantém o texto legível. */
-.fogo {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40vh;
-}
-
 /* Ambiente pintado de cada sala (issue 6.6), por cima do degradê e atrás de
    tudo o mais. Escurecido para o texto continuar legível, e com as bordas
    dissolvidas em fumaça laranja e azul: na viagem da câmera, a emenda entre
