@@ -503,6 +503,27 @@
         "No celular, a bigorna fica mais apagada, atrás do texto, sem esconder nada."
       ],
       "seFalhar": "Anote o navegador, a largura e um print do momento da batida."
+    },
+    {
+      "id": "ambientes-das-salas",
+      "titulo": "Ambientes das salas: imagem atrás do conteúdo",
+      "area": "Cena",
+      "issues": [],
+      "passos": [
+        "Quando a primeira imagem de ambiente entrar (issues 6.7 a 6.13), abra a Home com a aba Rede do DevTools aberta, filtrando por Img.",
+        "Navegue para a sala que tem imagem e depois para outra.",
+        "Abra direto o endereço da sala que tem imagem.",
+        "Compare em 360 px e em 1440 px.",
+        "Ligue Reduzir movimento e troque de sala."
+      ],
+      "esperado": [
+        "Na Home, só a imagem da Home (se houver) é baixada; a das outras salas não.",
+        "A imagem de uma sala só é pedida quando você vai até ela; depois continua lá ao voltar.",
+        "A imagem fica atrás do texto, escurecida, com as bordas sumindo numa fumaça laranja e azul.",
+        "No celular vem a imagem em pé; no desktop, a deitada.",
+        "Sala sem imagem continua com o degradê; com movimento reduzido, a troca é direta."
+      ],
+      "seFalhar": "Anote a sala, a largura e o que a aba Rede mostrou."
     }
   ]
 }

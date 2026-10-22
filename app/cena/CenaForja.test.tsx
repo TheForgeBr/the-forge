@@ -159,3 +159,59 @@ describe('forja apagada', () => {
     );
   });
 });
+
+describe('ambientes das salas (6.6)', () => {
+  const imagem = (sala: string) => ({
+    celular: { webp: `/${sala}-c.webp` },
+    desktop: { webp: `/${sala}-d.webp` },
+  });
+  const imagens = { home: imagem('home'), projetos: imagem('projetos') };
+
+  function montarComImagens(rota: string) {
+    const router = createMemoryRouter(
+      [
+        {
+          path: '/',
+          element: (
+            <>
+              <CenaForja imagens={imagens} />
+              <Link to="/projetos">Projetos</Link>
+              <Outlet />
+            </>
+          ),
+          children: [
+            { index: true, element: <h1>Início</h1> },
+            { path: 'projetos', element: <h1>Projetos</h1> },
+          ],
+        },
+      ],
+      { initialEntries: [rota] },
+    );
+    return render(<RouterProvider router={router} />);
+  }
+
+  const urls = (container: HTMLElement) =>
+    [...container.querySelectorAll('.ambiente img')].map((i) =>
+      i.getAttribute('src'),
+    );
+
+  it('na entrada, só a imagem da sala atual entra no HTML', () => {
+    const { container } = montarComImagens('/');
+    expect(urls(container)).toEqual(['/home-c.webp']);
+  });
+
+  it('a imagem de outra sala só é pedida quando a câmera vai até ela, e fica', async () => {
+    const { container } = montarComImagens('/');
+    fireEvent.click(screen.getByRole('link', { name: 'Projetos' }));
+    await screen.findByRole('heading', { name: 'Projetos' });
+    expect(urls(container)).toEqual(['/home-c.webp', '/projetos-c.webp']);
+  });
+
+  it('sala sem imagem fica só com o degradê', () => {
+    const { container } = montarComImagens('/projetos');
+    const experiencias = container.querySelector(
+      '[data-ambiente="linha-do-tempo"]',
+    );
+    expect(experiencias?.querySelector('.ambiente')).toBeNull();
+  });
+});

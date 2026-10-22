@@ -33,3 +33,4 @@ O site tem de parecer uma forja viva: faíscas, fogo, código como magia, câmer
 - Uma animação só está pronta quando cabe no orçamento e tem o caminho de reduced-motion testado.
 - Motion é carregado com `LazyMotion` para caber no orçamento.
 - Trocar de biblioteca exige um ADR que substitua este.
+- Imagens dos ambientes das salas (2026-10-22, issue 6.6): ficam fora do orçamento de JavaScript, mas têm limite próprio de 150 KB por arquivo (AVIF e WebP, celular e desktop), conferido por teste. Só a sala de entrada vem no HTML; as outras são pedidas quando a câmera vai até elas, para não disputar a primeira carga. O LCP continua sendo o texto da sala.
