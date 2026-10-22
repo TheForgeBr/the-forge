@@ -99,3 +99,13 @@ describe('martelo com movimento reduzido', () => {
     );
   });
 });
+
+describe('desenho do martelo', () => {
+  it('é élfico: curvas em vez de blocos e a folha de luz no pescoço', () => {
+    sistemaCom(false);
+    const { container } = render(<Faiscas ativo />);
+    expect(container.querySelectorAll('.martelo rect')).toHaveLength(0);
+    expect(container.querySelectorAll('.martelo .martelo-aco')).toHaveLength(2);
+    expect(container.querySelector('.martelo .martelo-luz')).not.toBeNull();
+  });
+});

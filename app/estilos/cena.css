@@ -106,14 +106,28 @@
   transform: rotate(35deg);
 }
 
-.martelo-cabeca {
-  fill: var(--cor-cinza-brasa);
+.aco-claro {
+  stop-color: var(--cor-pergaminho);
 }
 
-.martelo-cabo {
-  fill: var(--cor-ferro);
-  stroke: var(--cor-cinza-brasa);
-  stroke-width: 0.5;
+.aco-escuro {
+  stop-color: var(--cor-cinza-brasa);
+}
+
+.martelo-aco {
+  fill: url(#aco-do-martelo);
+}
+
+.martelo-filete {
+  fill: none;
+  stroke: var(--cor-ouro-forja);
+  stroke-width: 0.35;
+  opacity: 0.8;
+}
+
+.martelo-luz {
+  fill: var(--cor-magia);
+  opacity: 0.85;
 }
 
 .ponto-de-impacto {
