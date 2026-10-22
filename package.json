@@ -15,12 +15,13 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "typecheck": "react-router typegen && tsc --noEmit",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run verificar:tokens && npm run build && npm run verificar:rotas && npm run verificar:fontes",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run verificar:tokens && npm run build && npm run verificar:rotas && npm run verificar:fontes && npm run orcamento",
     "test": "vitest run",
     "verificar:rotas": "node scripts/verificar-rotas.mjs",
     "tokens": "node scripts/gerar-tokens.mjs",
     "verificar:tokens": "node scripts/gerar-tokens.mjs --verificar",
-    "verificar:fontes": "node scripts/verificar-fontes.mjs"
+    "verificar:fontes": "node scripts/verificar-fontes.mjs",
+    "orcamento": "node scripts/orcamento.mjs"
   },
   "dependencies": {
     "@fontsource/cinzel": "^5.3.0",

@@ -90,6 +90,23 @@
         "O typecheck falha apontando a linha do `nome` e dizendo que a propriedade `en` está faltando."
       ],
       "seFalhar": "Copie a saída do typecheck."
+    },
+    {
+      "id": "orcamento-js",
+      "titulo": "Orçamento de JavaScript da Home",
+      "area": "Desempenho",
+      "issues": [33],
+      "passos": [
+        "Rode `npm run build` e `npm run orcamento`.",
+        "No topo de `app/routes/home.tsx`, acrescente `import { renderToString } from 'react-dom/server';` e, no fim, `export const pesado = renderToString;`.",
+        "Rode `npm run build` e `npm run orcamento` de novo.",
+        "Desfaça com `git checkout app/routes/home.tsx`."
+      ],
+      "esperado": [
+        "A primeira vez mostra o total (cerca de 108 KB de 150 KB) e os 5 arquivos, do maior para o menor, e termina sem erro.",
+        "Com o import pesado, o total passa de 150 KB, a saída diz \"Orçamento estourado\" e o comando termina com erro."
+      ],
+      "seFalhar": "Copie a saída das duas execuções do `npm run orcamento`."
     }
   ]
 }

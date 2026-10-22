@@ -39,6 +39,7 @@ npm run verificar:rotas  # confere lang, <title> e <h1> no HTML de cada rota (de
 npm run tokens           # gera app/estilos/tokens.css a partir de marca/tokens.json
 npm run verificar:tokens # falha se o tokens.css estiver desatualizado em relação ao JSON
 npm run verificar:fontes # confere pesos e subconjunto das fontes no build e mostra o peso em KB
+npm run orcamento        # soma o JS gzip da primeira carga da Home e falha acima de marca/orcamento.json
 npm run check            # formato, lint, tipos, testes, tokens, build e verificação das rotas; rode antes de cada commit
 npm run format           # aplica o Prettier
 node scripts/sync-issues.mjs [--dry-run]  # cria ou atualiza as issues do GitHub a partir de Docs/ISSUES.json
@@ -51,7 +52,7 @@ O Guia de Testes manuais fica em `Docs/testes/funcionalidades.json`. Toda mudan�
 - React Router v7 em modo framework, `ssr: false` e pré-render de todas as rotas (ADR 0001).
 - A cena fica montada no layout raiz e nunca desmonta entre rotas; links são `<a>` reais (ADR 0002).
 - Motion para transições e canvas 2D próprio para partículas e fogo; `prefers-reduced-motion` obrigatório (ADR 0003).
-- Orçamento: menos de 150 KB de JavaScript gzip na primeira carga, LCP abaixo de 2,5 s em 4G, Lighthouse acima de 90 no celular (ADR 0003).
+- Orçamento: menos de 150 KB de JavaScript gzip na primeira carga, LCP abaixo de 2,5 s em 4G, Lighthouse acima de 90 no celular (ADR 0003). O limite fica em `marca/orcamento.json` e o `npm run orcamento` confere. Em 2026-10-21 a Home carrega 107,6 KB em 5 arquivos (React e React Router são quase tudo).
 - Sem backend na v1; conteúdo em TypeScript e Markdown no repositório (ADR 0004).
 - Cores e fontes só a partir de `marca/tokens.json` (ADR 0006).
 - Fontes pelo `@fontsource`, só subconjunto latino: Cinzel 600/700, Source Sans 3 400/600, JetBrains Mono 400. No build de 2026-10-21 os 5 woff2 somam 81,0 KB; só Source Sans 3 400 e Cinzel 700 são pré-carregadas (30,2 KB). Peso novo entra em `base.css` e em `scripts/verificar-fontes.mjs`.
