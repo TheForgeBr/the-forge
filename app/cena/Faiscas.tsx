@@ -59,7 +59,7 @@ export function Faiscas({ ativo }: { ativo: boolean }) {
         </defs>
         {/* Martelo élfico, à moda dos Noldor de Fëanor: curvas longas em vez
             de blocos. Cabo fino com gancho no punho e um filete; cabeça com a
-            face de abas varridas embaixo (é ela que bate), garra em crescente
+            face de bater em bloco, com um filete (um martelo, não uma lâmina), garra em crescente
             no alto e um arco vazado até o cabo; no pescoço, uma folha de luz
             azul, como a das Silmarils. */}
         <g ref={cabeca} className="martelo">
@@ -70,8 +70,9 @@ export function Faiscas({ ativo }: { ativo: boolean }) {
           <path className="martelo-filete" d="M68 56 C76 55.4 86 56.5 96 56" />
           <path
             className="martelo-aco"
-            d="M44 54 C42 57 37 59.5 33 59.6 C37 61 40 62 44 62 L54 62 C58 62 61 61 65 59.6 C61 59.5 56 57 54 54 Z M44 54 C43 49 44 43 47 39 C49.5 35.5 54 33.5 59 34 C55 35.5 52.5 38.5 52 43 L52 54 Z M55.5 36.2 C59 40 60.5 47 65 54.6 L62.5 54.7 C58.8 48.5 57 41.5 54 37.5 Z"
+            d="M44 54 C43.6 56.5 42.6 58.5 41 59.3 L41 62 L57 62 L57 59.3 C55.4 58.5 54.4 56.5 54 54 Z M44 54 C43 49 44 43 47 39 C49.5 35.5 54 33.5 59 34 C55 35.5 52.5 38.5 52 43 L52 54 Z M55.5 36.2 C59 40 60.5 47 65 54.6 L62.5 54.7 C58.8 48.5 57 41.5 54 37.5 Z"
           />
+          <path className="martelo-filete" d="M41.6 60.2 H56.4" />
           <path
             className="martelo-luz"
             d="M46.6 51 C45.9 47.5 46.8 44.5 49.2 42.6 C49.1 45.8 48.8 48.8 46.6 51 Z"

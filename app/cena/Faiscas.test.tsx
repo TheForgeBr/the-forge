@@ -109,3 +109,15 @@ describe('desenho do martelo', () => {
     expect(container.querySelector('.martelo .martelo-luz')).not.toBeNull();
   });
 });
+
+describe('face do martelo', () => {
+  it('a face de bater é um bloco de base plana, não uma lâmina larga', () => {
+    sistemaCom(false);
+    const { container } = render(<Faiscas ativo />);
+    const cabeca = container.querySelectorAll('.martelo .martelo-aco')[1];
+    const d = cabeca?.getAttribute('d') ?? '';
+    // A face vai de x 41 a 57 (16 unidades); a lâmina antiga ia de 33 a 65.
+    expect(d).toContain('L41 62 L57 62');
+    expect(d).not.toContain('33 59.6');
+  });
+});

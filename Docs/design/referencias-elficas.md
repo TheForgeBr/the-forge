@@ -17,4 +17,4 @@ Guia visual para a cena da forja, tirado da cultura élfica de Tolkien. As image
 
 ## Aplicado
 
-- Martelo da Home (issue 6.3, `app/cena/Faiscas.tsx`): face de abas varridas, garra em crescente, arco vazado até o cabo, cabo fino com gancho no punho e uma folha de luz azul no pescoço.
+- Martelo da Home (issue 6.3, `app/cena/Faiscas.tsx`): face de bater em bloco com filete dourado (abas finas e largas viravam lâmina de machado), garra em crescente, arco vazado até o cabo, cabo fino com gancho no punho e uma folha de luz azul no pescoço.
