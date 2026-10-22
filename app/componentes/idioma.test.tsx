@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router';
+import { createMemoryRouter, MemoryRouter, RouterProvider } from 'react-router';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { CHAVE_ESCOLHA } from '../i18n/idioma';
 import { AvisoDeIdioma } from './AvisoDeIdioma';
@@ -63,5 +63,43 @@ describe('AvisoDeIdioma', () => {
     unmount();
     emRota('/', <AvisoDeIdioma />);
     expect(screen.queryByRole('complementary')).not.toBeInTheDocument();
+  });
+});
+
+describe('idioma num post', () => {
+  const navegadorEm = (lang: string) =>
+    vi.spyOn(navigator, 'language', 'get').mockReturnValue(lang);
+
+  it('post sem tradução: o aviso não oferece o outro idioma', () => {
+    navegadorEm('en-US');
+    emRota('/posts/so-em-portugues', <AvisoDeIdioma />);
+    expect(screen.queryByRole('complementary')).not.toBeInTheDocument();
+  });
+
+  it('post traduzido: o seletor e o aviso levam à tradução do loader', async () => {
+    navegadorEm('en-US');
+    const Pagina = () => (
+      <>
+        <SeletorDeIdioma />
+        <AvisoDeIdioma />
+      </>
+    );
+    const router = createMemoryRouter(
+      [
+        {
+          path: '/posts/:slug',
+          loader: () => ({ traducao: '/en/posts/why' }),
+          Component: Pagina,
+        },
+      ],
+      { initialEntries: ['/posts/por-que'] },
+    );
+    render(<RouterProvider router={router} />);
+    expect(
+      await screen.findByRole('link', { name: 'English' }),
+    ).toHaveAttribute('href', '/en/posts/why');
+    expect(
+      screen.getByRole('link', { name: 'Read in English' }),
+    ).toHaveAttribute('href', '/en/posts/why');
   });
 });

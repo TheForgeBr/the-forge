@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { IMAGEM_OG, metaDaSala, URL_BASE } from './site';
+import { IMAGEM_OG, metaDaSala, metaDoPost, URL_BASE } from './site';
 
 type Meta = ReturnType<typeof metaDaSala>[number];
 const conteudo = (meta: Meta[], chave: string) =>
@@ -81,5 +81,38 @@ describe('metaDaSala', () => {
 
   it('a imagem de compartilhamento existe em public/', () => {
     expect(fs.existsSync(`public${IMAGEM_OG.caminho}`)).toBe(true);
+  });
+});
+
+describe('metaDoPost', () => {
+  const post = {
+    titulo: 'Por que The Forge',
+    resumo: 'O nome e a ideia.',
+    data: '2026-10-22',
+    tags: ['TypeScript', 'React'],
+    caminho: '/posts/por-que',
+  };
+  const hreflangs = (meta: Meta[]) =>
+    meta.filter((m) => 'hrefLang' in m).map((m) => ('href' in m ? m.href : ''));
+
+  it('é um artigo com título, descrição, canônica e data de publicação', () => {
+    const meta = metaDoPost(post);
+    expect(meta[0]).toEqual({ title: 'Por que The Forge | The Forge BR' });
+    expect(conteudo(meta, 'description')).toBe('O nome e a ideia.');
+    expect(conteudo(meta, 'og:type')).toBe('article');
+    expect(conteudo(meta, 'og:url')).toBe(`${URL_BASE}/posts/por-que`);
+    expect(conteudo(meta, 'article:published_time')).toBe('2026-10-22');
+    expect(
+      meta.filter((m) => 'property' in m && m.property === 'article:tag'),
+    ).toHaveLength(2);
+  });
+
+  it('só aponta hreflang quando o post tem tradução', () => {
+    expect(hreflangs(metaDoPost(post))).toEqual([]);
+    expect(hreflangs(metaDoPost(post, '/en/posts/por-que'))).toEqual([
+      `${URL_BASE}/posts/por-que`,
+      `${URL_BASE}/en/posts/por-que`,
+      `${URL_BASE}/posts/por-que`,
+    ]);
   });
 });

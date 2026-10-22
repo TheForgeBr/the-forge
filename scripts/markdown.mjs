@@ -71,7 +71,7 @@ export function inline(texto, linha = 1) {
 const CERCA = /^```\s*([\w-]*)\s*$/;
 const TITULO = /^(#{1,6})\s+(.*)$/;
 const LINHA_HORIZONTAL = /^(-{3,}|\*{3,})\s*$/;
-const IMAGEM = /^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]*)")?\)\s*$/;
+const IMAGEM = /^!\[([^\]]*)\]\((\S+?)(?:\s+(?:"([^"]*)"|'([^']*)'))?\)\s*$/;
 const CITACAO = /^>\s?/;
 const ITEM = { ul: /^[-*]\s+/, ol: /^\d+\.\s+/ };
 
@@ -148,7 +148,8 @@ export function markdownParaHtml(markdown, opcoes = {}) {
 
     const img = IMAGEM.exec(linha);
     if (img) {
-      const [, alt, src, legenda] = img;
+      const [, alt, src, duplas, simples] = img;
+      const legenda = duplas ?? simples;
       if (!alt.trim())
         throw new ErroDeMarkdown(
           `a imagem "${src}" precisa de texto alternativo: ![descrição](${src})`,

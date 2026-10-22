@@ -82,3 +82,57 @@ export function metaDaSala(sala: NomeDaSala, caminho: string) {
     { name: 'twitter:image', content: imagem },
   ];
 }
+
+interface PostParaMeta {
+  titulo: string;
+  resumo: string;
+  data: string;
+  tags: readonly string[];
+  caminho: string;
+}
+
+/**
+ * Metadados de um post (issue 5.3): como os da sala, com `og:type=article`
+ * e a data de publicação. O hreflang só aparece quando há tradução (ADR 0008).
+ */
+export function metaDoPost(post: PostParaMeta, traducao?: string) {
+  const idioma = idiomaDoCaminho(post.caminho);
+  const nome = traduzir(idioma, 'site.nome');
+  const titulo = `${post.titulo} | ${nome}`;
+  const canonica = urlAbsoluta(post.caminho);
+  const imagem = urlAbsoluta(IMAGEM_OG.caminho);
+  const og = (property: string, content: string) => ({ property, content });
+  const caminhos: Partial<Record<Idioma, string>> = { [idioma]: post.caminho };
+  if (traducao) caminhos[idioma === 'pt' ? 'en' : 'pt'] = traducao;
+  const alternativos = traducao
+    ? (['pt', 'en', 'x-default'] as const).map((lang) => ({
+        tagName: 'link',
+        rel: 'alternate',
+        hrefLang: lang === 'x-default' ? lang : LANG[lang],
+        href: urlAbsoluta(caminhos[lang === 'x-default' ? 'pt' : lang] ?? ''),
+      }))
+    : [];
+  return [
+    { title: titulo },
+    { name: 'description', content: post.resumo },
+    { tagName: 'link', rel: 'canonical', href: canonica },
+    ...alternativos,
+    linkDoFeed(idioma),
+    og('og:type', 'article'),
+    og('og:site_name', nome),
+    og('og:title', titulo),
+    og('og:description', post.resumo),
+    og('og:url', canonica),
+    og('og:locale', LOCALE_OG[idioma]),
+    og('og:image', imagem),
+    og('og:image:width', String(IMAGEM_OG.largura)),
+    og('og:image:height', String(IMAGEM_OG.altura)),
+    og('og:image:alt', nome),
+    og('article:published_time', post.data),
+    ...post.tags.map((tag) => og('article:tag', tag)),
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: titulo },
+    { name: 'twitter:description', content: post.resumo },
+    { name: 'twitter:image', content: imagem },
+  ];
+}

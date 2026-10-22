@@ -175,3 +175,18 @@ describe('apoio', () => {
     ).toEqual({ largura: 1280, altura: 320 });
   });
 });
+
+describe('aspas no frontmatter', () => {
+  it('aceita aspas simples e duplas no valor e na lista', () => {
+    const p = lerPost(
+      'x.pt.md',
+      post({
+        ...VALIDO,
+        titulo: "'Título: com dois pontos'",
+        tags: `['A', "B"]`,
+      }),
+    );
+    expect(p.titulo).toBe('Título: com dois pontos');
+    expect(p.tags).toEqual(['A', 'B']);
+  });
+});

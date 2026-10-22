@@ -86,3 +86,11 @@ describe('markdownParaHtml', () => {
     );
   });
 });
+
+describe('aspas', () => {
+  it('aceita a legenda da imagem entre aspas simples, como o Prettier deixa', () => {
+    expect(markdownParaHtml("![A forja](f.webp 'Legenda')")).toContain(
+      '<figcaption>Legenda</figcaption>',
+    );
+  });
+});

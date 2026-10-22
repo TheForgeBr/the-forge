@@ -836,3 +836,158 @@
   justify-content: center;
   margin-top: var(--espaco-3);
 }
+
+/* Página do post (issue 5.3): uma placa escura de leitura, alinhada à
+   esquerda como a lista, com a largura de uma boa linha de texto. Nada sai
+   para os lados: imagens encolhem e o código rola dentro do próprio bloco. */
+.pagina-do-post {
+  max-width: 46rem;
+  /* A borda esquerda segue a coluna de 72rem das outras salas. */
+  margin: 0 auto 0 max(0px, calc((100% - 72rem) / 2));
+  padding: var(--espaco-6) var(--espaco-4);
+  background: color-mix(in srgb, var(--cor-fuligem) 90%, transparent);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+}
+
+.voltar,
+.rodape-do-post {
+  margin: 0;
+  font-size: var(--tamanho-sm);
+}
+
+.voltar a,
+.rodape-do-post a {
+  color: var(--cor-ouro-forja);
+  font-weight: 600;
+}
+
+.cabecalho-do-post {
+  display: grid;
+  gap: var(--espaco-3);
+  margin: var(--espaco-4) 0 var(--espaco-8);
+  padding-bottom: var(--espaco-6);
+  border-bottom: 1px solid var(--cor-ferro);
+}
+
+.cabecalho-do-post h1 {
+  margin: 0;
+  font-size: clamp(var(--tamanho-2xl), 8vw, var(--tamanho-3xl));
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.corpo-do-post {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+
+.corpo-do-post > * {
+  margin: 0 0 var(--espaco-6);
+}
+
+.corpo-do-post h2,
+.corpo-do-post h3,
+.corpo-do-post h4 {
+  margin: var(--espaco-8) 0 var(--espaco-3);
+  line-height: 1.3;
+}
+
+.corpo-do-post h2 {
+  font-size: var(--tamanho-xl);
+  color: var(--cor-ouro-forja);
+}
+
+.corpo-do-post h3 {
+  font-size: var(--tamanho-lg);
+}
+
+.corpo-do-post a {
+  color: var(--cor-ouro-forja);
+  text-underline-offset: 0.2em;
+}
+
+.corpo-do-post ul,
+.corpo-do-post ol {
+  padding-left: var(--espaco-6);
+}
+
+.corpo-do-post li + li {
+  margin-top: var(--espaco-2);
+}
+
+.corpo-do-post figure {
+  margin-inline: 0;
+}
+
+.corpo-do-post img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+}
+
+/* Imagem em pé (print de celular) não ocupa a tela inteira na leitura. */
+.corpo-do-post img[height] {
+  max-height: 80vh;
+  width: auto;
+}
+
+.corpo-do-post figcaption {
+  margin-top: var(--espaco-2);
+  color: var(--cor-cinza-brasa);
+  font-size: var(--tamanho-sm);
+  font-style: italic;
+  text-align: center;
+}
+
+.corpo-do-post blockquote {
+  padding-left: var(--espaco-4);
+  border-left: 3px solid var(--cor-magia);
+  color: var(--cor-cinza-brasa);
+  font-style: italic;
+}
+
+.corpo-do-post blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.corpo-do-post :not(pre) > code {
+  padding: 0.1em 0.35em;
+  background: var(--cor-pedra);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 3px;
+  font-size: 0.875em;
+  overflow-wrap: anywhere;
+}
+
+.corpo-do-post pre {
+  overflow-x: auto;
+  padding: var(--espaco-4);
+  background: var(--cor-pedra);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  line-height: 1.5;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-ferro) transparent;
+}
+
+.corpo-do-post hr {
+  border: 0;
+  border-top: 1px solid var(--cor-ferro);
+}
+
+.rodape-do-post {
+  margin-top: var(--espaco-8);
+  padding-top: var(--espaco-4);
+  border-top: 1px solid var(--cor-ferro);
+}
+
+@media (min-width: 48rem) {
+  .pagina-do-post {
+    padding: var(--espaco-8);
+  }
+}

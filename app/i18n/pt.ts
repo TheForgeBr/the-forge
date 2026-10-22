@@ -101,7 +101,6 @@ export const pt = {
   'posts.rss': 'Assinar o RSS',
   'posts.voltarHome': 'Voltar à forja',
   'post.voltar': 'Todos os posts',
-  'post.publicado': 'Publicado em',
   'sala.contato.titulo': 'Contato',
   'sala.contato.descricao': 'Como falar com Rhuan Marques.',
   'sala.contato.texto': 'Os meios de contato chegam em breve.',

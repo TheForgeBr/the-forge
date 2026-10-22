@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { carregarPosts, incluirRascunhos } from './posts.mjs';
 import { PAGINAS_404, SALAS } from './rotas.mjs';
 
 const LANG = { pt: 'pt-BR', en: 'en' };
@@ -57,9 +58,20 @@ function contar(html, regex) {
   return html.match(regex)?.length ?? 0;
 }
 
+const ENTIDADES = {
+  amp: '&',
+  lt: '<',
+  gt: '>',
+  quot: '"',
+  '#39': "'",
+  '#x27': "'",
+};
+
 function textoDoMain(html) {
   const main = /<main\b[^>]*>([\s\S]*?)<\/main>/i.exec(html)?.[1] ?? '';
-  return main.replace(/<[^>]+>/g, ' ');
+  return main
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(amp|lt|gt|quot|#39|#x27);/g, (_, e) => ENTIDADES[e]);
 }
 
 export function problemasDoHtml(html, esperado = {}) {
@@ -80,6 +92,11 @@ export function problemasDoHtml(html, esperado = {}) {
 
   if (esperado.noindex && !/content="noindex"/i.test(head))
     problemas.push('sem <meta name="robots" content="noindex">');
+  if (
+    esperado.ogType &&
+    !new RegExp(`property="og:type" content="${esperado.ogType}"`).test(head)
+  )
+    problemas.push(`og:type diferente de "${esperado.ogType}"`);
   if (esperado.social)
     for (const [atributo, valor] of METAS_SOCIAIS)
       if (!temMeta(head, atributo, valor))
@@ -111,12 +128,31 @@ export function esperadoDa404(idioma) {
   return { lang: LANG[idioma], noindex: true };
 }
 
+/**
+ * Um post (issue 5.3): Open Graph de artigo, o título no <main> e o hreflang
+ * só quando há tradução (ADR 0008).
+ */
+export function esperadoDoPost(post) {
+  const outro = post.traducao;
+  const pt = post.idioma === 'pt' ? post.caminho : outro;
+  const en = post.idioma === 'en' ? post.caminho : outro;
+  return {
+    lang: LANG[post.idioma],
+    social: true,
+    ogType: 'article',
+    textoChave: post.titulo,
+    alternativos: outro ? { 'pt-BR': pt, en, 'x-default': pt } : {},
+  };
+}
+
 export function arquivoDaRota(dirBuild, rota) {
   return path.join(dirBuild, rota, 'index.html');
 }
 
 /** Todas as páginas que o build precisa ter, com o que se espera de cada uma. */
-export function paginasEsperadas() {
+export function paginasEsperadas(
+  posts = carregarPosts({ rascunhos: incluirRascunhos() }),
+) {
   const idiomas = ['pt', 'en'];
   return [
     ...SALAS.flatMap((sala) =>
@@ -128,6 +164,10 @@ export function paginasEsperadas() {
     ...idiomas.map((idioma) => ({
       rota: PAGINAS_404[idioma],
       esperado: esperadoDa404(idioma),
+    })),
+    ...posts.map((post) => ({
+      rota: post.caminho,
+      esperado: esperadoDoPost(post),
     })),
   ];
 }

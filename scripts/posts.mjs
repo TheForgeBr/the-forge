@@ -29,6 +29,11 @@ export function incluirRascunhos(env = process.env) {
   return env.RASCUNHOS === '1' || env.NODE_ENV === 'development';
 }
 
+/** Aspas duplas ou simples em volta do valor (o Prettier usa simples). */
+function semAspas(valor) {
+  return valor.replace(/^"(.*)"$|^'(.*)'$/, '$1$2');
+}
+
 function valorDoCampo(bruto) {
   const valor = bruto.trim();
   if (valor === 'true') return true;
@@ -37,9 +42,9 @@ function valorDoCampo(bruto) {
     return valor
       .slice(1, -1)
       .split(',')
-      .map((item) => item.trim().replace(/^"(.*)"$/, '$1'))
+      .map((item) => semAspas(item.trim()))
       .filter(Boolean);
-  return valor.replace(/^"(.*)"$/, '$1');
+  return semAspas(valor);
 }
 
 function lerFrontmatter(bloco, arquivo) {

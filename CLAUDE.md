@@ -12,8 +12,8 @@ O plano completo está em https://claude.ai/artifact/Bws6bWEvc1nJb1wEu9sg9n.
 
 ```text
 app/root.tsx          layout raiz (a CenaForja vai morar aqui; ADR 0002)
-app/routes.ts         rotas do React Router, montadas de SALAS (cada sala em pt e en)
-app/routes/           um arquivo por sala: home, projetos, experiencias, sobre, posts, contato
+app/routes.ts         rotas do React Router, montadas de SALAS (cada sala em pt e en) e uma rota por post publicado
+app/routes/           um arquivo por sala: home, projetos, experiencias, sobre, posts, contato; post.tsx é a página de cada post
 app/i18n/             pt.ts e en.ts (textos de interface) e idioma.ts (traduzir, caminhos por idioma)
 app/carregamento.ts   tela de carregamento (6.4): script inline do <head> (primeira visita, só depois de 300 ms) e marcarPronto
 app/componentes/      Carregamento e MarteloEBigorna (martelo élfico em SVG, batida em CSS), SalaHome, SalaProjetos, Cabecalho (menu das salas), Rodape, AnuncioDeSala (foco e aria-live na troca de sala), SeletorDeIdioma, AvisoDeIdioma, Sala e Runa (SVGs de marca/runas, cor por currentColor)

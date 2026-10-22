@@ -99,7 +99,6 @@ export const en: Dicionario = {
   'posts.rss': 'Subscribe via RSS',
   'posts.voltarHome': 'Back to the forge',
   'post.voltar': 'All posts',
-  'post.publicado': 'Published on',
   'sala.contato.titulo': 'Contact',
   'sala.contato.descricao': 'How to reach Rhuan Marques.',
   'sala.contato.texto': 'Contact options are coming soon.',

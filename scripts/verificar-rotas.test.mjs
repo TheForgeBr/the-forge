@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { SALAS } from './rotas.mjs';
 import {
   esperadoDaRota,
+  esperadoDoPost,
   paginasEsperadas,
   problemasDoHtml,
 } from './verificar-rotas.mjs';
@@ -170,5 +171,53 @@ describe('paginasEsperadas', () => {
         .map((p) => p.rota)
         .sort(),
     ).toEqual([...config.prerender].sort());
+  });
+});
+
+describe('esperadoDoPost', () => {
+  const post = {
+    idioma: 'pt',
+    caminho: '/posts/a',
+    titulo: 'A & B',
+    traducao: '/en/posts/a',
+  };
+  const html = (head) =>
+    '<!DOCTYPE html><html lang="pt-BR"><head><title>A</title>' +
+    head +
+    '</head><body><main><h1>A &amp; B</h1></main></body></html>';
+
+  it('pede og:type de artigo, o título no main e o hreflang da tradução', () => {
+    const esperado = esperadoDoPost(post);
+    expect(esperado.alternativos).toEqual({
+      'pt-BR': '/posts/a',
+      en: '/en/posts/a',
+      'x-default': '/posts/a',
+    });
+    const semSocial = { ...esperado, social: false, alternativos: {} };
+    expect(
+      problemasDoHtml(
+        html('<meta property="og:type" content="article"/>'),
+        semSocial,
+      ),
+    ).toEqual([]);
+    expect(
+      problemasDoHtml(
+        html('<meta property="og:type" content="website"/>'),
+        semSocial,
+      ),
+    ).toEqual(['og:type diferente de "article"']);
+  });
+
+  it('sem tradução, não pede hreflang', () => {
+    expect(
+      esperadoDoPost({ ...post, traducao: undefined }).alternativos,
+    ).toEqual({});
+  });
+
+  it('cada post vira uma página esperada', () => {
+    const rotas = paginasEsperadas([{ ...post, traducao: undefined }]).map(
+      (p) => p.rota,
+    );
+    expect(rotas).toContain('/posts/a');
   });
 });

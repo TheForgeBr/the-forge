@@ -3,8 +3,10 @@ import { Link, useLocation } from 'react-router';
 import type { Idioma } from '../conteudo/tipos';
 import {
   CHAVE_ESCOLHA,
+  caminhoDaSala,
   idiomaDoCaminho,
   LANG,
+  outroIdioma,
   traduzir,
   useCaminhoEquivalente,
 } from '../i18n/idioma';
@@ -48,7 +50,11 @@ export function AvisoDeIdioma() {
     () => null,
   );
 
-  if (fechado || !idiomaDoAviso) return null;
+  // Um post sem tradução não existe no outro idioma: o aviso mentiria.
+  const postSemTraducao =
+    /\/posts\/[^/]+\/?$/.test(pathname) &&
+    equivalente === caminhoDaSala('posts', outroIdioma(idiomaDaPagina));
+  if (fechado || !idiomaDoAviso || postSemTraducao) return null;
   const fechar = () => {
     guardarEscolha(idiomaDaPagina);
     setFechado(true);

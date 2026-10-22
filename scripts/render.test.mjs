@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { caminhosDosPosts } from './posts.mjs';
 import { ROTAS } from './rotas.mjs';
 
 // Lê as regras de render.yaml na ordem em que aparecem.
@@ -13,10 +14,13 @@ function regras() {
 describe('render.yaml', () => {
   it('cada rota pré-renderizada aponta para o próprio index.html', () => {
     const lista = regras();
-    const faltando = ROTAS.filter((r) => r !== '/').filter(
-      (r) =>
-        !lista.some((g) => g.origem === r && g.destino === `${r}/index.html`),
-    );
+    // Os posts publicados também: sem a regra, /posts/<slug> cairia na 404.
+    const faltando = [...ROTAS, ...caminhosDosPosts()]
+      .filter((r) => r !== '/')
+      .filter(
+        (r) =>
+          !lista.some((g) => g.origem === r && g.destino === `${r}/index.html`),
+      );
     expect(faltando).toEqual([]);
   });
 

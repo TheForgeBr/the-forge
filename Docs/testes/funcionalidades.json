@@ -646,6 +646,28 @@
         "Nada vaza para os lados nem cobre o menu; o cartão inteiro é clicável e o foco do teclado contorna o cartão."
       ],
       "seFalhar": "Anote a largura da tela, o idioma e o cartão (ou o estado vazio) que quebrou, com um print."
+    },
+    {
+      "id": "pagina-do-post",
+      "titulo": "Página do post e posts de teste de três tamanhos",
+      "area": "Posts",
+      "issues": [43],
+      "preparacao": "Os três posts de teste são rascunhos: aparecem só em npm run dev (http://localhost:5173/posts) ou num build com RASCUNHOS=1 servido com npm run preview (use a barra no fim: /posts/).",
+      "passos": [
+        "Abra Exemplo curto (4 linhas, 1 imagem), Exemplo médio (10 linhas, 3 imagens: larga, em pé e SVG) e Exemplo longo (cerca de 1.200 palavras, 6 imagens, listas, citação e código).",
+        "Leia cada um no celular (390 px e 320 px) e no desktop, do título ao rodapé.",
+        "No bloco de código do post longo, role para o lado.",
+        "No Exemplo curto, troque para English pelo menu; no Exemplo longo, veja o seletor de idioma.",
+        "Abra /posts/nao-existe."
+      ],
+      "esperado": [
+        "Título, data no idioma, tempo de leitura e tags no topo; o corpo numa placa escura legível sobre a biblioteca, alinhada à coluna das salas no desktop.",
+        "Nada vaza para os lados: imagens encolhem, a imagem em pé fica limitada à altura da tela, o endereço comprido e o código em linha quebram.",
+        "Só o bloco de código rola para o lado; a página não.",
+        "O Exemplo curto vai para a versão em inglês do mesmo post; o longo (sem tradução) leva à lista de posts em inglês e não mostra o aviso \"Read in English\".",
+        "O slug inexistente mostra a 404 da forja."
+      ],
+      "seFalhar": "Anote o post, a largura da tela, o trecho que quebrou (título, imagem, lista, código) e mande um print."
     }
   ]
 }
