@@ -10,7 +10,13 @@ import { fileURLToPath } from 'node:url';
 export const ARQUIVO_REGRAS = 'Docs/conteudo/proibidos.json';
 
 /** Onde o conteúdo do site mora no código-fonte; testes ficam de fora. */
-export const FONTES = ['app/conteudo', 'app/i18n', 'conteudo/posts'];
+export const FONTES = [
+  'app/conteudo',
+  'app/i18n',
+  'conteudo/posts',
+  // Textos dos READMEs do GitHub (7.4 e 7.5), publicados pelo usuário.
+  'Docs/github',
+];
 
 export function normalizar(texto) {
   return texto

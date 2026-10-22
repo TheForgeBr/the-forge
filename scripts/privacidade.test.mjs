@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
+  FONTES,
   arquivosDoConteudo,
   carregarRegras,
   problemasDosArquivos,
@@ -110,5 +111,11 @@ describe('conteúdo real do site', () => {
     expect(
       problemasDosArquivos(arquivosDoConteudo(), carregarRegras()),
     ).toEqual([]);
+  });
+});
+
+describe('READMEs do GitHub (7.4 e 7.5)', () => {
+  it('o teste de privacidade também varre Docs/github', () => {
+    expect(FONTES).toContain('Docs/github');
   });
 });

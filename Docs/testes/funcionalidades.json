@@ -576,6 +576,23 @@
         "No GitHub claro e no escuro, o banner fica legível: ele tem fundo próprio."
       ],
       "seFalhar": "Anote o tema do GitHub e tire um print."
+    },
+    {
+      "id": "readmes-do-github",
+      "titulo": "READMEs do perfil e da organização no GitHub",
+      "area": "GitHub",
+      "issues": [55, 56],
+      "passos": [
+        "Copie Docs/github/perfil-RhuanMr.md para o README.md do repositório RhuanMr/RhuanMr (crie o repositório se ainda não existir) e publique.",
+        "Copie Docs/github/perfil-TheForgeBr.md para profile/README.md do repositório TheForgeBr/.github e publique.",
+        "Abra github.com/RhuanMr e github.com/TheForgeBr e clique em cada imagem e link."
+      ],
+      "esperado": [
+        "O banner aparece no topo e os cartões ficam em duas colunas, todos carregados.",
+        "Cada cartão leva ao repositório público do projeto, ao site dele ou à sala Projetos.",
+        "Os links do site, da versão em inglês, do LinkedIn e de Contato abrem o lugar certo."
+      ],
+      "seFalhar": "Anote o link ou a imagem que falhou e tire um print."
     }
   ]
 }

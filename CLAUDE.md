@@ -31,6 +31,7 @@ public/curriculo/     PDF do currículo, publicado pelo Memento (ADR 0005)
 Docs/adr/             decisões de arquitetura; leia antes de mudar a estrutura
 Docs/ISSUES.json      texto das issues, sincronizado com o GitHub
 Docs/testes/          Guia de Testes manuais
+Docs/github/          textos dos READMEs do perfil RhuanMr e da organização TheForgeBr (o usuário publica)
 Docs/desempenho.md    medições do Lighthouse por sala, com data e commit (6.5)
 ```
 
