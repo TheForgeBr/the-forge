@@ -1,5 +1,5 @@
 {
-  "atualizadoEm": "2026-10-21",
+  "atualizadoEm": "2026-10-22",
   "preparacao": {
     "titulo": "Preparar o teste",
     "passos": [
@@ -149,6 +149,21 @@
         "A imagem Open Graph tem 1200 x 630 com o logo centralizado sobre fundo escuro; o ícone de 180 px mostra o símbolo sobre fundo escuro, sem cantos cortados."
       ],
       "seFalhar": "Tire um print do arquivo ou da aba e anote qual tema estava ativo."
+    },
+    {
+      "id": "runas",
+      "titulo": "Runas das salas em SVG",
+      "area": "Marca",
+      "issues": [14],
+      "passos": [
+        "Abra os arquivos de `marca/runas/` no navegador.",
+        "Rode `npm test` e confira os testes de `scripts/runas.test.mjs` e `app/componentes/Runa.test.tsx`."
+      ],
+      "esperado": [
+        "São 9 runas com o mesmo traço: Home, Projetos, Experiências, Sobre e skills, Posts, Contato, Baixar, Idioma e Voltar.",
+        "Todas aparecem em preto ao abrir direto (currentColor sem cor definida) e ficam nítidas em qualquer zoom."
+      ],
+      "seFalhar": "Anote qual runa e o que saiu errado."
     }
   ]
 }

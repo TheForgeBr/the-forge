@@ -15,13 +15,13 @@ app/root.tsx          layout raiz (a CenaForja vai morar aqui; ADR 0002)
 app/routes.ts         rotas do React Router, montadas de SALAS (cada sala em pt e en)
 app/routes/           um arquivo por sala: home, projetos, experiencias, sobre, posts, contato
 app/i18n/             pt.ts e en.ts (textos de interface) e idioma.ts (traduzir, caminhos por idioma)
-app/componentes/      SeletorDeIdioma, AvisoDeIdioma, Sala
+app/componentes/      SeletorDeIdioma, AvisoDeIdioma, Sala e Runa (SVGs de marca/runas, cor por currentColor)
 app/site.ts           URL_BASE (VITE_URL_BASE no build) e metaDaSala (título, descrição, hreflang)
 app/cena/             CenaForja, câmera e canvas de partículas
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts
 app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão)
 conteudo/posts/       posts em Markdown, um arquivo por idioma
-marca/                tokens.json (fonte única de cores e fontes), logo e runas em SVG
+marca/                tokens.json (fonte única de cores e fontes), logo gerado por npm run logo, runas/ (24 x 24)
 scripts/rotas.mjs     SALAS com o caminho em pt e en: rotas, pré-render e verificação leem daqui
 scripts/              verificar-rotas.mjs, geradores (tokens, cartões, RSS), sincronização de issues
 public/curriculo/     PDF do currículo, publicado pelo Memento (ADR 0005)
