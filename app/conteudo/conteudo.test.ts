@@ -16,6 +16,7 @@ const projeto: Projeto = {
   resumo: { pt: 'Memória local para agentes.', en: 'Local memory for agents.' },
   stack: ['typescript', 'mcp'],
   links: { repositorio: 'https://github.com/TheForgeBr/Memento' },
+  estado: 'em-andamento',
   privacidade: 'completo',
   destaque: true,
 };
@@ -63,6 +64,42 @@ describe('tipos do conteúdo', () => {
   it('aceitam só meses no formato AAAA-MM', () => {
     expectTypeOf<'2021-03'>().toExtend<Experiencia['periodo']['inicio']>();
     expectTypeOf<'2021-13'>().not.toExtend<Experiencia['periodo']['inicio']>();
+  });
+});
+
+describe('projetos', () => {
+  it('acusa resumo acima de 280 caracteres', () => {
+    const longo: Projeto = {
+      ...projeto,
+      resumo: { pt: 'a'.repeat(281), en: 'ok' },
+    };
+    expect(problemasDosProjetos([longo])).toEqual([
+      'projetos/memento: resumo.pt tem 281 caracteres (máximo 280)',
+    ]);
+  });
+
+  it('acusa projeto entregue antes de um em andamento', () => {
+    const entregue: Projeto = { ...projeto, id: 'antigo', estado: 'entregue' };
+    expect(problemasDosProjetos([entregue, projeto])).toEqual([
+      'projetos/memento: estado "em-andamento" vem depois de "entregue" (antigo); a ordem é em-andamento, em-producao, pausado, entregue',
+    ]);
+  });
+
+  it('o site tem exatamente os 10 projetos aprovados na 2.2', () => {
+    expect(projetos.map((p) => p.id).sort()).toEqual(
+      [
+        'memento',
+        'morpheus',
+        'rumo',
+        'sakura-shop',
+        'the-forge-br',
+        'healthyview',
+        'jobzin',
+        'pawhub',
+        'fitloop',
+        'conecta-ensina',
+      ].sort(),
+    );
   });
 });
 

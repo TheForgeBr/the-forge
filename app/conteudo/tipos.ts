@@ -53,9 +53,22 @@ interface PapelEStack {
   readonly links?: never;
 }
 
-export type Projeto = Comum & { readonly titulo: Localizado } & (
-    Completo | PapelEStack
-  );
+/** Na sala Projetos, nesta ordem: em atividade primeiro, entregues por último. */
+export const ESTADOS_DE_PROJETO = [
+  'em-andamento',
+  'em-producao',
+  'pausado',
+  'entregue',
+] as const;
+export type EstadoDeProjeto = (typeof ESTADOS_DE_PROJETO)[number];
+
+/** Resumo de um projeto: cabe num cartão (issue 2.3). */
+export const LIMITE_DO_RESUMO = 280;
+
+export type Projeto = Comum & {
+  readonly titulo: Localizado;
+  readonly estado: EstadoDeProjeto;
+} & (Completo | PapelEStack);
 
 export interface Periodo {
   readonly inicio: Mes;
