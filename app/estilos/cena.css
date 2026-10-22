@@ -1,0 +1,56 @@
+/* Cena da forja (issue 3.3): uma faixa com as seis salas lado a lado, fixa
+   atrás do conteúdo. A posição da faixa vem da rota; sem animação aqui. */
+
+.cena {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cena-faixa {
+  display: flex;
+  width: 600vw;
+  height: 100%;
+}
+
+.cena-sala {
+  position: relative;
+  flex: 0 0 100vw;
+  height: 100%;
+  background:
+    radial-gradient(
+      ellipse 70% 45% at 50% 100%,
+      color-mix(in srgb, var(--cor-brasa) 22%, transparent),
+      transparent 70%
+    ),
+    var(--cor-fuligem);
+}
+
+/* A runa da sala, grande e quase apagada, marca o ambiente até as imagens. */
+.cena-sala .runa {
+  position: absolute;
+  right: 6vw;
+  bottom: 8vh;
+  width: 38vmin;
+  height: 38vmin;
+  color: var(--cor-ouro-forja);
+  opacity: 0.07;
+}
+
+.cena-sala-arsenal,
+.cena-sala-biblioteca {
+  background:
+    radial-gradient(
+      ellipse 60% 40% at 80% 90%,
+      color-mix(in srgb, var(--cor-tengwar) 18%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 70% 45% at 30% 100%,
+      color-mix(in srgb, var(--cor-brasa) 16%, transparent),
+      transparent 70%
+    ),
+    var(--cor-fuligem);
+}

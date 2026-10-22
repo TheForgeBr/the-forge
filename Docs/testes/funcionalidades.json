@@ -203,6 +203,23 @@
         "O rodapé mostra o texto de direitos de 2026 e as runas ᚦᛖ ᚠᛟᚱᚷᛖ."
       ],
       "seFalhar": "Anote a sala, o tamanho da tela e o que não respondeu ao teclado ou ao toque."
+    },
+    {
+      "id": "cena-persistente",
+      "titulo": "Cena da forja atrás das salas",
+      "area": "Cena",
+      "issues": [27],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra a Home.",
+        "Navegue pelo menu por todas as salas.",
+        "Desative o JavaScript nas Ferramentas do desenvolvedor (Ctrl+Shift+P, \"Disable JavaScript\") e recarregue /contato."
+      ],
+      "esperado": [
+        "Atrás do conteúdo aparece um fundo escuro com brilho de brasa e a runa da sala, grande e bem apagada, no canto inferior direito.",
+        "Ao trocar de sala, a runa do fundo muda para a da sala nova, sem a página piscar (a câmera animada ainda não existe).",
+        "Sem JavaScript, /contato mostra o conteúdo e o fundo já com a runa do Contato."
+      ],
+      "seFalhar": "Anote a sala e tire um print do fundo."
     }
   ]
 }

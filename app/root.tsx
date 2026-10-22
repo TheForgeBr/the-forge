@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
 } from 'react-router';
 import type { Route } from './+types/root';
+import { CenaForja } from './cena/CenaForja';
 import { AvisoDeIdioma } from './componentes/AvisoDeIdioma';
 import { Cabecalho } from './componentes/Cabecalho';
 import { Rodape } from './componentes/Rodape';
@@ -16,6 +17,7 @@ import { caminhoDaSala, LANG, useIdioma, useTraducao } from './i18n/idioma';
 import './estilos/tokens.css';
 import './estilos/base.css';
 import './estilos/layout.css';
+import './estilos/cena.css';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
@@ -40,6 +42,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
+        <CenaForja />
         <AvisoDeIdioma />
         <Cabecalho />
         <main id="conteudo" tabIndex={-1}>
