@@ -18,7 +18,7 @@ O site é publicado como Static Site no Render, no plano grátis (ADR 0007). A c
 | Pasta publicada | `build/client`                          |
 | Node            | 22.19.0 (`NODE_VERSION`)                |
 | Rewrite         | `/*` para `/__spa-fallback.html`        |
-| URL             | _a preencher depois do primeiro deploy_ |
+| URL             | https://the-forge-96d7.onrender.com     |
 
 ## Rotas inexistentes
 

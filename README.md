@@ -4,7 +4,7 @@ Site pessoal de Rhuan Marques. The Forge é o selo com que ele assina os projeto
 
 No site, o visitante caminha por uma forja mágica. Cada página é uma sala: a bigorna, o arsenal de projetos, o corredor das crônicas, a bancada, a biblioteca de posts e o portão de contato.
 
-> Em construção. O endereço publicado entra aqui depois do primeiro deploy.
+> Em construção, publicado em https://the-forge-96d7.onrender.com.
 
 ## Como rodar
 

@@ -26,7 +26,7 @@
       "area": "Deploy",
       "issues": [8],
       "passos": [
-        "Abra a URL do Render que está em Docs/deploy.md.",
+        "Abra https://the-forge-96d7.onrender.com.",
         "Abra a mesma URL com /rota-que-nao-existe no fim.",
         "Faça um commit pequeno na main e veja o painel do Render."
       ],
