@@ -7,6 +7,20 @@ export const en: Dicionario = {
   'aviso.texto': 'This page is also available in English.',
   'aviso.fechar': 'Close',
 
+  'nav.pular': 'Skip to content',
+  'nav.principal': 'Rooms of the forge',
+  'nav.inicio': 'Forge home',
+  'nav.abrir': 'Open menu',
+  'nav.fechar': 'Close menu',
+  'nav.contato': 'Contact',
+  'nav.home': 'Home',
+  'nav.projetos': 'Projects',
+  'nav.experiencias': 'Experience',
+  'nav.sobre': 'About',
+  'nav.posts': 'Posts',
+  'rodape.texto': '© 2026 Rhuan Marques. Forged with code and magic.',
+  'rodape.runas': 'The Forge, in runes',
+
   'sala.home.titulo': 'hello, forge',
   'sala.home.descricao': 'Personal website of Rhuan Marques.',
   'sala.home.texto':

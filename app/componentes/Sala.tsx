@@ -5,9 +5,9 @@ import { useTraducao } from '../i18n/idioma';
 export function Sala({ sala }: { sala: NomeDaSala }) {
   const t = useTraducao();
   return (
-    <main>
+    <div className="sala">
       <h1>{t(`sala.${sala}.titulo`)}</h1>
       <p>{t(`sala.${sala}.texto`)}</p>
-    </main>
+    </div>
   );
 }

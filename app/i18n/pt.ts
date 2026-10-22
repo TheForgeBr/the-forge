@@ -7,6 +7,20 @@ export const pt = {
   'aviso.texto': 'Esta página também existe em português.',
   'aviso.fechar': 'Fechar',
 
+  'nav.pular': 'Pular para o conteúdo',
+  'nav.principal': 'Salas da forja',
+  'nav.inicio': 'Início da forja',
+  'nav.abrir': 'Abrir menu',
+  'nav.fechar': 'Fechar menu',
+  'nav.contato': 'Contato',
+  'nav.home': 'Início',
+  'nav.projetos': 'Projetos',
+  'nav.experiencias': 'Experiências',
+  'nav.sobre': 'Sobre',
+  'nav.posts': 'Posts',
+  'rodape.texto': '© 2026 Rhuan Marques. Forjado com código e magia.',
+  'rodape.runas': 'The Forge, em runas',
+
   'sala.home.titulo': 'olá forja',
   'sala.home.descricao': 'Site pessoal de Rhuan Marques.',
   'sala.home.texto':

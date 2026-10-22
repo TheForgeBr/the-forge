@@ -182,6 +182,27 @@
         "O comando `--hash` imprime só o hash e o número de palavras, sem repetir o nome."
       ],
       "seFalhar": "Copie a saída da verificação."
+    },
+    {
+      "id": "navegacao-salas",
+      "titulo": "Topo, menu das salas e rodapé",
+      "area": "Navegação",
+      "issues": [26],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra o site no desktop.",
+        "Aperte Tab uma vez a partir do topo da página.",
+        "Navegue por Tab e Enter por todas as salas, começando em Início.",
+        "Abra o site no celular (ou com a janela estreita, menos de 768 px) e use o botão Abrir menu; feche com o botão e depois com Esc.",
+        "Troque de idioma pelo topo e veja os links das salas."
+      ],
+      "esperado": [
+        "O primeiro Tab mostra o link Pular para o conteúdo; Enter leva o foco ao conteúdo da sala.",
+        "Todos os links das salas e o botão Contato funcionam pelo teclado, com contorno de foco em ouro, e a sala atual aparece em ouro e negrito.",
+        "No celular, o menu abre e fecha pelo botão e fecha com Esc; ao escolher uma sala, o menu fecha.",
+        "Em inglês, os nomes e os caminhos das salas mudam (Home, Projects, Experience, About, Posts, Contact).",
+        "O rodapé mostra o texto de direitos de 2026 e as runas ᚦᛖ ᚠᛟᚱᚷᛖ."
+      ],
+      "seFalhar": "Anote a sala, o tamanho da tela e o que não respondeu ao teclado ou ao toque."
     }
   ]
 }

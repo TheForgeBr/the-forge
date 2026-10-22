@@ -1,0 +1,163 @@
+/* Layout raiz (issue 3.2): topo fixo, menu das salas e rodapé, pelos tokens.
+   Celular primeiro; a partir de 48rem os links ficam numa linha. */
+
+.pular {
+  position: absolute;
+  left: var(--espaco-4);
+  top: -100%;
+  z-index: 20;
+  padding: var(--espaco-2) var(--espaco-4);
+  background: var(--cor-ouro-forja);
+  color: var(--cor-fuligem);
+  font-weight: 600;
+}
+
+.pular:focus {
+  top: var(--espaco-2);
+}
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  padding: var(--espaco-3) var(--espaco-4);
+  background: var(--cor-fuligem);
+  border-bottom: 1px solid var(--cor-ferro);
+}
+
+.cabecalho a {
+  color: var(--cor-pergaminho);
+  text-decoration: none;
+}
+
+.cabecalho a:focus-visible,
+.cabecalho button:focus-visible,
+.rodape a:focus-visible {
+  outline: 2px solid var(--cor-ouro-forja);
+  outline-offset: 3px;
+}
+
+.cabecalho-logo {
+  display: inline-flex;
+}
+
+.cabecalho-menu {
+  padding: var(--espaco-2) var(--espaco-3);
+  background: transparent;
+  color: var(--cor-pergaminho);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cabecalho-salas {
+  flex-basis: 100%;
+}
+
+.cabecalho[data-menu='fechado'] .cabecalho-salas {
+  display: none;
+}
+
+.cabecalho-salas ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cabecalho-salas li a {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  padding: var(--espaco-2) 0;
+}
+
+.cabecalho-salas a[aria-current='page'] {
+  color: var(--cor-ouro-forja);
+  font-weight: 600;
+}
+
+.cabecalho-acoes {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-4);
+  padding-top: var(--espaco-3);
+}
+
+.botao-contato {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  padding: var(--espaco-2) var(--espaco-4);
+  border-radius: 4px;
+  background: var(--cor-brasa);
+  font-weight: 600;
+}
+
+.cabecalho .botao-contato {
+  color: var(--cor-fuligem);
+}
+
+main {
+  padding: var(--espaco-8) var(--espaco-4);
+}
+
+main:focus {
+  outline: none;
+}
+
+.rodape {
+  padding: var(--espaco-8) var(--espaco-4);
+  border-top: 1px solid var(--cor-ferro);
+  color: var(--cor-cinza-brasa);
+  font-size: var(--tamanho-sm);
+  text-align: center;
+}
+
+.rodape p {
+  margin: 0 0 var(--espaco-2);
+}
+
+.rodape-runas {
+  letter-spacing: 0.3em;
+}
+
+@media (min-width: 48rem) {
+  .cabecalho {
+    flex-wrap: nowrap;
+    padding: var(--espaco-3) var(--espaco-8);
+  }
+
+  .cabecalho-menu {
+    display: none;
+  }
+
+  .cabecalho-salas,
+  .cabecalho[data-menu='fechado'] .cabecalho-salas {
+    display: flex;
+    flex-basis: auto;
+    align-items: center;
+    gap: var(--espaco-8);
+  }
+
+  .cabecalho-salas ul {
+    flex-direction: row;
+    gap: var(--espaco-6);
+  }
+
+  .cabecalho-acoes {
+    padding-top: 0;
+  }
+
+  main {
+    padding: var(--espaco-12) var(--espaco-8);
+  }
+}

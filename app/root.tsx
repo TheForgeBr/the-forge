@@ -9,11 +9,13 @@ import {
 } from 'react-router';
 import type { Route } from './+types/root';
 import { AvisoDeIdioma } from './componentes/AvisoDeIdioma';
-import { SeletorDeIdioma } from './componentes/SeletorDeIdioma';
+import { Cabecalho } from './componentes/Cabecalho';
+import { Rodape } from './componentes/Rodape';
 import { linksDasFontes } from './estilos/fontes';
 import { caminhoDaSala, LANG, useIdioma, useTraducao } from './i18n/idioma';
 import './estilos/tokens.css';
 import './estilos/base.css';
+import './estilos/layout.css';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
@@ -39,10 +41,11 @@ export function Layout({ children }: { children: ReactNode }) {
       </head>
       <body>
         <AvisoDeIdioma />
-        <nav>
-          <SeletorDeIdioma />
-        </nav>
-        {children}
+        <Cabecalho />
+        <main id="conteudo" tabIndex={-1}>
+          {children}
+        </main>
+        <Rodape />
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -61,14 +64,14 @@ export function ErroDaForja({ status }: { status: number }) {
   const idioma = useIdioma();
   const naoEncontrada = status === 404;
   return (
-    <main>
+    <div className="sala">
       <title>
         {`${naoEncontrada ? t('erro.404.titulo') : t('erro.rotulo')} | ${t('site.nome')}`}
       </title>
       <h1>{naoEncontrada ? t('erro.404.titulo') : t('erro.outro.titulo')}</h1>
       <p>{naoEncontrada ? t('erro.404.texto') : t('erro.outro.texto')}</p>
       <a href={caminhoDaSala('home', idioma)}>{t('erro.voltar')}</a>
-    </main>
+    </div>
   );
 }
 
