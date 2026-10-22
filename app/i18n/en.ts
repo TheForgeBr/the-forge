@@ -97,6 +97,8 @@ export const en: Dicionario = {
   'posts.vazio.texto':
     'The steel is still being tempered. Subscribe via RSS to know when the first post is out.',
   'posts.rss': 'Subscribe via RSS',
+  'posts.rss.copiado': 'Address copied',
+  'posts.rss.cole': 'Paste it into your RSS reader.',
   'posts.voltarHome': 'Back to the forge',
   'post.voltar': 'All posts',
   'sala.contato.titulo': 'Contact',

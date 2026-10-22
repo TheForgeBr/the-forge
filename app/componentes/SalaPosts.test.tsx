@@ -1,6 +1,7 @@
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { URL_BASE } from '../site';
 import { SalaPosts, type ResumoDoPost } from './SalaPosts';
 
 const POSTS: ResumoDoPost[] = [
@@ -83,5 +84,41 @@ describe('SalaPosts', () => {
     salaEm('/en/posts', [{ ...POSTS[0]!, caminho: '/en/posts/novo' }]);
     expect(screen.getByText('Oct 22, 2026')).toBeInTheDocument();
     expect(screen.getByText('6 min read')).toBeInTheDocument();
+  });
+});
+
+describe('botão do RSS', () => {
+  afterEach(() => vi.unstubAllGlobals());
+
+  it('copia o endereço do feed e avisa, sem abrir o XML', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    vi.stubGlobal('navigator', { ...navigator, clipboard: { writeText } });
+    salaEm('/posts', []);
+    const link = screen.getByRole('link', { name: 'Assinar o RSS' });
+    // fireEvent devolve false quando o clique teve preventDefault.
+    expect(fireEvent.click(link)).toBe(false);
+    expect(writeText).toHaveBeenCalledWith(`${URL_BASE}/rss.xml`);
+    expect(await screen.findByRole('status')).toHaveTextContent(
+      `Endereço copiado: ${URL_BASE}/rss.xml. Cole no seu leitor de RSS.`,
+    );
+  });
+
+  it('em inglês, copia o feed em inglês', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    vi.stubGlobal('navigator', { ...navigator, clipboard: { writeText } });
+    salaEm('/en/posts', []);
+    fireEvent.click(screen.getByRole('link', { name: 'Subscribe via RSS' }));
+    expect(writeText).toHaveBeenCalledWith(`${URL_BASE}/en/rss.xml`);
+    expect(await screen.findByRole('status')).toHaveTextContent(
+      'Paste it into your RSS reader.',
+    );
+  });
+
+  it('sem área de transferência, o link abre o feed como antes', () => {
+    vi.stubGlobal('navigator', { ...navigator, clipboard: undefined });
+    salaEm('/posts', []);
+    const link = screen.getByRole('link', { name: 'Assinar o RSS' });
+    expect(fireEvent.click(link)).toBe(true);
+    expect(screen.getByRole('status')).toHaveTextContent('');
   });
 });

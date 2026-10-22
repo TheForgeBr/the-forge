@@ -991,3 +991,14 @@
     padding: var(--espaco-8);
   }
 }
+
+/* Aviso do botão do RSS: o endereço copiado quebra a linha no celular. */
+.posts-vazio .aviso-do-feed {
+  color: var(--cor-magia);
+  font-size: var(--tamanho-sm);
+  overflow-wrap: anywhere;
+}
+
+.posts-vazio .aviso-do-feed:empty {
+  display: none;
+}

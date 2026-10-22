@@ -635,13 +635,13 @@
       "issues": [42],
       "passos": [
         "Abra /posts e /en/posts no site publicado (sem posts publicados ainda).",
-        "Clique em Assinar o RSS e em Voltar à forja.",
+        "Clique em Assinar o RSS (no celular e no desktop) e cole o endereço num leitor de RSS (Feedly, Inoreader); clique em Voltar à forja.",
         "Rode npm run dev e abra http://localhost:5173/posts para ver os posts de teste (rascunhos).",
         "No celular (390 px) e no desktop, role a lista inteira."
       ],
       "esperado": [
         "Sem posts, aparece o pergaminho com \"Os primeiros textos ainda estão na bigorna.\", o botão do RSS e a volta à Home, no idioma da página.",
-        "O RSS abre o feed do idioma; a volta leva à Home do idioma.",
+        "Assinar o RSS não abre o XML: copia o endereço do feed do idioma e mostra \"Endereço copiado: …/rss.xml. Cole no seu leitor de RSS.\" (em inglês, o feed /en/rss.xml). Colado no leitor, o feed é aceito. Voltar à forja leva à Home do idioma.",
         "Com posts, cada cartão mostra a data no idioma, o tempo de leitura, o título (link para o post), o resumo e as tags, do mais novo ao mais antigo.",
         "Nada vaza para os lados nem cobre o menu; o cartão inteiro é clicável e o foco do teclado contorna o cartão."
       ],

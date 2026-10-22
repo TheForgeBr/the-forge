@@ -99,6 +99,8 @@ export const pt = {
   'posts.vazio.texto':
     'O aço está sendo temperado. Assine o RSS para saber quando o primeiro post sair.',
   'posts.rss': 'Assinar o RSS',
+  'posts.rss.copiado': 'Endereço copiado',
+  'posts.rss.cole': 'Cole no seu leitor de RSS.',
   'posts.voltarHome': 'Voltar à forja',
   'post.voltar': 'Todos os posts',
   'sala.contato.titulo': 'Contato',

@@ -1,7 +1,8 @@
+import { useState, type MouseEvent } from 'react';
 import { Link } from 'react-router';
 import { formatarData } from '../i18n/datas';
 import { caminhoDaSala, useIdioma, useTraducao } from '../i18n/idioma';
-import { FEED } from '../site';
+import { FEED, urlAbsoluta } from '../site';
 import { Runa } from './Runa';
 
 /** O que a lista precisa de cada post; o corpo fica só na página do post. */
@@ -91,9 +92,39 @@ function CartaoDoPost({ post }: { post: ResumoDoPost }) {
   );
 }
 
+/**
+ * O feed é XML para leitores de RSS; aberto no navegador, parece quebrado.
+ * O clique copia o endereço e avisa; sem área de transferência (ou sem
+ * JavaScript), o link abre o feed como um link comum.
+ */
+function BotaoDoFeed({ aoCopiar }: { aoCopiar: () => void }) {
+  const t = useTraducao();
+  const idioma = useIdioma();
+  const endereco = urlAbsoluta(FEED[idioma]);
+  const copiar = (evento: MouseEvent<HTMLAnchorElement>) => {
+    const area = navigator.clipboard;
+    if (!area?.writeText) return;
+    evento.preventDefault();
+    area.writeText(endereco).then(aoCopiar, () => {
+      window.location.href = FEED[idioma];
+    });
+  };
+  return (
+    <a
+      className="botao"
+      href={FEED[idioma]}
+      type="application/rss+xml"
+      onClick={copiar}
+    >
+      {t('posts.rss')}
+    </a>
+  );
+}
+
 function EstadoVazio() {
   const t = useTraducao();
   const idioma = useIdioma();
+  const [copiado, setCopiado] = useState(false);
   return (
     <section className="posts-vazio" aria-labelledby="posts-vazio">
       <svg
@@ -118,9 +149,7 @@ function EstadoVazio() {
       <h2 id="posts-vazio">{t('posts.vazio.titulo')}</h2>
       <p>{t('posts.vazio.texto')}</p>
       <div className="chamadas">
-        <a className="botao" href={FEED[idioma]} type="application/rss+xml">
-          {t('posts.rss')}
-        </a>
+        <BotaoDoFeed aoCopiar={() => setCopiado(true)} />
         <Link
           className="botao botao-secundario"
           to={caminhoDaSala('home', idioma)}
@@ -128,6 +157,10 @@ function EstadoVazio() {
           {t('posts.voltarHome')}
         </Link>
       </div>
+      <p className="aviso-do-feed" role="status">
+        {copiado &&
+          `${t('posts.rss.copiado')}: ${urlAbsoluta(FEED[idioma])}. ${t('posts.rss.cole')}`}
+      </p>
     </section>
   );
 }
