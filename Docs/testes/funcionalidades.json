@@ -4,7 +4,8 @@
     "titulo": "Preparar o teste",
     "passos": [
       "Abra um terminal em C:/Users/magic/Desktop/the-forge e rode `git pull`.",
-      "Rode `npm install` se o package.json mudou desde o último teste."
+      "Rode `npm install` se o package.json mudou desde o último teste.",
+      "No `npm run preview` local, abra as salas com barra no fim (por exemplo /projetos/): o preview do Vite, como o Render sem as regras do render.yaml, entrega a Home para /projetos."
     ]
   },
   "funcionalidades": [

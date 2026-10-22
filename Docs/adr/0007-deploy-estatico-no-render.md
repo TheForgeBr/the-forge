@@ -25,6 +25,7 @@ O site é só arquivos estáticos (ADR 0001). O deploy precisa ser grátis, auto
 
 ## Consequências
 
+- Cada rota pré-renderizada precisa de um rewrite próprio para o seu `index.html`, antes do `/*`; sem ele, `/projetos` (sem barra) recebe o fallback. Descoberto em 2026-10-22 pelo erro de hidratação; `scripts/render.test.mjs` cobra a regra.
 - Uma rota inexistente mostra a página de erro do site, mas o Render responde com status 200, não 404: o rewrite de Static Site não permite escolher o status. Buscadores podem indexar essas URLs; o sitemap (issue 5.5) lista só as rotas reais.
 - Não há servidor para manter.
 - Trocar para domínio próprio é configuração no Render e no registro do domínio, sem mudar o código.

@@ -1,6 +1,7 @@
 import { useEffect, type ReactNode } from 'react';
 import {
   isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   Outlet,
@@ -73,7 +74,7 @@ export function ErroDaForja({ status }: { status: number }) {
       </title>
       <h1>{naoEncontrada ? t('erro.404.titulo') : t('erro.outro.titulo')}</h1>
       <p>{naoEncontrada ? t('erro.404.texto') : t('erro.outro.texto')}</p>
-      <a href={caminhoDaSala('home', idioma)}>{t('erro.voltar')}</a>
+      <Link to={caminhoDaSala('home', idioma)}>{t('erro.voltar')}</Link>
     </div>
   );
 }

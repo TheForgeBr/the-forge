@@ -1,5 +1,10 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { MemoryRouter } from 'react-router';
+import {
+  createMemoryRouter,
+  MemoryRouter,
+  Outlet,
+  RouterProvider,
+} from 'react-router';
 import { describe, expect, it } from 'vitest';
 import { Cabecalho } from './Cabecalho';
 import { Rodape } from './Rodape';
@@ -73,6 +78,44 @@ describe('Cabecalho', () => {
 
     fireEvent.keyDown(document, { key: 'Escape' });
     expect(cabecalho).toHaveAttribute('data-menu', 'fechado');
+  });
+});
+
+describe('navegação pelo cabeçalho', () => {
+  // Com <a href> puro, o clique recarrega a página e a cena é remontada
+  // (ADR 0002). O <Link> navega sem recarregar e continua sendo um <a> real.
+  it('troca de sala sem recarregar a página', async () => {
+    const router = createMemoryRouter(
+      [
+        {
+          path: '/',
+          element: (
+            <>
+              <Cabecalho />
+              <Outlet />
+            </>
+          ),
+          children: [
+            { index: true, element: <h1>Sala Início</h1> },
+            { path: 'projetos', element: <h1>Sala Projetos</h1> },
+            { path: 'en/projects', element: <h1>Room Projects</h1> },
+          ],
+        },
+      ],
+      { initialEntries: ['/'] },
+    );
+    render(<RouterProvider router={router} />);
+    const nav = screen.getByRole('navigation', { name: 'Salas da forja' });
+    fireEvent.click(within(nav).getByRole('link', { name: 'Projetos' }));
+    expect(
+      await screen.findByRole('heading', { name: 'Sala Projetos' }),
+    ).toBeInTheDocument();
+    expect(router.state.location.pathname).toBe('/projetos');
+
+    fireEvent.click(screen.getByRole('link', { name: 'English' }));
+    expect(
+      await screen.findByRole('heading', { name: 'Room Projects' }),
+    ).toBeInTheDocument();
   });
 });
 

@@ -22,4 +22,4 @@ O site é publicado como Static Site no Render, no plano grátis (ADR 0007). A c
 
 ## Rotas inexistentes
 
-Arquivos pré-renderizados têm prioridade. Uma rota sem arquivo cai no `__spa-fallback.html`, e o React Router mostra a página de erro do site. O Render responde com status 200 nesse caso, não 404 (limitação registrada no ADR 0007).
+Cada rota pré-renderizada tem uma regra própria antes do fallback (`/projetos` para `/projetos/index.html`): sem ela, o Render entrega o fallback, com o HTML da Home, para o endereço sem barra no fim. O teste `scripts/render.test.mjs` confere que toda rota de `scripts/rotas.mjs` tem a regra. Arquivos pré-renderizados têm prioridade. Uma rota sem arquivo cai no `__spa-fallback.html`, e o React Router mostra a página de erro do site. O Render responde com status 200 nesse caso, não 404 (limitação registrada no ADR 0007).

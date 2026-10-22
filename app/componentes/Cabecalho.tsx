@@ -1,5 +1,5 @@
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { SALAS, type NomeDaSala } from '../../scripts/rotas.mjs';
 import logo from '../../marca/logo.svg?url';
 import {
@@ -54,13 +54,13 @@ export function Cabecalho() {
       <a className="pular" href="#conteudo">
         {t('nav.pular')}
       </a>
-      <a
+      <Link
         className="cabecalho-logo"
-        href={caminhoDaSala('home', idioma)}
+        to={caminhoDaSala('home', idioma)}
         aria-label={t('nav.inicio')}
       >
         <img src={logo} alt="" width="147" height="40" />
-      </a>
+      </Link>
       {hidratado && (
         <button
           type="button"
@@ -86,13 +86,13 @@ export function Cabecalho() {
         </ul>
         <div className="cabecalho-acoes">
           <SeletorDeIdioma />
-          <a
+          <Link
             className="botao-contato"
-            href={caminhoDaSala('contato', idioma)}
+            to={caminhoDaSala('contato', idioma)}
             aria-current={salaAtual === 'contato' ? 'page' : undefined}
           >
             <Runa nome="contato" /> {t('nav.contato')}
-          </a>
+          </Link>
         </div>
       </nav>
     </header>
@@ -103,11 +103,11 @@ function LinkDaSala({ sala, atual }: { sala: NomeDaSala; atual: boolean }) {
   const t = useTraducao();
   const idioma = useIdioma();
   return (
-    <a
-      href={caminhoDaSala(sala, idioma)}
+    <Link
+      to={caminhoDaSala(sala, idioma)}
       aria-current={atual ? 'page' : undefined}
     >
       <Runa nome={sala} /> {t(`nav.${sala as Exclude<NomeDaSala, 'contato'>}`)}
-    </a>
+    </Link>
   );
 }

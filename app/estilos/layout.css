@@ -2,10 +2,11 @@
    Celular primeiro; a partir de 48rem os links ficam numa linha. */
 
 .pular {
-  position: absolute;
+  position: fixed;
   left: var(--espaco-4);
-  top: -100%;
+  top: var(--espaco-2);
   z-index: 20;
+  transform: translateY(-200%);
   padding: var(--espaco-2) var(--espaco-4);
   background: var(--cor-ouro-forja);
   color: var(--cor-fuligem);
@@ -13,7 +14,39 @@
 }
 
 .pular:focus {
-  top: var(--espaco-2);
+  transform: none;
+}
+
+.aviso-idioma {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-3);
+  padding: var(--espaco-2) var(--espaco-4);
+  background: var(--cor-pedra);
+  border-bottom: 1px solid var(--cor-ferro);
+  color: var(--cor-cinza-brasa);
+  font-size: var(--tamanho-sm);
+}
+
+.aviso-idioma p {
+  margin: 0;
+}
+
+.aviso-idioma a {
+  color: var(--cor-ouro-forja);
+  font-weight: 600;
+}
+
+.aviso-idioma button {
+  padding: var(--espaco-1) var(--espaco-3);
+  background: transparent;
+  color: var(--cor-pergaminho);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  font: inherit;
+  cursor: pointer;
 }
 
 .cabecalho {

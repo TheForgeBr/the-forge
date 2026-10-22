@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import {
   CHAVE_ESCOLHA,
   caminhoEquivalente,
@@ -21,13 +21,13 @@ export function SeletorDeIdioma() {
   const { pathname } = useLocation();
   const destino = outroIdioma(idiomaDoCaminho(pathname));
   return (
-    <a
-      href={caminhoEquivalente(pathname)}
+    <Link
+      to={caminhoEquivalente(pathname)}
       lang={LANG[destino]}
       hrefLang={LANG[destino]}
       onClick={() => guardarEscolha(destino)}
     >
       {traduzir(destino, 'idioma.nome')}
-    </a>
+    </Link>
   );
 }

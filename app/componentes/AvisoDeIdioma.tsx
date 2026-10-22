@@ -1,5 +1,5 @@
 import { useState, useSyncExternalStore } from 'react';
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import type { Idioma } from '../conteudo/tipos';
 import {
   CHAVE_ESCOLHA,
@@ -54,17 +54,18 @@ export function AvisoDeIdioma() {
   };
   return (
     <aside
+      className="aviso-idioma"
       lang={LANG[idiomaDoAviso]}
       aria-label={traduzir(idiomaDoAviso, 'idioma.ler')}
     >
       <p>{traduzir(idiomaDoAviso, 'aviso.texto')}</p>
-      <a
-        href={caminhoEquivalente(pathname)}
+      <Link
+        to={caminhoEquivalente(pathname)}
         hrefLang={LANG[idiomaDoAviso]}
         onClick={() => guardarEscolha(idiomaDoAviso)}
       >
         {traduzir(idiomaDoAviso, 'idioma.ler')}
-      </a>
+      </Link>
       <button type="button" onClick={fechar}>
         {traduzir(idiomaDoAviso, 'aviso.fechar')}
       </button>

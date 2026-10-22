@@ -11,6 +11,42 @@ services:
       - key: NODE_VERSION
         value: 22.19.0
     routes:
+      # Cada rota pré-renderizada aponta para o próprio index.html: sem isto, o
+      # Render entrega o fallback (o HTML da Home) para /projetos sem barra no
+      # fim. A lista segue scripts/rotas.mjs; o teste scripts/render.test.mjs confere.
+      - type: rewrite
+        source: /projetos
+        destination: /projetos/index.html
+      - type: rewrite
+        source: /experiencias
+        destination: /experiencias/index.html
+      - type: rewrite
+        source: /sobre
+        destination: /sobre/index.html
+      - type: rewrite
+        source: /posts
+        destination: /posts/index.html
+      - type: rewrite
+        source: /contato
+        destination: /contato/index.html
+      - type: rewrite
+        source: /en
+        destination: /en/index.html
+      - type: rewrite
+        source: /en/projects
+        destination: /en/projects/index.html
+      - type: rewrite
+        source: /en/experience
+        destination: /en/experience/index.html
+      - type: rewrite
+        source: /en/about
+        destination: /en/about/index.html
+      - type: rewrite
+        source: /en/posts
+        destination: /en/posts/index.html
+      - type: rewrite
+        source: /en/contact
+        destination: /en/contact/index.html
       # Rotas sem arquivo pré-renderizado caem no fallback do React Router,
       # que mostra a página de erro do site. Arquivos existentes têm prioridade.
       - type: rewrite
