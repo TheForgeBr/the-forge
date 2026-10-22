@@ -60,3 +60,12 @@
 .cena[data-apagada] {
   filter: grayscale(0.85) brightness(0.45);
 }
+
+/* Faíscas da forja (issue 6.1): o canvas cobre a sala da bigorna, por cima do
+   brilho e atrás do conteúdo. */
+.faiscas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}

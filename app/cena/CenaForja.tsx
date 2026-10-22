@@ -8,10 +8,11 @@ import {
   posicaoDaSala,
   type PosicaoDaCamera,
 } from './camera';
+import { Faiscas } from './Faiscas';
 import { useAnimacao } from './movimento';
 
 // Ambiente de cada sala, na ordem da faixa (ADR 0002). Camadas estáticas por
-// enquanto: fogo e faíscas chegam na Etapa 6.
+// enquanto, com as faíscas (6.1) na bigorna; o fogo chega na 6.2.
 const AMBIENTES = {
   home: 'bigorna',
   projetos: 'arsenal',
@@ -75,6 +76,7 @@ export function CenaForja() {
             data-ambiente={AMBIENTES[s]}
           >
             <Runa nome={s} />
+            {s === 'home' && <Faiscas ativo={sala === 'home' && !!naSala} />}
           </div>
         ))}
       </div>

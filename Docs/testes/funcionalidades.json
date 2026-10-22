@@ -439,6 +439,29 @@
         "Em 200%, todo o conteúdo continua acessível, sem texto cortado."
       ],
       "seFalhar": "Anote a sala, a largura e o elemento, com um print."
+    },
+    {
+      "id": "faiscas-da-forja",
+      "titulo": "Faíscas saindo da forja na Home",
+      "area": "Cena",
+      "issues": [47],
+      "passos": [
+        "Abra a Home no site publicado e espere um instante.",
+        "No DevTools, aba Rede, recarregue e procure o arquivo particulas-*.js.",
+        "Vá para Projetos e volte para a Home.",
+        "Troque de aba por alguns segundos e volte.",
+        "Ligue \"Reduzir movimento\" no sistema (Windows: Configurações > Acessibilidade > Efeitos visuais > Efeitos de animação desligado) e recarregue a Home.",
+        "Com o DevTools aberto, aba Desempenho, grave 5 segundos na Home."
+      ],
+      "esperado": [
+        "Faíscas em ouro, brasa e chama sobem da base da tela e caem de volta, atrás do texto.",
+        "particulas-*.js chega depois da página, não junto com ela.",
+        "Em Projetos não há faíscas; de volta à Home, elas recomeçam.",
+        "Com a aba oculta, o laço para; ao voltar, segue sem um salto.",
+        "Com movimento reduzido, não há faíscas e o particulas-*.js nem é baixado.",
+        "O uso de CPU fica baixo e não há tarefas longas por causa das faíscas."
+      ],
+      "seFalhar": "Anote o navegador, a largura da tela e um print da aba Desempenho."
     }
   ]
 }
