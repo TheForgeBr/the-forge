@@ -34,3 +34,4 @@ O site tem de parecer uma forja viva: faíscas, fogo, código como magia, câmer
 - Motion é carregado com `LazyMotion` para caber no orçamento.
 - Trocar de biblioteca exige um ADR que substitua este.
 - Imagens dos ambientes das salas (2026-10-22, issue 6.6): ficam fora do orçamento de JavaScript, mas têm limite próprio de 150 KB por arquivo (AVIF e WebP, celular e desktop), conferido por teste. Só a sala de entrada vem no HTML; as outras são pedidas quando a câmera vai até elas, para não disputar a primeira carga. O LCP continua sendo o texto da sala.
+- Medição de 2026-10-22 (issue 6.5, `Docs/desempenho.md`): no celular com 4G simulado, todas as salas ficaram com desempenho entre 96 e 99, 100 em acessibilidade, boas práticas e SEO, LCP entre 1,8 s e 2,3 s e CLS de no máximo 0,064. O fogo em canvas da 6.2 saiu a pedido do usuário; ficaram as faíscas, a tela de carregamento e as imagens dos ambientes.
