@@ -23,10 +23,10 @@ app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt
 app/imagens/sobre/    imagem da sala Sobre: o arquivo presente (montagem, encapuzado) escolhe a variante
 app/imagens/salas/    ambiente pintado de cada sala (e 404/), celular e desktop em AVIF e WebP, até 150 KB cada (ambientes.tsx)
 app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão), base.css, layout.css, cena.css, salas.css, carregamento.css e brasa.css (letras em brasa que respiram)
-conteudo/posts/       posts em Markdown, um arquivo por idioma
+conteudo/posts/       posts em Markdown, <slug>.<pt|en>.md com frontmatter; imagens em public/posts/<slug>/ (ADR 0009)
 marca/                tokens.json (fonte única de cores e fontes), logo gerado por npm run logo, runas/ (24 x 24)
 scripts/rotas.mjs     SALAS com o caminho em pt e en: rotas, pré-render e verificação leem daqui
-scripts/              verificar-rotas.mjs, geradores (tokens, cartões, RSS), sincronização de issues
+scripts/              posts.mjs e markdown.mjs (carregador e conversor dos posts, só no build), verificar-rotas.mjs, geradores (tokens, cartões, RSS), sincronização de issues
 public/curriculo/     PDF do currículo, publicado pelo Memento (ADR 0005): no repositório do Memento, npm run curriculo -- --vault "<vault>" --publicar "<este repo>" e depois commit chore(curriculo): atualiza PDF
 Docs/adr/             decisões de arquitetura; leia antes de mudar a estrutura
 Docs/ISSUES.json      texto das issues, sincronizado com o GitHub
@@ -73,7 +73,8 @@ O Guia de Testes manuais fica em `Docs/testes/funcionalidades.json`. Toda mudan�
 - Sem backend na v1; conteúdo em TypeScript e Markdown no repositório (ADR 0004).
 - Cores e fontes só a partir de `marca/tokens.json` (ADR 0006).
 - Fontes pelo `@fontsource`, só subconjunto latino: Cinzel 600/700, Source Sans 3 400/600, JetBrains Mono 400. No build de 2026-10-21 os 5 woff2 somam 81,0 KB; só Source Sans 3 400 e Cinzel 700 são pré-carregadas (30,2 KB). Peso novo entra em `base.css` e em `scripts/verificar-fontes.mjs`.
-- A lista de rotas fica só em `scripts/rotas.mjs`.
+- A lista de rotas fica só em `scripts/rotas.mjs`; os posts entram pelo `carregarPosts` de `scripts/posts.mjs`.
+- Markdown dos posts pelo conversor próprio `scripts/markdown.mjs`, que escapa todo HTML do arquivo; rascunhos só no `npm run dev` ou com `RASCUNHOS=1` (ADR 0009).
 
 ## Definição de pronto
 

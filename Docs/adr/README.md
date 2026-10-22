@@ -20,3 +20,4 @@ Cada decisão técnica relevante do site é registrada aqui, com contexto, alter
 | [0006](0006-marca-como-fonte-unica.md)           | `marca/tokens.json` gera CSS, badges e SVGs                                     | **Aceito** |
 | [0007](0007-deploy-estatico-no-render.md)        | Static Site do Render no plano grátis, deploy no push                           | **Aceito** |
 | [0008](0008-i18n-portugues-e-ingles.md)          | Português na raiz e inglês em `/en`; dicionário próprio                         | **Aceito** |
+| [0009](0009-markdown-dos-posts.md)               | Markdown dos posts com conversor próprio, convertido no build                   | **Aceito** |
