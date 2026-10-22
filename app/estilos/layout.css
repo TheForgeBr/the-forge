@@ -214,7 +214,7 @@ main:focus {
     padding: var(--espaco-3) var(--espaco-8);
   }
 
-  .cabecalho-menu {
+  .cabecalho .cabecalho-menu {
     display: none;
   }
 

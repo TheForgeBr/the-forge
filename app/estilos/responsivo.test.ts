@@ -60,3 +60,14 @@ describe('contraste no topo (issue 4.7)', () => {
     expect(layout).toMatch(/\.cabecalho-salas li a\[aria-current='page'\]/);
   });
 });
+
+describe('botão de menu no desktop (issue 4.7)', () => {
+  it('a regra que esconde o botão vence a dos alvos de 44 px', () => {
+    // `.cabecalho button` (alvos de toque) tem especificidade 0-1-1: um
+    // `.cabecalho-menu` sozinho (0-1-0) perdia e o botão aparecia no desktop.
+    const desktop = /@media \(min-width: 64rem\) \{([\s\S]*)\}\s*$/.exec(
+      css('layout.css'),
+    )?.[1];
+    expect(desktop).toMatch(/\.cabecalho \.cabecalho-menu \{\s*display: none;/);
+  });
+});
