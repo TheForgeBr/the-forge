@@ -240,6 +240,26 @@
         "Com movimento reduzido, o fundo troca de sala sem deslizar."
       ],
       "seFalhar": "Anote de qual sala para qual, o navegador e se o movimento reduzido estava ligado."
+    },
+    {
+      "id": "foco-e-anuncio",
+      "titulo": "Foco e anúncio ao trocar de sala",
+      "area": "Acessibilidade",
+      "issues": [29],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra a Home (com barra no fim nas salas, como /projetos/).",
+        "Ligue o Narrador do Windows (Ctrl+Win+Enter).",
+        "Pelo teclado, vá até o link Projetos do menu e aperte Enter.",
+        "Aperte Tab uma vez.",
+        "Troque para English pelo topo."
+      ],
+      "esperado": [
+        "Ao entrar em Projetos, o Narrador diz \"Projetos\" e o título da sala fica com o foco.",
+        "O Tab seguinte vai para o primeiro item focável depois do título, não volta ao topo da página.",
+        "A aba do navegador mostra o título da sala (por exemplo \"Projetos | The Forge BR\" ou \"Projects | The Forge BR\").",
+        "Em inglês, o anúncio sai em inglês."
+      ],
+      "seFalhar": "Anote o que o Narrador disse e onde o foco ficou."
     }
   ]
 }

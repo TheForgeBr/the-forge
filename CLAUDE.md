@@ -15,7 +15,7 @@ app/root.tsx          layout raiz (a CenaForja vai morar aqui; ADR 0002)
 app/routes.ts         rotas do React Router, montadas de SALAS (cada sala em pt e en)
 app/routes/           um arquivo por sala: home, projetos, experiencias, sobre, posts, contato
 app/i18n/             pt.ts e en.ts (textos de interface) e idioma.ts (traduzir, caminhos por idioma)
-app/componentes/      Cabecalho (menu das salas), Rodape, SeletorDeIdioma, AvisoDeIdioma, Sala e Runa (SVGs de marca/runas, cor por currentColor)
+app/componentes/      Cabecalho (menu das salas), Rodape, AnuncioDeSala (foco e aria-live na troca de sala), SeletorDeIdioma, AvisoDeIdioma, Sala e Runa (SVGs de marca/runas, cor por currentColor)
 app/site.ts           URL_BASE (VITE_URL_BASE no build) e metaDaSala (título, descrição, hreflang)
 app/cena/             CenaForja (faixa das 6 salas, montada uma vez no layout raiz), câmera e canvas de partículas
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts

@@ -10,6 +10,7 @@ import {
 } from 'react-router';
 import type { Route } from './+types/root';
 import { CenaForja } from './cena/CenaForja';
+import { AnuncioDeSala } from './componentes/AnuncioDeSala';
 import { AvisoDeIdioma } from './componentes/AvisoDeIdioma';
 import { Cabecalho } from './componentes/Cabecalho';
 import { Rodape } from './componentes/Rodape';
@@ -50,6 +51,7 @@ export function Layout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Rodape />
+        <AnuncioDeSala />
         <ScrollRestoration />
         <Scripts />
       </body>
