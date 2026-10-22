@@ -1,0 +1,188 @@
+/* Salas (Etapa 4). O fundo é a cena; os cartões são placas de pedra por
+   cima, com a borda de ferro. Celular primeiro. */
+
+.sala {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.sala-cabecalho h1 {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  margin: 0 0 var(--espaco-2);
+}
+
+.sala-cabecalho h1 .runa {
+  color: var(--cor-ouro-forja);
+}
+
+.sala-cabecalho p {
+  margin: 0;
+  color: var(--cor-cinza-brasa);
+  font-style: italic;
+}
+
+.filtros {
+  display: flex;
+  gap: var(--espaco-2);
+  margin-top: var(--espaco-6);
+  overflow-x: auto;
+  padding-bottom: var(--espaco-2);
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-ferro) transparent;
+}
+
+.filtros button {
+  flex: none;
+  padding: var(--espaco-2) var(--espaco-3);
+  background: var(--cor-pedra);
+  color: var(--cor-pergaminho);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-sm);
+  cursor: pointer;
+}
+
+.filtros button[aria-pressed='true'] {
+  background: var(--cor-ouro-forja);
+  border-color: var(--cor-ouro-forja);
+  color: var(--cor-fuligem);
+  font-weight: 600;
+}
+
+.filtros button:focus-visible,
+.cartao-projeto a:focus-visible {
+  outline: 2px solid var(--cor-ouro-forja);
+  outline-offset: 3px;
+}
+
+.contagem {
+  margin: var(--espaco-4) 0;
+  color: var(--cor-cinza-brasa);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+}
+
+.grade-projetos {
+  display: grid;
+  gap: var(--espaco-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cartao-projeto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  height: 100%;
+  box-sizing: border-box;
+  padding: var(--espaco-6);
+  background: color-mix(in srgb, var(--cor-pedra) 92%, transparent);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+}
+
+.cartao-projeto.em-destaque {
+  border-color: var(--cor-ouro-forja);
+}
+
+.selo-destaque {
+  margin: 0;
+  color: var(--cor-ouro-forja);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cartao-topo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+}
+
+.cartao-topo h2 {
+  margin: 0;
+  font-size: var(--tamanho-xl);
+}
+
+.estado {
+  flex: none;
+  padding: var(--espaco-1) var(--espaco-2);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  color: var(--cor-cinza-brasa);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+}
+
+.estado-em-andamento,
+.estado-em-producao {
+  border-color: var(--cor-magia);
+  color: var(--cor-magia);
+}
+
+.resumo,
+.papel {
+  margin: 0;
+}
+
+.papel span {
+  color: var(--cor-cinza-brasa);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack li {
+  padding: var(--espaco-1) var(--espaco-2);
+  background: var(--cor-fuligem);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+}
+
+.links {
+  display: flex;
+  gap: var(--espaco-4);
+  margin: auto 0 0;
+  padding-top: var(--espaco-3);
+  border-top: 1px solid var(--cor-ferro);
+  font-size: var(--tamanho-sm);
+}
+
+.links a {
+  color: var(--cor-ouro-forja);
+  font-weight: 600;
+}
+
+.privado {
+  color: var(--cor-cinza-brasa);
+}
+
+@media (min-width: 48rem) {
+  .grade-projetos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .grade-projetos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grade-projetos li:has(.em-destaque) {
+    grid-column: span 2;
+  }
+}

@@ -20,6 +20,7 @@ import './estilos/tokens.css';
 import './estilos/base.css';
 import './estilos/layout.css';
 import './estilos/cena.css';
+import './estilos/salas.css';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },

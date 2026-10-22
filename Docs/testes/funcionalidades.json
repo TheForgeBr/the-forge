@@ -277,6 +277,28 @@
         "O WhatsApp mostra o cartão com a imagem e o título da sala."
       ],
       "seFalhar": "Copie os avisos do Post Inspector e tire um print do cartão."
+    },
+    {
+      "id": "sala-projetos",
+      "titulo": "Sala Projetos (arsenal)",
+      "area": "Salas",
+      "issues": [35],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra /projetos/ no desktop e no celular (ou com a janela estreita).",
+        "Clique nos filtros de tecnologia e depois em Todos.",
+        "Clique nos links Código e Site de um projeto.",
+        "Troque para English.",
+        "Desative o JavaScript e recarregue a página."
+      ],
+      "esperado": [
+        "Aparecem os 10 projetos; o Memento vem primeiro, marcado como Projeto em destaque (no desktop ocupa duas colunas).",
+        "Cada cartão mostra nome, estado, resumo, papel, stack e, quando houver, Código e Site; os sem repositório público mostram Código privado.",
+        "Cada filtro mostra só os projetos com aquela tecnologia e a contagem muda; Todos volta aos 10.",
+        "Os links abrem o repositório e o site certos.",
+        "Em inglês, títulos, estados e botões aparecem em inglês.",
+        "Sem JavaScript, os 10 projetos aparecem e os filtros somem."
+      ],
+      "seFalhar": "Anote o projeto, o tamanho da tela e o que saiu diferente do Stitch."
     }
   ]
 }

@@ -15,11 +15,11 @@ app/root.tsx          layout raiz (a CenaForja vai morar aqui; ADR 0002)
 app/routes.ts         rotas do React Router, montadas de SALAS (cada sala em pt e en)
 app/routes/           um arquivo por sala: home, projetos, experiencias, sobre, posts, contato
 app/i18n/             pt.ts e en.ts (textos de interface) e idioma.ts (traduzir, caminhos por idioma)
-app/componentes/      Cabecalho (menu das salas), Rodape, AnuncioDeSala (foco e aria-live na troca de sala), SeletorDeIdioma, AvisoDeIdioma, Sala e Runa (SVGs de marca/runas, cor por currentColor)
+app/componentes/      SalaProjetos, Cabecalho (menu das salas), Rodape, AnuncioDeSala (foco e aria-live na troca de sala), SeletorDeIdioma, AvisoDeIdioma, Sala e Runa (SVGs de marca/runas, cor por currentColor)
 app/site.ts           URL_BASE (VITE_URL_BASE no build) e metaDaSala (título, descrição, canônica, hreflang, Open Graph e Twitter)
 app/cena/             CenaForja (faixa das 6 salas, montada uma vez no layout raiz), câmera e canvas de partículas
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts
-app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão), base.css, layout.css e cena.css
+app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão), base.css, layout.css, cena.css e salas.css
 conteudo/posts/       posts em Markdown, um arquivo por idioma
 marca/                tokens.json (fonte única de cores e fontes), logo gerado por npm run logo, runas/ (24 x 24)
 scripts/rotas.mjs     SALAS com o caminho em pt e en: rotas, pré-render e verificação leem daqui

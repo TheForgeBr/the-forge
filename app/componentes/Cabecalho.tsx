@@ -1,4 +1,4 @@
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { SALAS, type NomeDaSala } from '../../scripts/rotas.mjs';
 import logo from '../../marca/logo.svg?url';
@@ -8,10 +8,9 @@ import {
   useIdioma,
   useTraducao,
 } from '../i18n/idioma';
+import { useHidratado } from './hidratado';
 import { Runa } from './Runa';
 import { SeletorDeIdioma } from './SeletorDeIdioma';
-
-const semAssinatura = () => () => {};
 
 /**
  * Topo fixo de todas as salas (issue 3.2): pular para o conteúdo, logo,
@@ -24,11 +23,7 @@ export function Cabecalho() {
   const { pathname } = useLocation();
   const salaAtual = salaDoCaminho(pathname);
   // false no pré-render: o HTML sai com o menu aberto, para quem lê sem JS.
-  const hidratado = useSyncExternalStore(
-    semAssinatura,
-    () => true,
-    () => false,
-  );
+  const hidratado = useHidratado();
   const [aberto, setAberto] = useState(false);
 
   // Fecha o menu ao trocar de sala.
