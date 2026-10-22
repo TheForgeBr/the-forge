@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router';
 import {
   CHAVE_ESCOLHA,
-  caminhoEquivalente,
   idiomaDoCaminho,
   LANG,
   outroIdioma,
   traduzir,
+  useCaminhoEquivalente,
 } from '../i18n/idioma';
 
 export function guardarEscolha(idioma: string) {
@@ -19,10 +19,11 @@ export function guardarEscolha(idioma: string) {
 /** Link real para a mesma sala no outro idioma (ADR 0008). */
 export function SeletorDeIdioma() {
   const { pathname } = useLocation();
+  const equivalente = useCaminhoEquivalente();
   const destino = outroIdioma(idiomaDoCaminho(pathname));
   return (
     <Link
-      to={caminhoEquivalente(pathname)}
+      to={equivalente}
       lang={LANG[destino]}
       hrefLang={LANG[destino]}
       onClick={() => guardarEscolha(destino)}

@@ -627,6 +627,25 @@
         "Cada post publicado aparece no feed do seu idioma, com título, link para o post, data e resumo."
       ],
       "seFalhar": "Anote o endereço, a mensagem do validador e se o problema é no feed em português ou em inglês."
+    },
+    {
+      "id": "lista-de-posts",
+      "titulo": "Sala Posts: lista e estado vazio",
+      "area": "Posts",
+      "issues": [42],
+      "passos": [
+        "Abra /posts e /en/posts no site publicado (sem posts publicados ainda).",
+        "Clique em Assinar o RSS e em Voltar à forja.",
+        "Rode npm run dev e abra http://localhost:5173/posts para ver os posts de teste (rascunhos).",
+        "No celular (390 px) e no desktop, role a lista inteira."
+      ],
+      "esperado": [
+        "Sem posts, aparece o pergaminho com \"Os primeiros textos ainda estão na bigorna.\", o botão do RSS e a volta à Home, no idioma da página.",
+        "O RSS abre o feed do idioma; a volta leva à Home do idioma.",
+        "Com posts, cada cartão mostra a data no idioma, o tempo de leitura, o título (link para o post), o resumo e as tags, do mais novo ao mais antigo.",
+        "Nada vaza para os lados nem cobre o menu; o cartão inteiro é clicável e o foco do teclado contorna o cartão."
+      ],
+      "seFalhar": "Anote a largura da tela, o idioma e o cartão (ou o estado vazio) que quebrou, com um print."
     }
   ]
 }

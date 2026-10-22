@@ -20,6 +20,22 @@ export const IMAGEM_OG = {
 
 const LOCALE_OG: Record<Idioma, string> = { pt: 'pt_BR', en: 'en_US' };
 
+/** Feed RSS dos posts do idioma (issue 5.4), anunciado em toda página. */
+export const FEED: Record<Idioma, string> = {
+  pt: '/rss.xml',
+  en: '/en/rss.xml',
+};
+
+export function linkDoFeed(idioma: Idioma) {
+  return {
+    tagName: 'link',
+    rel: 'alternate',
+    type: 'application/rss+xml',
+    title: `${traduzir(idioma, 'sala.posts.titulo')} | ${traduzir(idioma, 'site.nome')}`,
+    href: urlAbsoluta(FEED[idioma]),
+  };
+}
+
 /**
  * Metadados de uma sala no idioma da rota: título, descrição, canônica,
  * hreflang, Open Graph e Twitter (issues 3.1 e 3.8).
@@ -48,6 +64,7 @@ export function metaDaSala(sala: NomeDaSala, caminho: string) {
     alternativo('pt'),
     alternativo('en'),
     alternativo('x-default'),
+    linkDoFeed(idioma),
     og('og:type', 'website'),
     og('og:site_name', nome),
     og('og:title', titulo),

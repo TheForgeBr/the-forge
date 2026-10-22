@@ -88,6 +88,18 @@ export const en: Dicionario = {
   'sala.posts.titulo': 'Posts',
   'sala.posts.descricao': 'Writing by Rhuan Marques about development.',
   'sala.posts.texto': 'The first posts are still on the anvil.',
+  'posts.subtitulo':
+    'Forged records, technical essays and development chronicles.',
+  'posts.lista': 'Published posts',
+  'posts.leitura': 'min read',
+  'posts.tags': 'Tags',
+  'posts.vazio.titulo': 'The first posts are still on the anvil.',
+  'posts.vazio.texto':
+    'The steel is still being tempered. Subscribe via RSS to know when the first post is out.',
+  'posts.rss': 'Subscribe via RSS',
+  'posts.voltarHome': 'Back to the forge',
+  'post.voltar': 'All posts',
+  'post.publicado': 'Published on',
   'sala.contato.titulo': 'Contact',
   'sala.contato.descricao': 'How to reach Rhuan Marques.',
   'sala.contato.texto': 'Contact options are coming soon.',

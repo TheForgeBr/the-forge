@@ -90,6 +90,18 @@ export const pt = {
   'sala.posts.titulo': 'Posts',
   'sala.posts.descricao': 'Textos de Rhuan Marques sobre desenvolvimento.',
   'sala.posts.texto': 'Os primeiros posts ainda estão na bigorna.',
+  'posts.subtitulo':
+    'Registros forjados, ensaios técnicos e crônicas de desenvolvimento.',
+  'posts.lista': 'Posts publicados',
+  'posts.leitura': 'min de leitura',
+  'posts.tags': 'Tags',
+  'posts.vazio.titulo': 'Os primeiros textos ainda estão na bigorna.',
+  'posts.vazio.texto':
+    'O aço está sendo temperado. Assine o RSS para saber quando o primeiro post sair.',
+  'posts.rss': 'Assinar o RSS',
+  'posts.voltarHome': 'Voltar à forja',
+  'post.voltar': 'Todos os posts',
+  'post.publicado': 'Publicado em',
   'sala.contato.titulo': 'Contato',
   'sala.contato.descricao': 'Como falar com Rhuan Marques.',
   'sala.contato.texto': 'Os meios de contato chegam em breve.',

@@ -1,4 +1,8 @@
-import { useLocation } from 'react-router';
+import { useContext } from 'react';
+import {
+  UNSAFE_DataRouterStateContext as EstadoDoRouter,
+  useLocation,
+} from 'react-router';
 import { SALAS, type NomeDaSala } from '../../scripts/rotas.mjs';
 import type { Idioma } from '../conteudo/tipos';
 import { en } from './en';
@@ -26,6 +30,8 @@ export function idiomaDoCaminho(caminho: string): Idioma {
 
 export function salaDoCaminho(caminho: string): NomeDaSala | undefined {
   const limpo = normalizar(caminho);
+  // Um post (/posts/<slug> ou /en/posts/<slug>) fica na sala Posts.
+  if (/^(\/en)?\/posts\/[^/]+$/.test(limpo)) return 'posts';
   return SALAS.find((s) => s.pt === limpo || s.en === limpo)?.sala;
 }
 
@@ -39,6 +45,22 @@ export function caminhoDaSala(sala: NomeDaSala, idioma: Idioma) {
 export function caminhoEquivalente(caminho: string) {
   const destino = outroIdioma(idiomaDoCaminho(caminho));
   return caminhoDaSala(salaDoCaminho(caminho) ?? 'home', destino);
+}
+
+/**
+ * O mesmo lugar no outro idioma, para o seletor e o aviso. Um post traduzido
+ * informa a tradução pelo loader (campo `traducao`); sem tradução, vale
+ * caminhoEquivalente, que leva à lista de posts do outro idioma (ADR 0008).
+ */
+export function useCaminhoEquivalente() {
+  const { pathname } = useLocation();
+  // O estado do router vem pelo contexto, que é nulo fora de um data router
+  // (os testes com MemoryRouter), em vez do useMatches, que lança erro.
+  const estado = useContext(EstadoDoRouter);
+  const traducao = Object.values(estado?.loaderData ?? {})
+    .map((dados) => (dados as { traducao?: unknown } | null)?.traducao)
+    .find((t): t is string => typeof t === 'string');
+  return traducao ?? caminhoEquivalente(pathname);
 }
 
 export function traduzir(idioma: Idioma, chave: Chave): string {

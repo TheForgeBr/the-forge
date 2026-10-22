@@ -21,7 +21,8 @@ describe('metaDaSala', () => {
   });
 
   it('aponta a canônica e o hreflang dos dois idiomas', () => {
-    const links = meta.filter((m) => 'tagName' in m);
+    // O link do feed tem teste próprio, abaixo.
+    const links = meta.filter((m) => 'tagName' in m && !('type' in m));
     expect(links).toEqual([
       { tagName: 'link', rel: 'canonical', href: `${URL_BASE}/en/projects` },
       {
@@ -63,6 +64,19 @@ describe('metaDaSala', () => {
     expect(home[0]).toEqual({ title: 'The Forge BR' });
     expect(conteudo(home, 'og:locale')).toBe('pt_BR');
     expect(conteudo(home, 'og:url')).toBe(`${URL_BASE}/`);
+  });
+
+  it('anuncia o feed RSS do idioma da página', () => {
+    const feed = (caminho: string) =>
+      metaDaSala('home', caminho).find(
+        (m) => 'type' in m && m.type === 'application/rss+xml',
+      );
+    expect(feed('/')).toMatchObject({
+      rel: 'alternate',
+      href: `${URL_BASE}/rss.xml`,
+      title: 'Posts | The Forge BR',
+    });
+    expect(feed('/en')).toMatchObject({ href: `${URL_BASE}/en/rss.xml` });
   });
 
   it('a imagem de compartilhamento existe em public/', () => {

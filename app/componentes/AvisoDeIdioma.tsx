@@ -3,10 +3,10 @@ import { Link, useLocation } from 'react-router';
 import type { Idioma } from '../conteudo/tipos';
 import {
   CHAVE_ESCOLHA,
-  caminhoEquivalente,
   idiomaDoCaminho,
   LANG,
   traduzir,
+  useCaminhoEquivalente,
 } from '../i18n/idioma';
 import { guardarEscolha } from './SeletorDeIdioma';
 
@@ -32,6 +32,7 @@ function escolhaGuardada() {
  */
 export function AvisoDeIdioma() {
   const { pathname } = useLocation();
+  const equivalente = useCaminhoEquivalente();
   const idiomaDaPagina = idiomaDoCaminho(pathname);
   const [fechado, setFechado] = useState(false);
   // No pré-render e na hidratação vale o null do servidor; no navegador,
@@ -60,7 +61,7 @@ export function AvisoDeIdioma() {
     >
       <p>{traduzir(idiomaDoAviso, 'aviso.texto')}</p>
       <Link
-        to={caminhoEquivalente(pathname)}
+        to={equivalente}
         hrefLang={LANG[idiomaDoAviso]}
         onClick={() => guardarEscolha(idiomaDoAviso)}
       >

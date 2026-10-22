@@ -48,6 +48,14 @@ describe('caminhos por idioma', () => {
     expect(caminhoEquivalente('/en/missing')).toBe('/');
   });
 
+  it('um post fica na sala Posts; sem tradução, o outro idioma é a lista', () => {
+    expect(salaDoCaminho('/posts/por-que')).toBe('posts');
+    expect(salaDoCaminho('/en/posts/why/')).toBe('posts');
+    expect(salaDoCaminho('/posts/a/b')).toBeUndefined();
+    expect(caminhoEquivalente('/posts/por-que')).toBe('/en/posts');
+    expect(caminhoEquivalente('/en/posts/why')).toBe('/posts');
+  });
+
   it('pré-renderiza as 6 salas nos dois idiomas', () => {
     expect(ROTAS).toHaveLength(12);
     expect(new Set(ROTAS).size).toBe(12);

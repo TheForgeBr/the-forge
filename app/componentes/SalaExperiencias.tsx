@@ -1,14 +1,9 @@
 import { experiencias as todasAsExperiencias } from '../conteudo/experiencias';
 import type { Experiencia, Idioma, Mes, Periodo } from '../conteudo/tipos';
+import { MESES } from '../i18n/datas';
 import { useIdioma, useTraducao } from '../i18n/idioma';
 import { Runa } from './Runa';
 
-// Meses escritos à mão em vez de Intl: o pré-render (Node) e o navegador
-// precisam gerar o mesmo texto, senão a hidratação falha.
-const MESES: Record<Idioma, readonly string[]> = {
-  pt: 'jan fev mar abr mai jun jul ago set out nov dez'.split(' '),
-  en: 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' '),
-};
 const ATUAL: Record<Idioma, string> = { pt: 'atual', en: 'present' };
 
 function partes(mes: Mes, idioma: Idioma) {
