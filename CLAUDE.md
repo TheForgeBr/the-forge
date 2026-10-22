@@ -45,6 +45,8 @@ npm run logo             # gera logo, símbolo e favicon em SVG (letreiro em cur
 npm run verificar:logo   # falha se algum SVG do logo estiver desatualizado
 npm run verificar:fontes # confere pesos e subconjunto das fontes no build e mostra o peso em KB
 npm run orcamento        # soma o JS gzip da primeira carga da Home e falha acima de marca/orcamento.json
+npm run verificar:privacidade  # falha se o conteúdo ou o build tiver termo proibido, e-mail, telefone ou caminho de disco
+node scripts/privacidade.mjs --hash "termo"  # gera a linha de hash para um nome reservado em Docs/conteudo/proibidos.json
 npm run check            # formato, lint, tipos, testes, tokens, build e verificação das rotas; rode antes de cada commit
 npm run format           # aplica o Prettier
 node scripts/sync-issues.mjs [--dry-run]  # cria ou atualiza as issues do GitHub a partir de Docs/ISSUES.json

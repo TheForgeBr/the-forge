@@ -164,6 +164,24 @@
         "Todas aparecem em preto ao abrir direto (currentColor sem cor definida) e ficam nítidas em qualquer zoom."
       ],
       "seFalhar": "Anote qual runa e o que saiu errado."
+    },
+    {
+      "id": "privacidade",
+      "titulo": "Teste de privacidade do conteúdo publicado",
+      "area": "Conteúdo",
+      "issues": [24],
+      "passos": [
+        "Em `app/i18n/pt.ts`, troque o texto de `sala.projetos.descricao` por `Projetos do Automations.`",
+        "Rode `npm run build` e `npm run verificar:privacidade`.",
+        "Desfaça com `git checkout app/i18n/pt.ts` e rode `npm run verificar:privacidade` de novo.",
+        "Para reservar um nome novo, rode `node scripts/privacidade.mjs --hash \"Nome\"` e cole a linha em `hashes` de `Docs/conteudo/proibidos.json`."
+      ],
+      "esperado": [
+        "A primeira verificação falha e aponta `app/i18n/pt.ts` com o termo proibido \"Automations\".",
+        "Depois de desfazer, a verificação passa e diz quantos arquivos conferiu.",
+        "O comando `--hash` imprime só o hash e o número de palavras, sem repetir o nome."
+      ],
+      "seFalhar": "Copie a saída da verificação."
     }
   ]
 }

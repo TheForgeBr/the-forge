@@ -1,0 +1,51 @@
+{
+  "sobre": "Termos que não podem aparecer no conteúdo publicado (issue 2.7). Nomes de pessoas, clientes e máquinas entram só como hash SHA-256 do texto normalizado, para o repositório público não expor o que se quer esconder: gere a linha com `node scripts/privacidade.mjs --hash \"termo\"`.",
+  "termos": [
+    { "texto": "Automations", "motivo": "projeto que não aparece no site" },
+    {
+      "texto": "tester freelancer",
+      "motivo": "trabalho de 2025 que fica fora"
+    },
+    { "texto": "freelancer 2025", "motivo": "trabalho de 2025 que fica fora" },
+    {
+      "texto": "sensibilidade: privado",
+      "motivo": "marcador de nota privada do vault"
+    },
+    { "texto": "token", "motivo": "segredo" },
+    { "texto": "senha", "motivo": "segredo" },
+    { "texto": "password", "motivo": "segredo" },
+    { "texto": ".env", "motivo": "segredo" },
+    { "texto": "C:/Users/", "motivo": "caminho da máquina" },
+    { "texto": "C:\\Users\\", "motivo": "caminho da máquina" },
+    { "texto": "D:\\arquivos", "motivo": "caminho da máquina" }
+  ],
+  "padroes": [
+    { "regex": "\\bsk-[A-Za-z0-9_-]{16,}", "motivo": "chave de API" },
+    { "regex": "\\bghp_[A-Za-z0-9]{20,}", "motivo": "token do GitHub" },
+    { "regex": "\\bgithub_pat_[A-Za-z0-9_]{20,}", "motivo": "token do GitHub" },
+    { "regex": "\\bAKIA[0-9A-Z]{16}\\b", "motivo": "chave da AWS" }
+  ],
+  "hashes": [
+    {
+      "sha256": "9b73ce9179c20c983bcada9e078f1185abf25ad99003dea8693714c3a7b950ef",
+      "palavras": 1,
+      "motivo": "empresa do trabalho de 2025"
+    },
+    {
+      "sha256": "721da74c2d26f467b0fbc9347419bb55889efc8993e56f41f7987e254c63a9ed",
+      "palavras": 2,
+      "motivo": "cliente do trabalho de 2025"
+    },
+    {
+      "sha256": "35e097c2592e6f1f60956fda568e90581153158a4bd09f51f1e4e08a83f93d6f",
+      "palavras": 1,
+      "motivo": "nome de pessoa"
+    },
+    {
+      "sha256": "5563b5d5142e817c871509155da42d6e6993684b7562337163ecfc66590af1f4",
+      "palavras": 1,
+      "motivo": "nome do computador"
+    }
+  ],
+  "contatosAprovados": []
+}
