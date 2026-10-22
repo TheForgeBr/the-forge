@@ -86,23 +86,31 @@ export type Experiencia = Comum & {
     | (PapelEStack & { readonly entregas?: never })
   );
 
-export type CategoriaSkill =
-  | 'linguagens'
-  | 'frontend'
-  | 'mobile'
-  | 'backend'
-  | 'dados'
-  | 'infra'
-  | 'testes'
-  | 'arquitetura'
-  | 'ia';
+/** Grupos da sala Sobre e skills, nesta ordem. */
+export const CATEGORIAS_DE_SKILL = [
+  'linguagens',
+  'frontend',
+  'mobile',
+  'backend',
+  'dados',
+  'ia',
+  'testes',
+  'infra',
+  'plataformas',
+  'processo',
+] as const;
+export type CategoriaSkill = (typeof CATEGORIAS_DE_SKILL)[number];
 
-export type NivelSkill = 'basico' | 'intermediario' | 'avancado';
+/** Do mais forte para o mais fraco: é a ordem em que aparecem. */
+export const NIVEIS_DE_SKILL = ['avancado', 'intermediario', 'basico'] as const;
+export type NivelSkill = (typeof NIVEIS_DE_SKILL)[number];
 
 export interface Skill {
   readonly id: string;
   readonly nome: Localizado;
   readonly categoria: CategoriaSkill;
   readonly nivel: NivelSkill;
+  /** Ano do primeiro uso; no mesmo nível, quem começou antes vem primeiro. */
+  readonly desde: number;
   readonly destaque: boolean;
 }

@@ -2,11 +2,18 @@ import { describe, expect, expectTypeOf, it } from 'vitest';
 import { experiencias } from './experiencias';
 import { projetos } from './projetos';
 import { skills } from './skills';
-import type { Experiencia, Localizado, Projeto, Skill } from './tipos';
+import {
+  CATEGORIAS_DE_SKILL,
+  type Experiencia,
+  type Localizado,
+  type Projeto,
+  type Skill,
+} from './tipos';
 import {
   problemasDasExperiencias,
   problemasDasSkills,
   problemasDosProjetos,
+  skillsOrdenadas,
 } from './validar';
 
 const projeto: Projeto = {
@@ -36,6 +43,7 @@ const skill: Skill = {
   nome: { pt: 'TypeScript', en: 'TypeScript' },
   categoria: 'linguagens',
   nivel: 'avancado',
+  desde: 2022,
   destaque: true,
 };
 
@@ -144,6 +152,36 @@ describe('experiências', () => {
     expect(
       experiencias.find((e) => e.id === 'seta-ai')?.entregas,
     ).toBeUndefined();
+  });
+});
+
+describe('skills', () => {
+  it('acusa ano de início fora da faixa', () => {
+    expect(problemasDasSkills([{ ...skill, desde: 2030 }], 2026)).toEqual([
+      'skills/typescript: desde 2030 fora de 2015 a 2026',
+    ]);
+  });
+
+  it('ordena por nível e, no mesmo nível, por quem começou antes', () => {
+    const lista: Skill[] = [
+      { ...skill, id: 'b', nivel: 'basico', desde: 2018 },
+      { ...skill, id: 'a-nova', nivel: 'avancado', desde: 2024 },
+      { ...skill, id: 'a-antiga', nivel: 'avancado', desde: 2020 },
+      { ...skill, id: 'i', nivel: 'intermediario', desde: 2019 },
+    ];
+    expect(skillsOrdenadas(lista, 'linguagens').map((s) => s.id)).toEqual([
+      'a-antiga',
+      'a-nova',
+      'i',
+      'b',
+    ]);
+  });
+
+  it('as 48 skills marcadas usam só categorias conhecidas', () => {
+    expect(skills).toHaveLength(48);
+    expect(
+      skills.filter((s) => !CATEGORIAS_DE_SKILL.includes(s.categoria)),
+    ).toEqual([]);
   });
 });
 

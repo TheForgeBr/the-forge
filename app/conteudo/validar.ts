@@ -2,6 +2,8 @@
 // impossível, período invertido, link sem https, resumo longo e ordem.
 import {
   ENTREGAS,
+  NIVEIS_DE_SKILL,
+  type CategoriaSkill,
   ESTADOS_DE_PROJETO,
   IDIOMAS,
   LIMITE_DO_RESUMO,
@@ -143,9 +145,31 @@ function foraDaOrdemCronologica(experiencias: readonly Experiencia[]) {
   });
 }
 
-export function problemasDasSkills(skills: readonly Skill[]) {
+export function problemasDasSkills(
+  skills: readonly Skill[],
+  anoAtual = new Date().getFullYear(),
+) {
   return [
     ...ids('skills', skills),
-    ...skills.flatMap((s) => textos(`skills/${s.id}`, 'nome', s.nome)),
+    ...skills.flatMap((s) => [
+      ...textos(`skills/${s.id}`, 'nome', s.nome),
+      ...(Number.isInteger(s.desde) && s.desde >= 2015 && s.desde <= anoAtual
+        ? []
+        : [`skills/${s.id}: desde ${s.desde} fora de 2015 a ${anoAtual}`]),
+    ]),
   ];
+}
+
+/** Skills de uma categoria, do nível mais alto ao mais baixo e, no mesmo nível, de quem começou antes. */
+export function skillsOrdenadas(
+  skills: readonly Skill[],
+  categoria: CategoriaSkill,
+) {
+  return skills
+    .filter((s) => s.categoria === categoria)
+    .toSorted(
+      (a, b) =>
+        NIVEIS_DE_SKILL.indexOf(a.nivel) - NIVEIS_DE_SKILL.indexOf(b.nivel) ||
+        a.desde - b.desde,
+    );
 }
