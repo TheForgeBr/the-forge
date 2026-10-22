@@ -9,10 +9,13 @@ import {
   type PosicaoDaCamera,
 } from './camera';
 import { Faiscas } from './Faiscas';
+import { Fogo } from './Fogo';
+import { intensidadeDoFogo } from './intensidade';
 import { useAnimacao } from './movimento';
 
 // Ambiente de cada sala, na ordem da faixa (ADR 0002). Camadas estáticas por
-// enquanto, com as faíscas (6.1) na bigorna; o fogo chega na 6.2.
+// enquanto, com as faíscas (6.1) na bigorna. O fogo (6.2) fica fora da
+// faixa, fixo na base, e muda de intensidade com a sala.
 const AMBIENTES = {
   home: 'bigorna',
   projetos: 'arsenal',
@@ -80,6 +83,7 @@ export function CenaForja() {
           </div>
         ))}
       </div>
+      <Fogo intensidade={intensidadeDoFogo(naSala)} />
     </div>
   );
 }

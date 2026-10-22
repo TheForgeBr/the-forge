@@ -3,6 +3,7 @@
 // (nada é alocado a cada quadro), emitir, atualizar e desenhar. O laço
 // (iniciarFaiscas) é carregado por importação dinâmica pelo componente
 // Faiscas, depois da primeira pintura, e nunca com movimento reduzido.
+import { iniciarLaco } from './laco';
 
 export interface Particula {
   viva: boolean;
@@ -159,7 +160,7 @@ function coresDosTokens() {
 
 /**
  * Liga as faíscas no canvas e devolve a função que para tudo. Sem contexto 2D,
- * não liga nada. Pausa com a aba oculta e acompanha o tamanho da janela.
+ * não liga nada. Acompanha o tamanho da janela; o laço pausa com a aba oculta.
  */
 export function iniciarFaiscas(canvas: HTMLCanvasElement): () => void {
   const ctx = canvas.getContext('2d');
@@ -170,8 +171,6 @@ export function iniciarFaiscas(canvas: HTMLCanvasElement): () => void {
   const cores = coresDosTokens();
   let emissor: Emissor;
   let acumulado = 0;
-  let quadro = 0;
-  let anterior: number | null = null;
 
   function medir() {
     const largura = canvas.clientWidth * escala;
@@ -189,9 +188,7 @@ export function iniciarFaiscas(canvas: HTMLCanvasElement): () => void {
     };
   }
 
-  function passo(agora: number) {
-    const dt = anterior === null ? 0 : Math.min((agora - anterior) / 1000, 0.1);
-    anterior = agora;
+  function passo(dt: number) {
     ajustarLimite(pool, dt);
     // Uma vazão que mantém o pool perto do limite: limite / vida média.
     acumulado += (dt * pool.limite) / emissor.duracao;
@@ -201,25 +198,15 @@ export function iniciarFaiscas(canvas: HTMLCanvasElement): () => void {
     atualizar(pool, dt);
     ctx!.clearRect(0, 0, canvas.width, canvas.height);
     desenhar(ctx!, pool, escala);
-    quadro = requestAnimationFrame(passo);
-  }
-
-  function aoMudarVisibilidade() {
-    cancelAnimationFrame(quadro);
-    if (document.hidden) return;
-    anterior = null;
-    quadro = requestAnimationFrame(passo);
   }
 
   medir();
   window.addEventListener('resize', medir);
-  document.addEventListener('visibilitychange', aoMudarVisibilidade);
-  if (!document.hidden) quadro = requestAnimationFrame(passo);
+  const pararLaco = iniciarLaco(passo);
 
   return () => {
-    cancelAnimationFrame(quadro);
+    pararLaco();
     window.removeEventListener('resize', medir);
-    document.removeEventListener('visibilitychange', aoMudarVisibilidade);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 }

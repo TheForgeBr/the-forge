@@ -17,7 +17,7 @@ app/routes/           um arquivo por sala: home, projetos, experiencias, sobre, 
 app/i18n/             pt.ts e en.ts (textos de interface) e idioma.ts (traduzir, caminhos por idioma)
 app/componentes/      SalaHome, SalaProjetos, Cabecalho (menu das salas), Rodape, AnuncioDeSala (foco e aria-live na troca de sala), SeletorDeIdioma, AvisoDeIdioma, Sala e Runa (SVGs de marca/runas, cor por currentColor)
 app/site.ts           URL_BASE (VITE_URL_BASE no build) e metaDaSala (título, descrição, canônica, hreflang, Open Graph e Twitter)
-app/cena/             CenaForja (faixa das 6 salas, montada uma vez no layout raiz), câmera, Faiscas (canvas na bigorna) e particulas.ts (motor carregado por importação dinâmica)
+app/cena/             CenaForja (faixa das 6 salas, montada uma vez no layout raiz), câmera, Faiscas (canvas na bigorna) e Fogo (base da cena, intensidade por sala em intensidade.ts); os motores particulas.ts e chamas.ts chegam por importação dinâmica e usam o laço de laco.ts (pausa com a aba oculta)
 app/conteudo/         projetos.ts, experiencias.ts, skills.ts (dados tipados, pt e en); tipos.ts e validar.ts
 app/imagens/sobre/    imagem da sala Sobre: o arquivo presente (montagem, encapuzado) escolhe a variante
 app/estilos/          tokens.css (gerado de marca/tokens.json; não edite à mão), base.css, layout.css, cena.css e salas.css

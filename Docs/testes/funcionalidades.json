@@ -462,6 +462,28 @@
         "O uso de CPU fica baixo e não há tarefas longas por causa das faíscas."
       ],
       "seFalhar": "Anote o navegador, a largura da tela e um print da aba Desempenho."
+    },
+    {
+      "id": "fogo-da-forja",
+      "titulo": "Fogo da forja com intensidade por sala",
+      "area": "Cena",
+      "issues": [48],
+      "passos": [
+        "Abra a Home no site publicado e espere um instante.",
+        "Navegue pelas salas pelo menu: Home, Projetos, Experiências, Sobre, Posts e Contato.",
+        "Abra uma rota inexistente (a 404).",
+        "Ligue Reduzir movimento no sistema e recarregue a Home; depois vá para Posts.",
+        "No celular real, abra a Home e role a página."
+      ],
+      "esperado": [
+        "Uma chama em brasa e ouro tremula na base da tela, atrás do conteúdo, sem blocos visíveis.",
+        "A chama é mais alta na Home e em Contato, média em Projetos, Sobre e Experiências, e baixa em Posts; a troca é gradual, não um corte.",
+        "Na 404 o fogo se apaga aos poucos.",
+        "Com movimento reduzido, o fogo aparece parado (um quadro), na altura da sala.",
+        "O texto claro continua legível sobre a chama; o rodapé tem fundo próprio.",
+        "No celular, rolar e trocar de sala segue fluido."
+      ],
+      "seFalhar": "Anote o aparelho, a sala e um print; no desktop, grave a aba Desempenho por 5 segundos."
     }
   ]
 }
