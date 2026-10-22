@@ -402,6 +402,24 @@
         "Em 360 px não há rolagem lateral."
       ],
       "seFalhar": "Anote o canal, para onde ele levou e o idioma."
+    },
+    {
+      "id": "verificar-rotas-completo",
+      "titulo": "verificar:rotas aponta a rota e o item que falta",
+      "area": "Fundação",
+      "issues": [31],
+      "passos": [
+        "Rode `npm run build`.",
+        "Em build/client/sobre/index.html, apague a tag <meta property=\"og:image\" ...>.",
+        "Apague build/client/en/contact/index.html.",
+        "Rode `npm run verificar:rotas`.",
+        "Rode `npm run build` e `npm run verificar:rotas` de novo."
+      ],
+      "esperado": [
+        "A verificação falha com \"/sobre: sem <meta property=\"og:image\">\" e \"/en/contact: não existe ... (a rota saiu do prerender?)\".",
+        "Depois do build novo, passa com \"14 rota(s) com HTML completo\"."
+      ],
+      "seFalhar": "Copie a saída do comando."
     }
   ]
 }

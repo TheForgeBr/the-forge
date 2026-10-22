@@ -39,7 +39,7 @@ Node 22.12 ou superior (a máquina principal usa o 22.19; ver `.nvmrc`).
 npm run dev              # servidor de desenvolvimento
 npm run build            # gera build/client com o HTML de cada rota
 npm test                 # Vitest
-npm run verificar:rotas  # confere lang, <title> e <h1> no HTML de cada rota (depois do build)
+npm run verificar:rotas  # confere no HTML de cada rota (salas e 404) lang, um <title>, um <h1>, descrição, Open Graph, hreflang e o texto-chave da sala (depois do build)
 npm run tokens           # gera app/estilos/tokens.css a partir de marca/tokens.json
 npm run verificar:tokens # falha se o tokens.css estiver desatualizado em relação ao JSON
 npm run logo             # gera logo, símbolo e favicon em SVG (letreiro em curvas, cores dos tokens)
