@@ -260,6 +260,23 @@
         "Em inglês, o anúncio sai em inglês."
       ],
       "seFalhar": "Anote o que o Narrador disse e onde o foco ficou."
+    },
+    {
+      "id": "open-graph",
+      "titulo": "Pré-visualização dos links ao compartilhar",
+      "area": "Compartilhamento",
+      "issues": [32],
+      "passos": [
+        "Depois do deploy, abra https://www.linkedin.com/post-inspector/ e cole https://the-forge-96d7.onrender.com/projetos.",
+        "Repita com https://the-forge-96d7.onrender.com/en/projects.",
+        "Mande o link de /contato para você mesmo no WhatsApp."
+      ],
+      "esperado": [
+        "O LinkedIn mostra o título \"Projetos | The Forge BR\", a descrição da sala e a imagem do logo sobre fundo escuro, sem avisos de tag faltando.",
+        "Em inglês aparece \"Projects | The Forge BR\" e a descrição em inglês.",
+        "O WhatsApp mostra o cartão com a imagem e o título da sala."
+      ],
+      "seFalhar": "Copie os avisos do Post Inspector e tire um print do cartão."
     }
   ]
 }
