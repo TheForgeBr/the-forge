@@ -136,3 +136,9 @@
     transparent
   );
 }
+
+/* Com o ambiente pintado, a runa grande da sala sai: ela marcava o ambiente
+   enquanto não havia imagem (6.6). */
+.cena-sala:has(.ambiente) > .runa {
+  display: none;
+}

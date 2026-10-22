@@ -71,3 +71,11 @@ describe('botão de menu no desktop (issue 4.7)', () => {
     expect(desktop).toMatch(/\.cabecalho \.cabecalho-menu \{\s*display: none;/);
   });
 });
+
+describe('runa da sala com ambiente (6.6)', () => {
+  it('a runa grande some quando a sala tem imagem', () => {
+    expect(css('cena.css')).toMatch(
+      /\.cena-sala:has\(\.ambiente\) > \.runa \{\s*display: none;/,
+    );
+  });
+});
