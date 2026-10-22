@@ -89,3 +89,13 @@ describe('rodapé translúcido', () => {
     expect(rodape).toMatch(/backdrop-filter: blur\(/);
   });
 });
+
+describe('rodapé no fim da tela', () => {
+  it('o corpo é uma coluna da altura da tela e o conteúdo ocupa o resto', () => {
+    const layout = css('layout.css');
+    expect(layout).toMatch(
+      /body \{[^}]*flex-direction: column;[^}]*min-height: 100dvh/,
+    );
+    expect(layout).toMatch(/main \{[^}]*flex: 1;/);
+  });
+});

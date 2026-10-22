@@ -178,7 +178,16 @@ main h1:focus {
   box-shadow: 0 0 0 2px var(--cor-ouro-forja);
 }
 
+/* O rodapé fica no fim da tela mesmo em página curta (como Posts vazia):
+   sem isso, o rodapé translúcido flutuava no meio, sobre o ambiente. */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
 main {
+  flex: 1;
   padding: var(--espaco-8) var(--espaco-4);
 }
 
