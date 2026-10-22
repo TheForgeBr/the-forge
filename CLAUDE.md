@@ -37,7 +37,10 @@ npm test                 # Vitest
 npm run verificar:rotas  # confere lang, <title> e <h1> no HTML de cada rota (depois do build)
 npm run check            # formato, lint, tipos, testes, build e verificação; rode antes de cada commit
 npm run format           # aplica o Prettier
+node scripts/sync-issues.mjs [--dry-run]  # cria ou atualiza as issues do GitHub a partir de Docs/ISSUES.json
 ```
+
+O Guia de Testes manuais fica em `Docs/testes/funcionalidades.json`. Toda mudança que o usuário consegue ver ou testar acrescenta ou atualiza um item nele, com a issue, os passos, o esperado e o que anotar se falhar.
 
 ## Decisões que não devem ser revertidas sem pedido
 

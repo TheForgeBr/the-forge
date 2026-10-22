@@ -1,0 +1,41 @@
+{
+  "atualizadoEm": "2026-10-21",
+  "preparacao": {
+    "titulo": "Preparar o teste",
+    "passos": [
+      "Abra um terminal em C:/Users/magic/Desktop/the-forge e rode `git pull`.",
+      "Rode `npm install` se o package.json mudou desde o último teste."
+    ]
+  },
+  "funcionalidades": [
+    {
+      "id": "check-local",
+      "titulo": "npm run check passa do zero",
+      "area": "Fundação",
+      "issues": [2, 3],
+      "passos": ["Rode `npm run check`."],
+      "esperado": [
+        "Formato, lint, tipos, testes, build e verificação das rotas passam, nessa ordem.",
+        "A última linha diz quantas rotas têm HTML completo."
+      ],
+      "seFalhar": "Anote a primeira etapa que falhou e a mensagem de erro."
+    },
+    {
+      "id": "deploy-render",
+      "titulo": "Site publicado no Render",
+      "area": "Deploy",
+      "issues": [8],
+      "passos": [
+        "Abra a URL do Render que está em Docs/deploy.md.",
+        "Abra a mesma URL com /rota-que-nao-existe no fim.",
+        "Faça um commit pequeno na main e veja o painel do Render."
+      ],
+      "esperado": [
+        "A página mostra \"olá forja\".",
+        "A rota inexistente mostra a página de erro do site, não a do Render.",
+        "O push dispara um deploy novo, que termina como Live."
+      ],
+      "seFalhar": "Copie o log do deploy no painel do Render."
+    }
+  ]
+}
