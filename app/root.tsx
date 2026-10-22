@@ -9,7 +9,9 @@ import {
   ScrollRestoration,
 } from 'react-router';
 import type { Route } from './+types/root';
+import { SCRIPT_DO_CARREGAMENTO } from './carregamento';
 import { CenaForja } from './cena/CenaForja';
+import { Carregamento } from './componentes/Carregamento';
 import { AnuncioDeSala } from './componentes/AnuncioDeSala';
 import { SalaNaoEncontrada } from './componentes/SalaNaoEncontrada';
 import { AvisoDeIdioma } from './componentes/AvisoDeIdioma';
@@ -22,6 +24,7 @@ import './estilos/base.css';
 import './estilos/layout.css';
 import './estilos/cena.css';
 import './estilos/salas.css';
+import './estilos/carregamento.css';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
@@ -42,11 +45,14 @@ export function Layout({ children }: { children: ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Tela de carregamento (6.4): roda antes de qualquer bundle. */}
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_DO_CARREGAMENTO }} />
         <Meta />
         <Links />
       </head>
       <body>
         <CenaForja />
+        <Carregamento />
         <AvisoDeIdioma />
         <Cabecalho />
         <main id="conteudo" tabIndex={-1}>

@@ -3,7 +3,6 @@
 // (nada é alocado a cada quadro), emitir, atualizar e desenhar. O laço
 // (iniciarFaiscas) é carregado por importação dinâmica pelo componente
 // Faiscas, depois da primeira pintura, e nunca com movimento reduzido.
-import { anguloDoMartelo, avancarGolpe, criarGolpe } from './golpe';
 import { iniciarLaco } from './laco';
 
 export interface Particula {
@@ -159,34 +158,29 @@ function coresDosTokens() {
     .filter(Boolean);
 }
 
-/** O martelo da Home (issue 6.3): o grupo que gira e o ponto da batida. */
-export interface Martelo {
-  readonly cabeca: SVGGraphicsElement;
-  readonly impacto: Element;
+/**
+ * Onde fica a boca da forja na imagem do ambiente da Home (6.7), em fração da
+ * tela: no desktop (deitada), no centro; no celular (em pé), à esquerda e mais
+ * embaixo. A imagem cobre a tela com object-fit: cover, então é aproximado.
+ */
+export function bocaDaForja(largura: number, altura: number) {
+  return largura >= altura
+    ? { x: 0.5, y: 0.72, largura: 0.12 }
+    : { x: 0.37, y: 0.8, largura: 0.2 };
 }
-
-/** Faíscas por batida, saindo do ponto de impacto. */
-const FAISCAS_POR_BATIDA = 18;
-/** A forja mantém viva só esta fração do limite: o resto fica para as batidas. */
-const FRACAO_DA_FORJA = 0.7;
 
 /**
  * Liga as faíscas no canvas e devolve a função que para tudo. Sem contexto 2D,
- * não liga nada. Acompanha o tamanho da janela; o laço pausa com a aba oculta.
- * Com o `martelo`, o mesmo laço o faz bater e cada batida solta faíscas no
- * ponto de impacto, sempre em sincronia.
+ * não liga nada. As faíscas saem da forja da imagem da Home e acompanham o
+ * tamanho da janela; o laço pausa com a aba oculta.
  */
-export function iniciarFaiscas(
-  canvas: HTMLCanvasElement,
-  { martelo }: { martelo?: Martelo | null } = {},
-): () => void {
+export function iniciarFaiscas(canvas: HTMLCanvasElement): () => void {
   const ctx = canvas.getContext('2d');
   if (!ctx) return () => {};
 
   const escala = Math.min(window.devicePixelRatio || 1, 2);
   const pool = criarPool(capacidadePara(window.innerWidth, window.innerHeight));
   const cores = coresDosTokens();
-  const golpe = criarGolpe();
   let emissor: Emissor;
   let acumulado = 0;
 
@@ -195,50 +189,25 @@ export function iniciarFaiscas(
     const altura = canvas.clientHeight * escala;
     canvas.width = largura;
     canvas.height = altura;
+    const boca = bocaDaForja(largura, altura);
     emissor = {
-      x: largura / 2,
-      y: altura * 0.92,
-      largura: largura * 0.25,
-      velocidade: altura * 0.45,
-      espalhamento: 0.9,
-      duracao: 1.4,
+      x: largura * boca.x,
+      y: altura * boca.y,
+      largura: largura * boca.largura,
+      velocidade: altura * 0.35,
+      espalhamento: 0.8,
+      duracao: 1.3,
       cores,
     };
   }
 
-  /** Estouro em leque no ponto de impacto, em px do canvas. */
-  function bater(alvo: Element) {
-    const ponto = alvo.getBoundingClientRect();
-    const tela = canvas.getBoundingClientRect();
-    emitir(
-      pool,
-      {
-        x: (ponto.left - tela.left) * escala,
-        y: (ponto.top - tela.top) * escala,
-        largura: 4 * escala,
-        velocidade: canvas.height * 0.35,
-        espalhamento: 2.4,
-        duracao: 0.7,
-        cores,
-      },
-      FAISCAS_POR_BATIDA,
-    );
-  }
-
   function passo(dt: number) {
     ajustarLimite(pool, dt);
-    // Uma vazão que mantém a forja em FRACAO_DA_FORJA do limite.
-    acumulado += (dt * pool.limite * FRACAO_DA_FORJA) / emissor.duracao;
+    // Uma vazão que mantém o pool perto do limite: limite / vida média.
+    acumulado += (dt * pool.limite) / emissor.duracao;
     const novas = Math.floor(acumulado);
     acumulado -= novas;
     emitir(pool, emissor, novas);
-    if (martelo) {
-      const batidas = avancarGolpe(golpe, dt);
-      // No SVG o y cresce para baixo: o ângulo do ciclo (negativo sobe) entra
-      // com o sinal trocado.
-      martelo.cabeca.style.transform = `rotate(${-anguloDoMartelo(golpe.fase)}deg)`;
-      if (batidas > 0) bater(martelo.impacto);
-    }
     atualizar(pool, dt);
     ctx!.clearRect(0, 0, canvas.width, canvas.height);
     desenhar(ctx!, pool, escala);
@@ -251,8 +220,6 @@ export function iniciarFaiscas(
   return () => {
     pararLaco();
     window.removeEventListener('resize', medir);
-    // De volta à pose parada: martelo levantado.
-    if (martelo) martelo.cabeca.style.transform = '';
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 }

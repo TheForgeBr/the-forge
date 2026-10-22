@@ -454,7 +454,7 @@
         "Com o DevTools aberto, aba Desempenho, grave 5 segundos na Home."
       ],
       "esperado": [
-        "Faíscas em ouro, brasa e chama sobem da base da tela e caem de volta, atrás do texto.",
+        "Faíscas em ouro, brasa e chama sobem da forja da imagem do ambiente (no centro no desktop, à esquerda no celular), atrás do texto.",
         "particulas-*.js chega depois da página, não junto com ela.",
         "Em Projetos não há faíscas; de volta à Home, elas recomeçam.",
         "Com a aba oculta, o laço para; ao voltar, segue sem um salto.",
@@ -486,25 +486,6 @@
       "seFalhar": "Anote o aparelho, a sala e um print; no desktop, grave a aba Desempenho por 5 segundos."
     },
     {
-      "id": "martelo-na-bigorna",
-      "titulo": "Martelo batendo na bigorna da Home",
-      "area": "Cena",
-      "issues": [49],
-      "passos": [
-        "Abra a Home no site publicado (desktop) e olhe o canto inferior direito.",
-        "Conte algumas batidas.",
-        "Ligue Reduzir movimento no sistema e recarregue a Home.",
-        "Abra a Home no celular."
-      ],
-      "esperado": [
-        "O martelo sobe devagar, segura no alto e desce rápido; a cada batida, um leque de faíscas sai do ponto onde a cabeça encosta na bigorna.",
-        "Uma batida a cada 2,6 s, sem som.",
-        "Com movimento reduzido, o martelo fica parado no alto e não há faíscas.",
-        "No celular, a bigorna fica mais apagada, atrás do texto, sem esconder nada."
-      ],
-      "seFalhar": "Anote o navegador, a largura e um print do momento da batida."
-    },
-    {
       "id": "ambientes-das-salas",
       "titulo": "Ambientes das salas: imagem atrás do conteúdo",
       "area": "Cena",
@@ -524,6 +505,29 @@
         "Sala sem imagem continua com o degradê; com movimento reduzido, a troca é direta."
       ],
       "seFalhar": "Anote a sala, a largura e o que a aba Rede mostrou."
+    },
+    {
+      "id": "tela-de-carregamento",
+      "titulo": "Tela de carregamento com o martelo élfico",
+      "area": "Cena",
+      "issues": [50, 49],
+      "passos": [
+        "No site publicado, abra o DevTools: aba Aplicativo, apague a chave forja:visitou do localStorage.",
+        "Na aba Rede, escolha 3G lento e recarregue a Home.",
+        "Recarregue de novo (a visita ficou marcada).",
+        "Volte a rede para Sem limitação, apague a chave e recarregue.",
+        "Com JavaScript desligado, recarregue.",
+        "Ligue Reduzir movimento, apague a chave e recarregue com 3G lento."
+      ],
+      "esperado": [
+        "Com 3G lento na primeira visita, depois de um instante aparece o martelo élfico batendo na bigorna, com Rhuan Marques e Desenvolvedor full-stack; some sozinho assim que o site fica pronto (ou em até 8 s).",
+        "Na segunda visita, a tela não aparece.",
+        "Com a rede rápida, a tela não aparece (nem pisca).",
+        "Sem JavaScript, o conteúdo aparece direto, sem a tela.",
+        "Com movimento reduzido, o martelo aparece parado no alto.",
+        "Na Home, não há mais martelo na cena."
+      ],
+      "seFalhar": "Anote a rede escolhida, se a chave existia e um print."
     }
   ]
 }

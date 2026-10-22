@@ -1,0 +1,135 @@
+/* Tela de carregamento (issue 6.4). Escondida por padrão; o script do <head>
+   põe data-carregando no <html> numa primeira visita lenta, e o React tira o
+   atributo assim que hidrata. A batida é CSS porque roda antes do JavaScript. */
+.carregamento {
+  display: none;
+}
+
+html[data-carregando] .carregamento {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-2);
+  background: var(--cor-fuligem);
+  text-align: center;
+}
+
+.carregamento-martelo {
+  width: min(60vw, 280px);
+  margin-bottom: var(--espaco-4);
+}
+
+.carregamento-nome {
+  margin: 0;
+  color: var(--cor-pergaminho);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-2xl);
+  font-weight: 700;
+}
+
+.carregamento-cargo {
+  margin: 0;
+  color: var(--cor-ouro-forja);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-lg);
+}
+
+/* Martelo élfico e bigorna (MarteloEBigorna.tsx), nas cores dos tokens. */
+.bigorna {
+  fill: var(--cor-ferro);
+  stroke: var(--cor-ouro-forja);
+  stroke-width: 0.6;
+}
+
+.aco-claro {
+  stop-color: var(--cor-pergaminho);
+}
+
+.aco-escuro {
+  stop-color: var(--cor-cinza-brasa);
+}
+
+.martelo-aco {
+  fill: url(#aco-do-martelo);
+}
+
+.martelo-filete {
+  fill: none;
+  stroke: var(--cor-ouro-forja);
+  stroke-width: 0.35;
+  opacity: 0.8;
+}
+
+.martelo-luz {
+  fill: var(--cor-magia);
+  opacity: 0.85;
+}
+
+/* A batida, num ciclo de 2,6 s: bate (0%), quica, sobe devagar, segura no
+   alto e desce rápido até bater de novo. rotate positivo levanta a cabeça (o
+   y do SVG cresce para baixo); o eixo é o punho do cabo. */
+.martelo {
+  transform-box: view-box;
+  transform-origin: 104px 56px;
+  transform: rotate(35deg);
+  animation: golpe 2.6s infinite;
+}
+
+@keyframes golpe {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+  4% {
+    transform: rotate(6deg);
+    animation-timing-function: ease-in;
+  }
+  8% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.3, 1);
+  }
+  58% {
+    transform: rotate(35deg);
+  }
+  85% {
+    transform: rotate(35deg);
+    animation-timing-function: cubic-bezier(0.6, 0, 0.9, 0.5);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* O brilho da batida, em sincronia com o golpe. */
+.impacto {
+  fill: var(--cor-ouro-forja);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: brilho 2.6s infinite;
+}
+
+@keyframes brilho {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.4);
+  }
+  15% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .martelo,
+  .impacto {
+    animation: none;
+  }
+}
