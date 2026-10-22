@@ -41,6 +41,8 @@ npm test                 # Vitest
 npm run verificar:rotas  # confere lang, <title> e <h1> no HTML de cada rota (depois do build)
 npm run tokens           # gera app/estilos/tokens.css a partir de marca/tokens.json
 npm run verificar:tokens # falha se o tokens.css estiver desatualizado em relação ao JSON
+npm run logo             # gera logo, símbolo e favicon em SVG (letreiro em curvas, cores dos tokens)
+npm run verificar:logo   # falha se algum SVG do logo estiver desatualizado
 npm run verificar:fontes # confere pesos e subconjunto das fontes no build e mostra o peso em KB
 npm run orcamento        # soma o JS gzip da primeira carga da Home e falha acima de marca/orcamento.json
 npm run check            # formato, lint, tipos, testes, tokens, build e verificação das rotas; rode antes de cada commit

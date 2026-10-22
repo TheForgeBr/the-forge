@@ -1,2 +1,7 @@
 * text=auto eol=lf
 app/estilos/tokens.css linguist-generated=true
+marca/logo.svg linguist-generated=true
+marca/logo-claro.svg linguist-generated=true
+marca/simbolo.svg linguist-generated=true
+marca/simbolo-claro.svg linguist-generated=true
+public/favicon.svg linguist-generated=true

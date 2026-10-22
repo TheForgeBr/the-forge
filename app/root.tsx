@@ -15,7 +15,10 @@ import { caminhoDaSala, LANG, useIdioma, useTraducao } from './i18n/idioma';
 import './estilos/tokens.css';
 import './estilos/base.css';
 
-export const links: Route.LinksFunction = () => linksDasFontes();
+export const links: Route.LinksFunction = () => [
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  ...linksDasFontes(),
+];
 
 export function Layout({ children }: { children: ReactNode }) {
   const lang = LANG[useIdioma()];

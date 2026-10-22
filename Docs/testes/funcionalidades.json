@@ -130,6 +130,23 @@
         "O Console não mostra erro de hidratação."
       ],
       "seFalhar": "Anote a sala, o idioma e o que apareceu; copie o erro do Console, se houver."
+    },
+    {
+      "id": "logo-svg",
+      "titulo": "Logo e favicon em SVG",
+      "area": "Marca",
+      "issues": [13],
+      "passos": [
+        "Abra `marca/logo.svg` e `marca/logo-claro.svg` no navegador (arraste o arquivo para uma aba).",
+        "Abra `marca/simbolo.svg` e use o zoom do navegador para ver de perto e de longe.",
+        "Rode `npm run build` e `npm run preview`, abra o site e olhe o ícone da aba com o sistema em tema claro e depois em tema escuro."
+      ],
+      "esperado": [
+        "O logo mostra a bigorna dentro do anel, a estrela acima da bigorna, o </> na falha do alto e o letreiro THE FORGE BR, nítido em qualquer zoom.",
+        "A versão escura usa ouro e pergaminho; a clara usa fuligem e brasa.",
+        "O ícone da aba é o símbolo: fuligem e brasa no tema claro, ouro e pergaminho no tema escuro."
+      ],
+      "seFalhar": "Tire um print do arquivo ou da aba e anote qual tema estava ativo."
     }
   ]
 }
