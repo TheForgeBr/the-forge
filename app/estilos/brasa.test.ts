@@ -52,6 +52,11 @@ describe('brasa viva', () => {
     expect(css).toMatch(/background-clip: text/);
   });
 
+  it('a chama vai de baixo para cima e também está nos links das salas', () => {
+    expect(css).toMatch(/--degrade-brasa: linear-gradient\(\s*to top/);
+    expect(css).toContain('.cabecalho-salas li a');
+  });
+
   it('com movimento reduzido, nada cintila', () => {
     const reduzido =
       /@media \(prefers-reduced-motion: reduce\) \{([\s\S]*)\}\s*$/.exec(
@@ -63,6 +68,7 @@ describe('brasa viva', () => {
       '.botao',
       '.cabecalho .botao-contato',
       '.cartao-projeto::after',
+      '.cabecalho-salas li a',
     ])
       expect(reduzido).toContain(seletor);
   });

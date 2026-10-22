@@ -514,13 +514,14 @@
       "issues": [],
       "passos": [
         "Abra a Home e as outras salas no site publicado e olhe os títulos por alguns segundos.",
-        "Olhe os botões Contato, Ver os projetos, Falar comigo e Baixar currículo.",
+        "Olhe os botões Contato, Ver os projetos, Falar comigo e Baixar currículo e os links das salas no topo.",
         "Passe o mouse sobre um cartão de destaque da Home e sobre um canal de Contato.",
         "Ligue Reduzir movimento e recarregue."
       ],
       "esperado": [
-        "O fogo fica dentro das letras dos títulos: um degradê de laranja, ouro e ciano que anda devagar e cujo brilho sobe e volta a cada 6 s, sem brilho vazando para fora das letras.",
+        "O fogo fica dentro das letras de títulos, botões e links das salas, de baixo para cima: brasa na base, ouro no corpo e ciano na ponta; a cada 6 s a ponta azul sobe e volta, mais clara, sem brilho vazando para fora das letras.",
         "Os botões têm fundo escuro de pedra, borda discreta em brasa e as letras em brasa; as runas dos botões ficam em ouro.",
+        "A sala atual no topo tem um sublinhado em brasa.",
         "Cartões e botões têm um reflexo laranja e ciano que respira no mesmo ritmo; ao passar o mouse, o reflexo acende.",
         "O texto corrido continua em pergaminho e legível.",
         "Com movimento reduzido, nada respira: o degradê e o reflexo ficam parados."

@@ -1,20 +1,21 @@
 /* Magia da forja (pedido do usuário em 2026-10-22, com os ambientes
    pintados): o site respira. O fogo queima dentro das letras de títulos e
-   botões, num degradê das cores da chama (brasa, ouro) às da magia (ciano),
-   recortado no desenho de cada letra, sem vazar para fora dele. A cada 6 s o
-   degradê anda e o brilho sobe e volta, como uma respiração; as sombras de
+   botões, num degradê de baixo para cima, como uma chama (brasa na base, ouro,
+   ciano na ponta), recortado no desenho de cada letra, sem vazar para fora
+   dele. Vale para títulos, botões e os links das salas. A cada 6 s a chama sobe e o brilho sobe e volta, como uma respiração; as sombras de
    cartões e botões refletem as mesmas cores no mesmo ritmo. Só cores dos
    tokens; o texto corrido continua em pergaminho. O brilho só sobe a partir
    do normal, então o contraste nunca fica abaixo do conferido no teste
    (4,5:1 sobre fuligem e pedra). Com movimento reduzido, nada respira. */
 :root {
+  /* De baixo para cima, como uma chama: brasa na base, ouro no corpo e a
+     ponta na magia. */
   --degrade-brasa: linear-gradient(
-    100deg,
+    to top,
     var(--cor-brasa),
-    var(--cor-ouro-forja) 30%,
-    var(--cor-magia) 55%,
-    var(--cor-ouro-forja) 80%,
-    var(--cor-brasa)
+    var(--cor-ouro-forja) 35%,
+    var(--cor-magia) 70%,
+    var(--cor-magia)
   );
   --sombra-brasa:
     0 10px 28px -16px color-mix(in srgb, var(--cor-brasa) 80%, transparent),
@@ -28,9 +29,12 @@ main h1,
 .cargo,
 .carregamento-nome,
 .botao,
-.cabecalho .botao-contato {
+.cabecalho .botao-contato,
+.cabecalho-salas li a,
+.cabecalho-salas li a[aria-current='page'] {
   background-image: var(--degrade-brasa);
-  background-size: 300% 100%;
+  background-size: 100% 160%;
+  background-position: 50% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -45,9 +49,15 @@ main h1,
   border: 1px solid color-mix(in srgb, var(--cor-brasa) 55%, var(--cor-ferro));
 }
 
-/* As runas dos botões têm cor própria (o texto é transparente). */
+/* A sala atual no menu: um sublinhado em brasa, já que a cor não a marca mais. */
+.cabecalho-salas li a[aria-current='page'] {
+  box-shadow: inset 0 -2px 0 var(--cor-brasa);
+}
+
+/* As runas dos botões e do menu têm cor própria (o texto é transparente). */
 .botao .runa,
-.cabecalho .botao-contato .runa {
+.cabecalho .botao-contato .runa,
+.cabecalho-salas li a .runa {
   color: var(--cor-ouro-forja);
 }
 
@@ -93,13 +103,14 @@ main h1,
 }
 
 @keyframes respirar-letras {
+  /* A chama sobe (a ponta azul avança na letra) e volta, mais clara no alto. */
   0%,
   100% {
-    background-position: 0% 50%;
+    background-position: 50% 100%;
     filter: brightness(1);
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 50% 0%;
     filter: brightness(1.25);
   }
 }
@@ -121,6 +132,8 @@ main h1,
   .carregamento-nome,
   .botao,
   .cabecalho .botao-contato,
+  .cabecalho-salas li a,
+  .cabecalho-salas li a[aria-current='page'],
   .botao::after,
   .cabecalho .botao-contato::after,
   .cartao-projeto::after,
