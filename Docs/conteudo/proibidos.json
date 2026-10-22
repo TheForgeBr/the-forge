@@ -1,29 +1,68 @@
 {
   "sobre": "Termos que não podem aparecer no conteúdo publicado (issue 2.7). Nomes de pessoas, clientes e máquinas entram só como hash SHA-256 do texto normalizado, para o repositório público não expor o que se quer esconder: gere a linha com `node scripts/privacidade.mjs --hash \"termo\"`.",
   "termos": [
-    { "texto": "Automations", "motivo": "projeto que não aparece no site" },
+    {
+      "texto": "Automations",
+      "motivo": "projeto que não aparece no site"
+    },
     {
       "texto": "tester freelancer",
       "motivo": "trabalho de 2025 que fica fora"
     },
-    { "texto": "freelancer 2025", "motivo": "trabalho de 2025 que fica fora" },
+    {
+      "texto": "freelancer 2025",
+      "motivo": "trabalho de 2025 que fica fora"
+    },
     {
       "texto": "sensibilidade: privado",
       "motivo": "marcador de nota privada do vault"
     },
-    { "texto": "token", "motivo": "segredo" },
-    { "texto": "senha", "motivo": "segredo" },
-    { "texto": "password", "motivo": "segredo" },
-    { "texto": ".env", "motivo": "segredo" },
-    { "texto": "C:/Users/", "motivo": "caminho da máquina" },
-    { "texto": "C:\\Users\\", "motivo": "caminho da máquina" },
-    { "texto": "D:\\arquivos", "motivo": "caminho da máquina" }
+    {
+      "texto": "token",
+      "motivo": "segredo"
+    },
+    {
+      "texto": "senha",
+      "motivo": "segredo"
+    },
+    {
+      "texto": "password",
+      "motivo": "segredo"
+    },
+    {
+      "texto": ".env",
+      "motivo": "segredo"
+    },
+    {
+      "texto": "C:/Users/",
+      "motivo": "caminho da máquina"
+    },
+    {
+      "texto": "C:\\Users\\",
+      "motivo": "caminho da máquina"
+    },
+    {
+      "texto": "D:\\arquivos",
+      "motivo": "caminho da máquina"
+    }
   ],
   "padroes": [
-    { "regex": "\\bsk-[A-Za-z0-9_-]{16,}", "motivo": "chave de API" },
-    { "regex": "\\bghp_[A-Za-z0-9]{20,}", "motivo": "token do GitHub" },
-    { "regex": "\\bgithub_pat_[A-Za-z0-9_]{20,}", "motivo": "token do GitHub" },
-    { "regex": "\\bAKIA[0-9A-Z]{16}\\b", "motivo": "chave da AWS" }
+    {
+      "regex": "\\bsk-[A-Za-z0-9_-]{16,}",
+      "motivo": "chave de API"
+    },
+    {
+      "regex": "\\bghp_[A-Za-z0-9]{20,}",
+      "motivo": "token do GitHub"
+    },
+    {
+      "regex": "\\bgithub_pat_[A-Za-z0-9_]{20,}",
+      "motivo": "token do GitHub"
+    },
+    {
+      "regex": "\\bAKIA[0-9A-Z]{16}\\b",
+      "motivo": "chave da AWS"
+    }
   ],
   "hashes": [
     {
@@ -47,5 +86,5 @@
       "motivo": "nome do computador"
     }
   ],
-  "contatosAprovados": []
+  "contatosAprovados": ["rhuan.marques.robias@gmail.com"]
 }

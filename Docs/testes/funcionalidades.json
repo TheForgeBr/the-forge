@@ -383,6 +383,25 @@
         "Os links levam às salas no mesmo idioma, sem recarregar a página."
       ],
       "seFalhar": "Anote o endereço aberto, o idioma e o erro do console, com um print."
+    },
+    {
+      "id": "sala-contato",
+      "titulo": "Sala Contato",
+      "area": "Salas",
+      "issues": [38],
+      "passos": [
+        "Abra /contato no site publicado.",
+        "Clique em cada canal: WhatsApp, E-mail, LinkedIn e GitHub.",
+        "Clique em Baixar currículo (PDF).",
+        "Abra /en/contact e compare com a tela \"The Forge BR - Contato\" do Stitch em 360 px."
+      ],
+      "esperado": [
+        "O WhatsApp abre a conversa com o seu número; o E-mail abre o programa de e-mail com o seu endereço; LinkedIn e GitHub abrem os seus perfis.",
+        "O currículo baixa um arquivo; até a issue 7.1 publicar o PDF, o arquivo baixado é a página 404, não o currículo.",
+        "Em inglês, os rótulos e a linha \"I reply in Portuguese and English.\" mudam.",
+        "Em 360 px não há rolagem lateral."
+      ],
+      "seFalhar": "Anote o canal, para onde ele levou e o idioma."
     }
   ]
 }

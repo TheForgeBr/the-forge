@@ -1,4 +1,4 @@
-import { Sala } from '../componentes/Sala';
+import { SalaContato } from '../componentes/SalaContato';
 import { metaDaSala } from '../site';
 
 export function meta({ location }: { location: { pathname: string } }) {
@@ -6,5 +6,5 @@ export function meta({ location }: { location: { pathname: string } }) {
 }
 
 export default function Contato() {
-  return <Sala sala="contato" />;
+  return <SalaContato />;
 }

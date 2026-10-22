@@ -96,9 +96,13 @@ export const pt = {
   'contato.convite':
     'Quer conversar sobre uma vaga ou um projeto? Escolha o canal.',
   'contato.whatsapp': 'WhatsApp',
+  'contato.whatsapp.detalhe': 'Mensagem rápida',
   'contato.email': 'E-mail',
+  'contato.email.detalhe': 'Propostas e conversas mais longas',
   'contato.linkedin': 'LinkedIn',
+  'contato.linkedin.detalhe': 'Rede profissional',
   'contato.github': 'GitHub',
+  'contato.github.detalhe': 'Código dos projetos',
   'contato.curriculo': 'Baixar currículo (PDF)',
   'contato.idiomas': 'Respondo em português e em inglês.',
 

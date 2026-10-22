@@ -93,9 +93,13 @@ export const en: Dicionario = {
   'sala.contato.texto': 'Contact options are coming soon.',
   'contato.convite': 'Want to talk about a job or a project? Pick a channel.',
   'contato.whatsapp': 'WhatsApp',
+  'contato.whatsapp.detalhe': 'Quick message',
   'contato.email': 'Email',
+  'contato.email.detalhe': 'Proposals and longer conversations',
   'contato.linkedin': 'LinkedIn',
+  'contato.linkedin.detalhe': 'Professional network',
   'contato.github': 'GitHub',
+  'contato.github.detalhe': 'Project code',
   'contato.curriculo': 'Download résumé (PDF)',
   'contato.idiomas': 'I reply in Portuguese and English.',
 
