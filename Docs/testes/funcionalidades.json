@@ -668,6 +668,22 @@
         "O slug inexistente mostra a 404 da forja."
       ],
       "seFalhar": "Anote o post, a largura da tela, o trecho que quebrou (título, imagem, lista, código) e mande um print."
+    },
+    {
+      "id": "sitemap",
+      "titulo": "Sitemap e robots.txt",
+      "area": "Posts",
+      "issues": [45],
+      "passos": [
+        "Abra https://the-forge-96d7.onrender.com/sitemap.xml e /robots.txt.",
+        "Valide o sitemap em https://www.xml-sitemaps.com/validate-xml-sitemap.html (ou envie no Google Search Console, se usar)."
+      ],
+      "esperado": [
+        "O sitemap lista as 6 salas em português e em inglês (12 endereços) e, depois, cada post publicado com a data; cada sala traz o hreflang pt-BR, en e x-default. A 404 não aparece.",
+        "O robots.txt libera tudo e aponta para o sitemap na mesma URL do site.",
+        "O validador aceita o arquivo."
+      ],
+      "seFalhar": "Anote o endereço que falta ou sobra e a mensagem do validador."
     }
   ]
 }

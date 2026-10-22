@@ -41,7 +41,7 @@ Node 22.12 ou superior (a máquina principal usa o 22.19; ver `.nvmrc`).
 
 ```bash
 npm run dev              # servidor de desenvolvimento
-npm run build            # gera build/client com o HTML de cada rota
+npm run build            # gera build/client com o HTML de cada rota, o RSS (rss.xml, en/rss.xml), o sitemap.xml e o robots.txt
 npm test                 # Vitest
 npm run verificar:rotas  # confere no HTML de cada rota (salas e 404) lang, um <title>, um <h1>, descrição, Open Graph, hreflang e o texto-chave da sala (depois do build)
 npm run tokens           # gera app/estilos/tokens.css a partir de marca/tokens.json
