@@ -1,38 +1,90 @@
 {
   "labels": [
-    { "name": "etapa-0", "color": "1f6feb", "description": "Fundação" },
-    { "name": "etapa-1", "color": "8250df", "description": "Marca" },
-    { "name": "etapa-2", "color": "0e8a16", "description": "Conteúdo" },
-    { "name": "etapa-3", "color": "d93f0b", "description": "Casca da forja" },
-    { "name": "etapa-4", "color": "c5def5", "description": "Salas" },
-    { "name": "etapa-5", "color": "fbca04", "description": "Posts" },
-    { "name": "etapa-6", "color": "e8661e", "description": "Forja viva" },
+    {
+      "name": "etapa-0",
+      "color": "1f6feb",
+      "description": "Fundação"
+    },
+    {
+      "name": "etapa-1",
+      "color": "8250df",
+      "description": "Marca"
+    },
+    {
+      "name": "etapa-2",
+      "color": "0e8a16",
+      "description": "Conteúdo"
+    },
+    {
+      "name": "etapa-3",
+      "color": "d93f0b",
+      "description": "Casca da forja"
+    },
+    {
+      "name": "etapa-4",
+      "color": "c5def5",
+      "description": "Salas"
+    },
+    {
+      "name": "etapa-5",
+      "color": "fbca04",
+      "description": "Posts"
+    },
+    {
+      "name": "etapa-6",
+      "color": "e8661e",
+      "description": "Forja viva"
+    },
     {
       "name": "etapa-7",
       "color": "4fe3e0",
       "description": "Currículo e GitHub"
     },
-    { "name": "etapa-8", "color": "b60205", "description": "Lançamento" },
-    { "name": "docs", "color": "d4c5f9", "description": "Documentação e ADRs" },
-    { "name": "testes", "color": "bfd4f2", "description": "Testes e medição" },
+    {
+      "name": "etapa-8",
+      "color": "b60205",
+      "description": "Lançamento"
+    },
+    {
+      "name": "docs",
+      "color": "d4c5f9",
+      "description": "Documentação e ADRs"
+    },
+    {
+      "name": "testes",
+      "color": "bfd4f2",
+      "description": "Testes e medição"
+    },
     {
       "name": "marca",
       "color": "f6a43a",
       "description": "Paleta, tipografia, logo e runas"
     },
-    { "name": "design", "color": "5319e7", "description": "Telas do Stitch" },
+    {
+      "name": "design",
+      "color": "5319e7",
+      "description": "Telas do Stitch"
+    },
     {
       "name": "conteudo",
       "color": "0e8a16",
       "description": "Projetos, experiências, skills e textos"
     },
-    { "name": "i18n", "color": "2f7fd8", "description": "Português e inglês" },
+    {
+      "name": "i18n",
+      "color": "2f7fd8",
+      "description": "Português e inglês"
+    },
     {
       "name": "cena",
       "color": "d9381e",
       "description": "Cena da forja, câmera e animações"
     },
-    { "name": "sala", "color": "1c1613", "description": "Página de uma sala" },
+    {
+      "name": "sala",
+      "color": "1c1613",
+      "description": "Página de uma sala"
+    },
     {
       "name": "posts",
       "color": "fbca04",
@@ -322,8 +374,48 @@
     },
     {
       "title": "6.5 Medição do orçamento com a forja viva",
-      "body": "História: Como dono do site, quero provar que faíscas, fogo e martelo cabem no orçamento.\n\nContexto: fecha a Etapa 6; depende de 6.1 a 6.4 e 3.9.\n\nEspecificações técnicas:\n- Medir: JS gzip da primeira carga (script da 3.9), LCP em 4G simulada e uso de CPU em repouso, no celular emulado e em um celular real.\n- Registrar os valores em `Docs/desempenho.md` com data e commit.\n- Se estourar, mover código para importação dinâmica ou reduzir efeitos; documentar a decisão no ADR 0003.\n\nCritérios de aceite: JS < 150 KB gzip na primeira carga e LCP < 2,5 s em 4G simulada, com valores registrados.\n\nTestes esperados: o `check` do orçamento; medições manuais registradas no documento.\n\nComo testar: `npm run check`; medir no painel de desempenho do navegador.",
+      "body": "História: Como dono do site, quero provar que faíscas, fogo e martelo cabem no orçamento.\n\nContexto: fecha a Etapa 6; depende de 6.1 a 6.4, 6.6 a 6.13 (ambientes das salas) e 3.9.\n\nEspecificações técnicas:\n- Medir também o peso das imagens dos ambientes por sala.\n- Medir: JS gzip da primeira carga (script da 3.9), LCP em 4G simulada e uso de CPU em repouso, no celular emulado e em um celular real.\n- Registrar os valores em `Docs/desempenho.md` com data e commit.\n- Se estourar, mover código para importação dinâmica ou reduzir efeitos; documentar a decisão no ADR 0003.\n\nCritérios de aceite: JS < 150 KB gzip na primeira carga e LCP < 2,5 s em 4G simulada, com valores registrados.\n\nTestes esperados: o `check` do orçamento; medições manuais registradas no documento.\n\nComo testar: `npm run check`; medir no painel de desempenho do navegador.",
       "labels": ["etapa-6", "desempenho", "testes"]
+    },
+    {
+      "title": "6.6 Faixa de imagens dos ambientes das salas",
+      "body": "História: Como visitante, quero que cada sala tenha o seu ambiente pintado atrás do conteúdo, sem que o site fique pesado.\n\nContexto: decisão do usuário em 2026-10-22: os ambientes são imagens como as do Stitch (não ilustrações em SVG). Hoje cada sala da CenaForja tem só um degradê e a runa grande. Depende de 3.3 e 3.4 (cena e câmera).\n\nEspecificações técnicas:\n- Pasta por sala (ex.: `app/imagens/salas/<sala>/`) com a imagem em AVIF e WebP, em duas variantes (celular em pé e desktop deitado), escolhidas por `<picture>` ou `image-set()`.\n- Carregamento por sala: a imagem da sala de entrada pode ser pré-carregada; as outras só quando a câmera vai até elas (ou logo depois da primeira pintura), sem entrar no orçamento de JS.\n- Enquanto a imagem não chega, ou se ela faltar, fica o degradê atual; trocar o arquivo troca a imagem sem mudar código.\n- Limite de peso por imagem registrado (ex.: 150 KB por variante) e conferido por teste; LCP continua sendo o texto, não a imagem.\n- Emenda entre salas: a fumaça laranja e azul esconde a junção durante a viagem da câmera; com movimento reduzido, a troca é direta.\n- Atualizar o ADR 0003 (orçamento) com o peso das imagens e o Guia de Testes.\n\nCritérios de aceite: com uma imagem de teste numa sala, ela aparece atrás do conteúdo, só carrega quando precisa e respeita o limite; sem imagem, o degradê continua.\n\nTestes esperados: teste do limite de peso e das variantes por sala; teste de que a sala sem imagem usa o degradê.\n\nComo testar: `npm run check`; aba Rede do navegador ao trocar de sala.",
+      "labels": ["etapa-6", "cena", "desempenho"]
+    },
+    {
+      "title": "6.7 Ambiente da sala Home (a forja)",
+      "body": "História: Como visitante, quero ver a forja acesa, com coifa, fole e carvão atrás do conteúdo da sala Home, como na tela aprovada no Stitch.\n\nContexto: depende da 6.6 (faixa de imagens) e da tela aprovada da sala no Stitch (Docs/design/telas.md). Imagem semi-realista, escurecida, com a fumaça em degradê de laranja para azul e o guia visual de Docs/design/referencias-elficas.md.\nSem a lenha embaixo da forja (observação da tela aprovada). O martelo e a bigorna em SVG (6.3) e o fogo em canvas (6.2) ficam por cima: a imagem deixa espaço para eles e não repete a bigorna.\n\nEspecificações técnicas:\n- Gerar a imagem a partir da referência do Stitch, nas proporções da faixa (celular em pé e desktop deitado), com a área atrás do texto escura o bastante para o contraste.\n- Mostrar a imagem ao usuário e só publicar depois do \"aprovado\".\n- Exportar pelos tamanhos e formatos da 6.6 e colocar na pasta da sala.\n- Atualizar o Guia de Testes.\n\nCritérios de aceite: imagem aprovada pelo usuário; dentro do limite de peso da 6.6; texto da sala legível por cima (contraste conferido); com movimento reduzido, a troca de sala continua sem animação.\n\nTestes esperados: o teste da 6.6 confere que a sala tem as variantes e o peso dentro do limite.\n\nComo testar: `npm run check`; abrir a sala no celular e no desktop.",
+      "labels": ["etapa-6", "cena", "design"]
+    },
+    {
+      "title": "6.8 Ambiente da sala Projetos (o arsenal)",
+      "body": "História: Como visitante, quero ver o arsenal da forja, com as peças forjadas penduradas na parede atrás do conteúdo da sala Projetos, como na tela aprovada no Stitch.\n\nContexto: depende da 6.6 (faixa de imagens) e da tela aprovada da sala no Stitch (Docs/design/telas.md). Imagem semi-realista, escurecida, com a fumaça em degradê de laranja para azul e o guia visual de Docs/design/referencias-elficas.md.\n\nEspecificações técnicas:\n- Gerar a imagem a partir da referência do Stitch, nas proporções da faixa (celular em pé e desktop deitado), com a área atrás do texto escura o bastante para o contraste.\n- Mostrar a imagem ao usuário e só publicar depois do \"aprovado\".\n- Exportar pelos tamanhos e formatos da 6.6 e colocar na pasta da sala.\n- Atualizar o Guia de Testes.\n\nCritérios de aceite: imagem aprovada pelo usuário; dentro do limite de peso da 6.6; texto da sala legível por cima (contraste conferido); com movimento reduzido, a troca de sala continua sem animação.\n\nTestes esperados: o teste da 6.6 confere que a sala tem as variantes e o peso dentro do limite.\n\nComo testar: `npm run check`; abrir a sala no celular e no desktop.",
+      "labels": ["etapa-6", "cena", "design"]
+    },
+    {
+      "title": "6.9 Ambiente da sala Experiências (o corredor das crônicas)",
+      "body": "História: Como visitante, quero ver o corredor de pedra com tochas e placas de metal gravadas atrás do conteúdo da sala Experiências, como na tela aprovada no Stitch.\n\nContexto: depende da 6.6 (faixa de imagens) e da tela aprovada da sala no Stitch (Docs/design/telas.md). Imagem semi-realista, escurecida, com a fumaça em degradê de laranja para azul e o guia visual de Docs/design/referencias-elficas.md.\n\nEspecificações técnicas:\n- Gerar a imagem a partir da referência do Stitch, nas proporções da faixa (celular em pé e desktop deitado), com a área atrás do texto escura o bastante para o contraste.\n- Mostrar a imagem ao usuário e só publicar depois do \"aprovado\".\n- Exportar pelos tamanhos e formatos da 6.6 e colocar na pasta da sala.\n- Atualizar o Guia de Testes.\n\nCritérios de aceite: imagem aprovada pelo usuário; dentro do limite de peso da 6.6; texto da sala legível por cima (contraste conferido); com movimento reduzido, a troca de sala continua sem animação.\n\nTestes esperados: o teste da 6.6 confere que a sala tem as variantes e o peso dentro do limite.\n\nComo testar: `npm run check`; abrir a sala no celular e no desktop.",
+      "labels": ["etapa-6", "cena", "design"]
+    },
+    {
+      "title": "6.10 Ambiente da sala Sobre e skills (a bancada)",
+      "body": "História: Como visitante, quero ver a bancada de madeira com ferramentas e um notebook com código azul atrás do conteúdo da sala Sobre e skills, como na tela aprovada no Stitch.\n\nContexto: depende da 6.6 (faixa de imagens) e da tela aprovada da sala no Stitch (Docs/design/telas.md). Imagem semi-realista, escurecida, com a fumaça em degradê de laranja para azul e o guia visual de Docs/design/referencias-elficas.md.\n\nEspecificações técnicas:\n- Gerar a imagem a partir da referência do Stitch, nas proporções da faixa (celular em pé e desktop deitado), com a área atrás do texto escura o bastante para o contraste.\n- Mostrar a imagem ao usuário e só publicar depois do \"aprovado\".\n- Exportar pelos tamanhos e formatos da 6.6 e colocar na pasta da sala.\n- Atualizar o Guia de Testes.\n\nCritérios de aceite: imagem aprovada pelo usuário; dentro do limite de peso da 6.6; texto da sala legível por cima (contraste conferido); com movimento reduzido, a troca de sala continua sem animação.\n\nTestes esperados: o teste da 6.6 confere que a sala tem as variantes e o peso dentro do limite.\n\nComo testar: `npm run check`; abrir a sala no celular e no desktop.",
+      "labels": ["etapa-6", "cena", "design"]
+    },
+    {
+      "title": "6.11 Ambiente da sala Posts (a biblioteca)",
+      "body": "História: Como visitante, quero ver as estantes de pedra com livros antigos, pergaminhos e uma tela com código azul atrás do conteúdo da sala Posts, como na tela aprovada no Stitch.\n\nContexto: depende da 6.6 (faixa de imagens) e da tela aprovada da sala no Stitch (Docs/design/telas.md). Imagem semi-realista, escurecida, com a fumaça em degradê de laranja para azul e o guia visual de Docs/design/referencias-elficas.md.\n\nEspecificações técnicas:\n- Gerar a imagem a partir da referência do Stitch, nas proporções da faixa (celular em pé e desktop deitado), com a área atrás do texto escura o bastante para o contraste.\n- Mostrar a imagem ao usuário e só publicar depois do \"aprovado\".\n- Exportar pelos tamanhos e formatos da 6.6 e colocar na pasta da sala.\n- Atualizar o Guia de Testes.\n\nCritérios de aceite: imagem aprovada pelo usuário; dentro do limite de peso da 6.6; texto da sala legível por cima (contraste conferido); com movimento reduzido, a troca de sala continua sem animação.\n\nTestes esperados: o teste da 6.6 confere que a sala tem as variantes e o peso dentro do limite.\n\nComo testar: `npm run check`; abrir a sala no celular e no desktop.",
+      "labels": ["etapa-6", "cena", "design"]
+    },
+    {
+      "title": "6.12 Ambiente da sala Contato (o portão)",
+      "body": "História: Como visitante, quero ver o grande portão de madeira e ferro entreaberto, com a luz da forja vindo de dentro atrás do conteúdo da sala Contato, como na tela aprovada no Stitch.\n\nContexto: depende da 6.6 (faixa de imagens) e da tela aprovada da sala no Stitch (Docs/design/telas.md). Imagem semi-realista, escurecida, com a fumaça em degradê de laranja para azul e o guia visual de Docs/design/referencias-elficas.md.\n\nEspecificações técnicas:\n- Gerar a imagem a partir da referência do Stitch, nas proporções da faixa (celular em pé e desktop deitado), com a área atrás do texto escura o bastante para o contraste.\n- Mostrar a imagem ao usuário e só publicar depois do \"aprovado\".\n- Exportar pelos tamanhos e formatos da 6.6 e colocar na pasta da sala.\n- Atualizar o Guia de Testes.\n\nCritérios de aceite: imagem aprovada pelo usuário; dentro do limite de peso da 6.6; texto da sala legível por cima (contraste conferido); com movimento reduzido, a troca de sala continua sem animação.\n\nTestes esperados: o teste da 6.6 confere que a sala tem as variantes e o peso dentro do limite.\n\nComo testar: `npm run check`; abrir a sala no celular e no desktop.",
+      "labels": ["etapa-6", "cena", "design"]
+    },
+    {
+      "title": "6.13 Ambiente da sala 404 (a forja fria)",
+      "body": "História: Como visitante, quero ver a bigorna fria, sem fogo, com cinzas e um último fio de fumaça azul atrás do conteúdo da sala 404, como na tela aprovada no Stitch.\n\nContexto: depende da 6.6 (faixa de imagens) e da tela aprovada da sala no Stitch (Docs/design/telas.md). Imagem semi-realista, escurecida, com a fumaça em degradê de laranja para azul e o guia visual de Docs/design/referencias-elficas.md.\nA 404 não é uma sala da faixa: a imagem entra como variante apagada da Home, combinando com o filtro da forja apagada.\n\nEspecificações técnicas:\n- Gerar a imagem a partir da referência do Stitch, nas proporções da faixa (celular em pé e desktop deitado), com a área atrás do texto escura o bastante para o contraste.\n- Mostrar a imagem ao usuário e só publicar depois do \"aprovado\".\n- Exportar pelos tamanhos e formatos da 6.6 e colocar na pasta da sala.\n- Atualizar o Guia de Testes.\n\nCritérios de aceite: imagem aprovada pelo usuário; dentro do limite de peso da 6.6; texto da sala legível por cima (contraste conferido); com movimento reduzido, a troca de sala continua sem animação.\n\nTestes esperados: o teste da 6.6 confere que a sala tem as variantes e o peso dentro do limite.\n\nComo testar: `npm run check`; abrir a sala no celular e no desktop.",
+      "labels": ["etapa-6", "cena", "design"]
     },
     {
       "title": "7.1 Currículo baixável com link fixo (depende da issue do Memento)",
