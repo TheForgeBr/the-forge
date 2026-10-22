@@ -26,4 +26,4 @@ A primeira rodada deu desempenho 82 na Home, por um CLS de 0,34: o menu do celul
 
 ## Ainda manual
 
-- Uso de CPU em repouso e a fluidez num celular real: estão no Guia de Testes (itens das faíscas, do fogo da Home e da tela de carregamento), porque a aba automatizada roda em segundo plano e o Chrome a limita.
+- Uso de CPU em repouso e a fluidez num celular real: estão no Guia de Testes (itens das faíscas e da tela de carregamento), porque a aba automatizada roda em segundo plano e o Chrome a limita.
