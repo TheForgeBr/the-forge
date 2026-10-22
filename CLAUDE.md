@@ -47,6 +47,8 @@ npm run tokens           # gera app/estilos/tokens.css a partir de marca/tokens.
 npm run verificar:tokens # falha se o tokens.css estiver desatualizado em relação ao JSON
 npm run logo             # gera logo, símbolo e favicon em SVG (letreiro em curvas, cores dos tokens)
 npm run verificar:logo   # falha se algum SVG do logo estiver desatualizado
+npm run cartoes          # gera public/cartoes/<projeto>.svg e .en.svg (cartões para os READMEs, texto em curvas)
+npm run verificar:cartoes  # falha se algum cartão estiver desatualizado ou sobrar cartão de projeto que saiu
 npm run verificar:fontes # confere pesos e subconjunto das fontes no build e mostra o peso em KB
 npm run orcamento        # soma o JS gzip da primeira carga da Home e falha acima de marca/orcamento.json
 npm run imagens -- <sala> <origem-celular> <origem-desktop>  # grava o ambiente da sala em AVIF e WebP (sharp), até 150 KB cada

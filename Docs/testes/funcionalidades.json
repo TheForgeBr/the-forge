@@ -543,6 +543,23 @@
         "Sem JavaScript, os links das salas aparecem abertos no topo."
       ],
       "seFalhar": "Grave a tela da carga ou anote o elemento que se mexeu."
+    },
+    {
+      "id": "cartoes-dos-projetos",
+      "titulo": "Cartões SVG dos projetos para os READMEs",
+      "area": "Marca",
+      "issues": [53],
+      "passos": [
+        "Abra no navegador alguns arquivos de public/cartoes (por exemplo memento.svg e rumo.en.svg).",
+        "Publique um deles num README de teste no GitHub, com ![Memento](https://the-forge-96d7.onrender.com/cartoes/memento.svg).",
+        "Mude o papel de um projeto em app/conteudo/projetos.ts e rode npm run verificar:cartoes; depois npm run cartoes; desfaça a mudança e rode npm run cartoes de novo."
+      ],
+      "esperado": [
+        "Cada cartão mostra a runa de Projetos, o nome com o degradê de brasa, o estado, o papel e os chips da stack, nas cores da marca e sem letras trocadas.",
+        "No GitHub o cartão aparece igual ao navegador (o texto é desenho, não depende de fonte).",
+        "A verificação acusa o cartão desatualizado e pede npm run cartoes; depois de gerar, passa."
+      ],
+      "seFalhar": "Anote o projeto, o idioma e tire um print do cartão."
     }
   ]
 }
