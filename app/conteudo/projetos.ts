@@ -68,6 +68,7 @@ export const projetos: readonly Projeto[] = [
       en: 'Online store for a K-pop community, live in production. It brings together catalog, reservations, payments and shipping, which used to live in WhatsApp and spreadsheets, in a custom plugin and theme, with an admin panel designed for non-technical staff.',
     },
     stack: ['PHP', 'WordPress', 'WooCommerce', 'MariaDB', 'Docker'],
+    links: { site: 'https://moonlightsakuracegs.com.br/' },
     estado: 'em-producao',
     privacidade: 'completo',
     destaque: true,

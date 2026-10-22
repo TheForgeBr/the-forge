@@ -186,3 +186,134 @@
     grid-column: span 2;
   }
 }
+
+/* Home, a bigorna (issue 4.1): a apresentação ocupa a primeira dobra sobre
+   a cena, e os destaques levam às salas. */
+.apresentacao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  min-height: 60vh;
+  justify-content: center;
+  max-width: 40rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--cor-ouro-forja);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.apresentacao h1 {
+  margin: 0;
+  font-size: var(--tamanho-4xl);
+  line-height: 1.05;
+}
+
+.cargo {
+  margin: 0;
+  color: var(--cor-ouro-forja);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-xl);
+  font-weight: 600;
+}
+
+.frase {
+  margin: 0;
+  color: var(--cor-pergaminho);
+  font-size: var(--tamanho-lg);
+}
+
+.chamadas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-3);
+  margin: var(--espaco-3) 0 0;
+}
+
+.botao {
+  display: inline-flex;
+  padding: var(--espaco-3) var(--espaco-6);
+  border: 1px solid var(--cor-brasa);
+  border-radius: 4px;
+  background: var(--cor-brasa);
+  color: var(--cor-fuligem);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.botao-secundario {
+  background: transparent;
+  border-color: var(--cor-ouro-forja);
+  color: var(--cor-ouro-forja);
+}
+
+.botao:focus-visible,
+.cartao-destaque:focus-visible {
+  outline: 2px solid var(--cor-ouro-forja);
+  outline-offset: 3px;
+}
+
+.titulo-secao {
+  margin: var(--espaco-12) 0 var(--espaco-4);
+  font-size: var(--tamanho-xl);
+  letter-spacing: 0.05em;
+}
+
+.destaques {
+  display: grid;
+  gap: var(--espaco-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cartao-destaque {
+  display: grid;
+  gap: var(--espaco-2);
+  height: 100%;
+  box-sizing: border-box;
+  padding: var(--espaco-6);
+  background: color-mix(in srgb, var(--cor-pedra) 92%, transparent);
+  border: 1px solid var(--cor-ferro);
+  border-radius: 4px;
+  color: var(--cor-pergaminho);
+  text-decoration: none;
+}
+
+.cartao-destaque:hover {
+  border-color: var(--cor-ouro-forja);
+}
+
+.cartao-destaque .runa {
+  color: var(--cor-ouro-forja);
+  font-size: var(--tamanho-xl);
+}
+
+.cartao-destaque .rotulo {
+  color: var(--cor-ouro-forja);
+  font-family: var(--fonte-codigo);
+  font-size: var(--tamanho-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cartao-destaque .titulo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-lg);
+  font-weight: 600;
+}
+
+.cartao-destaque .texto {
+  color: var(--cor-cinza-brasa);
+  font-size: var(--tamanho-sm);
+}
+
+@media (min-width: 48rem) {
+  .destaques {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

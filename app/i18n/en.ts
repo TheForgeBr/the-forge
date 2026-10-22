@@ -21,10 +21,19 @@ export const en: Dicionario = {
   'rodape.texto': '© 2026 Rhuan Marques. Forged with code and magic.',
   'rodape.runas': 'The Forge, in runes',
 
-  'sala.home.titulo': 'hello, forge',
-  'sala.home.descricao': 'Personal website of Rhuan Marques.',
+  'sala.home.titulo': 'Rhuan Marques',
+  'sala.home.descricao':
+    'Rhuan Marques, full-stack developer: complete applications built with AI agents.',
   'sala.home.texto':
-    'The forge is heating up: each room of this site will show a part of my work.',
+    'Complete applications built with AI agents, from spec to test: web, mobile and backend in TypeScript.',
+  'home.eyebrow': 'Software forge',
+  'home.cargo': 'Full-stack developer',
+  'home.projetos': 'See the projects',
+  'home.contato': 'Get in touch',
+  'home.destaques': 'Rooms of the forge',
+  'home.destaque.projeto': 'Featured project',
+  'home.destaque.experiencia': 'Current role',
+  'home.destaque.posts': 'Posts',
   'sala.projetos.titulo': 'Projects',
   'sala.projetos.descricao': 'Projects by Rhuan Marques.',
   'sala.projetos.texto': 'The forge armory is being set up.',
@@ -48,12 +57,27 @@ export const en: Dicionario = {
   'sala.sobre.titulo': 'About and skills',
   'sala.sobre.descricao': 'Who Rhuan Marques is and the tools of the trade.',
   'sala.sobre.texto': "The smith's workbench is being arranged.",
+  'sobre.p1':
+    'I have been a full-stack developer since 2021, with a strong mobile background (React Native) and production apps for Android, iOS and the web.',
+  'sobre.p2':
+    'Today I build complete applications with AI agents, from requirement to test: end-to-end TypeScript, Node.js, PostgreSQL, React and React Native.',
+  'sobre.p3':
+    'I value recorded decisions, clear acceptance criteria and deliveries verified by tests. This website is the forge where I show that work.',
+  'sobre.imagem.alt':
+    'The Forge BR logo: an anvil inside a ring, with a star above it.',
   'sala.posts.titulo': 'Posts',
   'sala.posts.descricao': 'Writing by Rhuan Marques about development.',
   'sala.posts.texto': 'The first posts are still on the anvil.',
   'sala.contato.titulo': 'Contact',
   'sala.contato.descricao': 'How to reach Rhuan Marques.',
   'sala.contato.texto': 'Contact options are coming soon.',
+  'contato.convite': 'Want to talk about a job or a project? Pick a channel.',
+  'contato.whatsapp': 'WhatsApp',
+  'contato.email': 'Email',
+  'contato.linkedin': 'LinkedIn',
+  'contato.github': 'GitHub',
+  'contato.curriculo': 'Download résumé (PDF)',
+  'contato.idiomas': 'I reply in Portuguese and English.',
 
   'erro.404.titulo': 'Page not found',
   'erro.404.texto': 'This room does not exist in the forge.',

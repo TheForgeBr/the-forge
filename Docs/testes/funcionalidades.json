@@ -299,6 +299,26 @@
         "Sem JavaScript, os 10 projetos aparecem e os filtros somem."
       ],
       "seFalhar": "Anote o projeto, o tamanho da tela e o que saiu diferente do Stitch."
+    },
+    {
+      "id": "sala-home",
+      "titulo": "Sala Home (bigorna)",
+      "area": "Salas",
+      "issues": [34, 23],
+      "passos": [
+        "Rode `npm run build` e `npm run preview` e abra a Home no desktop e no celular.",
+        "Clique em Ver os projetos e volte; clique em Falar comigo e volte.",
+        "Clique nos três cartões de Salas da forja.",
+        "Troque para English."
+      ],
+      "esperado": [
+        "A primeira dobra mostra \"Forja de software\", o nome, Desenvolvedor full-stack, a frase e os chips TypeScript, React, React Native, Node.js e Claude Code.",
+        "Os botões levam a Projetos e a Contato.",
+        "Os cartões levam a Projetos (Memento), Experiências (SETA-AI, Desenvolvedor) e Posts.",
+        "Em inglês, os textos e os caminhos mudam (See the projects, Get in touch).",
+        "Os textos são provisórios até a versão definitiva da 2.6."
+      ],
+      "seFalhar": "Tire um print e anote o tamanho da tela."
     }
   ]
 }

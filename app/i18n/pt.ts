@@ -21,10 +21,21 @@ export const pt = {
   'rodape.texto': '© 2026 Rhuan Marques. Forjado com código e magia.',
   'rodape.runas': 'The Forge, em runas',
 
-  'sala.home.titulo': 'olá forja',
-  'sala.home.descricao': 'Site pessoal de Rhuan Marques.',
+  // Textos provisórios (issue 2.6): genéricos, a partir do currículo, até o
+  // usuário escrever os definitivos das salas Home, Sobre e Contato.
+  'sala.home.titulo': 'Rhuan Marques',
+  'sala.home.descricao':
+    'Rhuan Marques, desenvolvedor full-stack: aplicações completas com agentes de IA.',
   'sala.home.texto':
-    'A forja está acendendo: cada sala deste site vai mostrar uma parte do meu trabalho.',
+    'Aplicações completas com agentes de IA, da especificação ao teste: web, mobile e backend em TypeScript.',
+  'home.eyebrow': 'Forja de software',
+  'home.cargo': 'Desenvolvedor full-stack',
+  'home.projetos': 'Ver os projetos',
+  'home.contato': 'Falar comigo',
+  'home.destaques': 'Salas da forja',
+  'home.destaque.projeto': 'Projeto em destaque',
+  'home.destaque.experiencia': 'Experiência atual',
+  'home.destaque.posts': 'Posts',
   'sala.projetos.titulo': 'Projetos',
   'sala.projetos.descricao': 'Os projetos de Rhuan Marques.',
   'sala.projetos.texto': 'O arsenal da forja está sendo montado.',
@@ -49,12 +60,28 @@ export const pt = {
   'sala.sobre.titulo': 'Sobre e skills',
   'sala.sobre.descricao': 'Quem é Rhuan Marques e as ferramentas do ofício.',
   'sala.sobre.texto': 'A bancada do ferreiro está sendo arrumada.',
+  'sobre.p1':
+    'Sou desenvolvedor full-stack desde 2021, com base forte em mobile (React Native) e aplicações em produção para Android, iOS e web.',
+  'sobre.p2':
+    'Hoje construo aplicações completas com agentes de IA, do requisito ao teste: TypeScript de ponta a ponta, Node.js, PostgreSQL, React e React Native.',
+  'sobre.p3':
+    'Gosto de decisões registradas, critérios de aceite claros e entregas verificadas por testes. Este site é a forja onde mostro esse trabalho.',
+  'sobre.imagem.alt':
+    'Marca do The Forge BR: uma bigorna dentro de um anel, com uma estrela acima.',
   'sala.posts.titulo': 'Posts',
   'sala.posts.descricao': 'Textos de Rhuan Marques sobre desenvolvimento.',
   'sala.posts.texto': 'Os primeiros posts ainda estão na bigorna.',
   'sala.contato.titulo': 'Contato',
   'sala.contato.descricao': 'Como falar com Rhuan Marques.',
   'sala.contato.texto': 'Os meios de contato chegam em breve.',
+  'contato.convite':
+    'Quer conversar sobre uma vaga ou um projeto? Escolha o canal.',
+  'contato.whatsapp': 'WhatsApp',
+  'contato.email': 'E-mail',
+  'contato.linkedin': 'LinkedIn',
+  'contato.github': 'GitHub',
+  'contato.curriculo': 'Baixar currículo (PDF)',
+  'contato.idiomas': 'Respondo em português e em inglês.',
 
   'erro.404.titulo': 'Página não encontrada',
   'erro.404.texto': 'Esta sala não existe na forja.',
