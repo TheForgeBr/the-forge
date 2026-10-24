@@ -35,7 +35,7 @@ export function formatarPeriodo(periodo: Periodo, idioma: Idioma) {
 /**
  * Sala Experiências, o corredor das crônicas (issue 4.3, tela aprovada no
  * Stitch). Lista ordenada da mais recente à mais antiga, na ordem de
- * experiencias.ts; a SETA-AI aparece só com papel e stack.
+ * experiencias.ts.
  */
 export function SalaExperiencias({
   experiencias = todasAsExperiencias,

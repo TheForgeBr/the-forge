@@ -62,13 +62,15 @@ describe('SalaExperiencias', () => {
     ]);
   });
 
-  it('a SETA-AI mostra só papel e stack, sem resumo nem entregas', () => {
+  it('a SETA-AI mostra papel, resumo, entregas e stack', () => {
     const { container } = salaEm('/experiencias');
     const seta = container.querySelector('#experiencia-seta-ai')?.closest('li');
-    expect(seta?.querySelector('.resumo')).toBeNull();
-    expect(seta?.querySelector('.entregas')).toBeNull();
+    expect(seta?.querySelector('.resumo')).toHaveTextContent(
+      'fábrica de software especializada em soluções com agentes',
+    );
+    expect(seta?.querySelectorAll('.entregas li')).toHaveLength(3);
     expect(seta).toHaveTextContent('Desenvolvedor');
-    expect(seta).toHaveTextContent('TypeScript');
+    expect(seta).toHaveTextContent('GitHub Actions');
   });
 
   it('em inglês, textos e datas no idioma', () => {

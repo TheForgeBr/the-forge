@@ -29,7 +29,7 @@ export interface Links {
 
 /**
  * `completo` mostra tudo; `papel-e-stack` mostra só o papel e a stack, sem
- * resumo nem links (regra do SETA-AI). O tipo impede os campos a mais.
+ * resumo nem links. O tipo impede os campos a mais.
  */
 export type Privacidade = 'completo' | 'papel-e-stack';
 

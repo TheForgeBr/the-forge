@@ -333,7 +333,7 @@
       ],
       "esperado": [
         "Oito cargos, da SETA-AI (set/2026 – atual) até a Ponto a Ponto (abr – set/2021), ligados por uma linha vertical.",
-        "Só a SETA-AI tem o marcador em ouro e o selo Atual, e mostra só o papel e a stack, sem resumo nem entregas.",
+        "Só a SETA-AI tem o marcador em ouro e o selo Atual; ela mostra papel, resumo, três entregas e a stack (de TypeScript a GitHub Actions), sem links.",
         "Cada cargo tem período em fonte mono, empresa, papel, resumo, entregas e chips da stack; no mesmo ano o período fica \"mai – set/2026\".",
         "Em inglês, os períodos ficam \"Sep 2026 – present\" e \"May – Sep 2026\", e o selo diz Current.",
         "Sem CSS, a lista continua numerada e legível, na mesma ordem.",

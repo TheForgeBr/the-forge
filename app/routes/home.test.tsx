@@ -31,7 +31,7 @@ describe('Home', () => {
     );
   });
 
-  it('os destaques usam os dados do conteúdo e a SETA-AI só com o papel', () => {
+  it('os destaques usam os dados do conteúdo e a SETA-AI com o papel', () => {
     homeEm('/');
     const destaques = screen.getByRole('region', { name: 'Salas da forja' });
     const cartoes = within(destaques).getAllByRole('link');

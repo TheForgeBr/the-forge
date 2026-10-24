@@ -150,8 +150,8 @@ describe('experiências', () => {
     expect(experiencias[0]?.periodo.fim).toBe('atual');
     expect(experiencias.at(-1)?.periodo.inicio.startsWith('2021')).toBe(true);
     expect(
-      experiencias.find((e) => e.id === 'seta-ai')?.entregas,
-    ).toBeUndefined();
+      experiencias.find((e) => e.id === 'seta-ai')?.entregas?.pt,
+    ).toHaveLength(3);
   });
 });
 

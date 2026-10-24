@@ -91,6 +91,6 @@ O Guia de Testes manuais fica em `Docs/testes/funcionalidades.json`. Toda mudan�
 - Um commit por assunto, em português, no formato `tipo(escopo): descrição`, citando a issue (`Closes #N`).
 - Tarefas de cerca de 40 minutos; sessões de até 2h30.
 - Não crie dependências sem pedido. Ao instalar, use versões publicadas há pelo menos duas semanas (`npm install --before=AAAA-MM-DD`).
-- Nada de conteúdo privado do vault do Memento no repositório. Ficam fora: notas privadas, o trabalho de tester freelancer de 2025 e o projeto Automations. Na SETA-AI, só papel e stack.
+- Nada de conteúdo privado do vault do Memento no repositório. Ficam fora: notas privadas, o trabalho de tester freelancer de 2025 e o projeto Automations. Na SETA-AI, só o que o currículo publica (papel, resumo, entregas e stack), sem cliente, produto nem links (decisão de 2026-10-24; antes era só papel e stack).
 - Imagens do Dribbble e do jogo Shadow of Mordor são só referência; não entram no site.
 - Não marque como feito o que não foi verificado; todo resumo de conclusão cita o comando rodado e a saída.

@@ -3,26 +3,48 @@ import type { Experiencia } from './tipos';
 // Linha do tempo de 2021 até hoje (issue 2.4), das notas de empresas do vault
 // e do currículo, em ordem cronológica reversa. Datas e textos que divergem
 // entre as fontes estão em Docs/conteudo/divergencias.md para o usuário decidir.
-// SETA-AI: só papel e stack (CLAUDE.md).
+// SETA-AI: só o que o currículo publica, sem cliente, produto nem links
+// (CLAUDE.md, decisão de 2026-10-24).
 export const experiencias: readonly Experiencia[] = [
   {
     id: 'seta-ai',
     empresa: 'SETA-AI',
     papel: { pt: 'Desenvolvedor', en: 'Developer' },
+    resumo: {
+      pt: 'Aplicação baseada em agentes de IA numa fábrica de software especializada em soluções com agentes, num time de três desenvolvedores.',
+      en: 'AI agent-based application at a software house specialized in agent solutions, in a team of three developers.',
+    },
+    entregas: {
+      pt: [
+        'Toda a aplicação desenvolvida com o Claude Code, com specs numeradas como contrato.',
+        'PRs defendidos com medição de antes e depois.',
+        'Convenções do projeto cobradas por testes no CI.',
+      ],
+      en: [
+        'The whole application built with Claude Code, with numbered specs as the contract.',
+        'Pull requests backed by before-and-after measurements.',
+        'Project conventions enforced by tests in CI.',
+      ],
+    },
     stack: [
       'TypeScript',
+      'pnpm',
       'Fastify',
       'Zod',
       'Drizzle',
       'PostgreSQL',
       'pgvector',
+      'pg-boss',
       'Next.js',
       'React',
       'LangGraph.js',
+      'RAG',
       'Vitest',
+      'Biome',
+      'GitHub Actions',
     ],
     periodo: { inicio: '2026-09', fim: 'atual' },
-    privacidade: 'papel-e-stack',
+    privacidade: 'completo',
     destaque: true,
   },
   {
