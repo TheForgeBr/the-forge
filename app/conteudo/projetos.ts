@@ -1,7 +1,7 @@
 import type { Projeto } from './tipos';
 
-// Projetos aprovados na issue 2.2 (Docs/conteudo/projetos-candidatos.md),
-// escritos a partir das notas do vault. Ordem: em andamento, em produção,
+// Projetos aprovados na issue 2.2 e os novos de 2026-10-30
+// (Docs/conteudo/projetos-candidatos.md), escritos a partir das notas do vault. Ordem: em andamento, em produção,
 // pausados e entregues. Só entram links de repositórios públicos.
 export const projetos: readonly Projeto[] = [
   {
@@ -19,6 +19,38 @@ export const projetos: readonly Projeto[] = [
     estado: 'em-andamento',
     privacidade: 'completo',
     destaque: true,
+  },
+  {
+    id: 'centrum',
+    titulo: { pt: 'Centrum', en: 'Centrum' },
+    papel: {
+      pt: 'Autor e desenvolvedor, com agentes de IA',
+      en: 'Author and developer, working with AI agents',
+    },
+    resumo: {
+      pt: 'Painel da casa que dá uma função nova a um iPad 2 de 2012, ainda no iOS 9.3.5, sem jailbreak. O servidor entrega páginas prontas: issues do GitHub, wiki do vault e pesquisas com fontes. HTTPS com CA própria, acesso revogável por aparelho e nada exposto à internet.',
+      en: 'Home dashboard that gives a 2012 iPad 2, still on iOS 9.3.5, a new job without jailbreaking. The server delivers ready-made pages: GitHub issues, a vault wiki and research with sources. HTTPS with its own CA, per-device revocable access and nothing exposed to the internet.',
+    },
+    stack: ['TypeScript', 'Node.js', 'MCP', 'Jest'],
+    estado: 'em-andamento',
+    privacidade: 'completo',
+    destaque: false,
+  },
+  {
+    id: 'informaition',
+    titulo: { pt: 'InformAItion', en: 'InformAItion' },
+    papel: {
+      pt: 'Autor e desenvolvedor, com agentes de IA',
+      en: 'Author and developer, working with AI agents',
+    },
+    resumo: {
+      pt: 'Ferramenta de pesquisa com fontes citadas: busca em bases acadêmicas e na web e devolve um resumo curto e neutro, com o link de cada fonte. Atende pelo Claude Code, por um bot do Discord e pelo Centrum, e conteúdo da web é sempre tratado como dado, nunca como instrução.',
+      en: 'Research tool with cited sources: it searches academic databases and the web and returns a short, neutral summary with a link to each source. It works through Claude Code, a Discord bot and Centrum, and web content is always treated as data, never as instructions.',
+    },
+    stack: ['TypeScript', 'Node.js', 'SQLite', 'MCP', 'discord.js', 'Jest'],
+    estado: 'em-andamento',
+    privacidade: 'completo',
+    destaque: false,
   },
   {
     id: 'morpheus',
@@ -57,6 +89,43 @@ export const projetos: readonly Projeto[] = [
     destaque: false,
   },
   {
+    id: 'rumo',
+    titulo: { pt: 'Rumo', en: 'Rumo' },
+    papel: {
+      pt: 'Desenvolvedor: requisitos, testes manuais e revisão do código feito com IA',
+      en: 'Developer: requirements, manual testing and review of AI-written code',
+    },
+    resumo: {
+      pt: 'Plataforma de estudos para concursos que liga metas, sessões, revisões espaçadas, avaliações e progresso. Com IA, resume notas, gera questões revisadas antes de entrar e lê o edital em PDF. API em NestJS, app em Expo que funciona offline e versão web em React.',
+      en: 'Study platform for civil service exams that connects goals, sessions, spaced reviews, assessments and progress. With AI, it summarizes notes, generates questions reviewed before they go in and reads exam notices in PDF. NestJS API, offline-capable Expo app and React web version.',
+    },
+    stack: [
+      'TypeScript',
+      'NestJS',
+      'PostgreSQL',
+      'Prisma',
+      'React',
+      'React Native',
+      'Expo',
+    ],
+    estado: 'em-andamento',
+    privacidade: 'completo',
+    destaque: true,
+  },
+  {
+    id: 'jobzin',
+    titulo: { pt: 'jobzin', en: 'jobzin' },
+    papel: { pt: 'Autor e desenvolvedor', en: 'Author and developer' },
+    resumo: {
+      pt: 'Agregador local de vagas: lê, com a conta do próprio usuário, grupos de vagas do Telegram, extrai e normaliza cada vaga e guarda o histórico em SQLite. Uma tela local busca, filtra por estado da candidatura e gerencia os grupos, e a planilha sai em XLSX ou CSV.',
+      en: 'Local job aggregator: it reads, with the user’s own account, Telegram job groups, extracts and normalizes each posting and keeps the history in SQLite. A local screen searches, filters by application status and manages the groups, and the spreadsheet comes out as XLSX or CSV.',
+    },
+    stack: ['TypeScript', 'Node.js', 'React', 'Vite', 'Material UI', 'SQLite'],
+    estado: 'em-andamento',
+    privacidade: 'completo',
+    destaque: false,
+  },
+  {
     id: 'sakura-shop',
     titulo: { pt: 'SakuraShop', en: 'SakuraShop' },
     papel: {
@@ -74,30 +143,6 @@ export const projetos: readonly Projeto[] = [
     destaque: true,
   },
   {
-    id: 'rumo',
-    titulo: { pt: 'Rumo', en: 'Rumo' },
-    papel: {
-      pt: 'Desenvolvedor: requisitos, testes manuais e revisão do código feito com IA',
-      en: 'Developer: requirements, manual testing and review of AI-written code',
-    },
-    resumo: {
-      pt: 'Plataforma de estudos para concursos que liga metas, sessões de estudo, revisões espaçadas, avaliações e progresso. API em NestJS, app em Expo que funciona offline e versão web em React, com testes de unidade, integração e ponta a ponta.',
-      en: 'Study platform for civil service exams that connects goals, study sessions, spaced reviews, assessments and progress. NestJS API, offline-capable Expo app and React web version, with unit, integration and end-to-end tests.',
-    },
-    stack: [
-      'TypeScript',
-      'NestJS',
-      'PostgreSQL',
-      'Prisma',
-      'React',
-      'React Native',
-      'Expo',
-    ],
-    estado: 'pausado',
-    privacidade: 'completo',
-    destaque: true,
-  },
-  {
     id: 'healthyview',
     titulo: { pt: 'HealthyView', en: 'HealthyView' },
     papel: {
@@ -110,20 +155,6 @@ export const projetos: readonly Projeto[] = [
     },
     stack: ['TypeScript', 'Supabase'],
     links: { repositorio: 'https://github.com/TheForgeBr/HealthyView' },
-    estado: 'pausado',
-    privacidade: 'completo',
-    destaque: false,
-  },
-  {
-    id: 'jobzin',
-    titulo: { pt: 'jobzin', en: 'jobzin' },
-    papel: { pt: 'Autor e desenvolvedor', en: 'Author and developer' },
-    resumo: {
-      pt: 'Agregador local de vagas: lê, com a conta do próprio usuário, as mensagens recentes de grupos de vagas do Telegram, extrai e normaliza os dados de cada vaga e gera uma planilha para pesquisar e se candidatar uma a uma.',
-      en: 'Local job aggregator: it reads, with the user’s own account, recent messages from Telegram job groups, extracts and normalizes each posting and builds a spreadsheet to search and apply one by one.',
-    },
-    stack: ['TypeScript', 'Node.js', 'React', 'Vite'],
-    // O link do repositório entra quando o código subir para o GitHub.
     estado: 'pausado',
     privacidade: 'completo',
     destaque: false,

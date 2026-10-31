@@ -291,12 +291,12 @@
         "Desative o JavaScript e recarregue a página."
       ],
       "esperado": [
-        "Aparecem os 10 projetos; o Memento vem primeiro, marcado como Projeto em destaque (no desktop ocupa duas colunas).",
+        "Aparecem os 12 projetos, com Centrum e InformAItion logo depois do Memento e Rumo e jobzin como Em andamento; o Memento vem primeiro, marcado como Projeto em destaque (no desktop ocupa duas colunas).",
         "Cada cartão mostra nome, estado, resumo, papel, stack e, quando houver, Código e Site; os sem repositório público mostram Código privado.",
-        "Cada filtro mostra só os projetos com aquela tecnologia e a contagem muda; Todos volta aos 10.",
+        "Cada filtro mostra só os projetos com aquela tecnologia e a contagem muda; Todos volta aos 12.",
         "Os links abrem o repositório e o site certos.",
         "Em inglês, títulos, estados e botões aparecem em inglês.",
-        "Sem JavaScript, os 10 projetos aparecem e os filtros somem."
+        "Sem JavaScript, os 12 projetos aparecem e os filtros somem."
       ],
       "seFalhar": "Anote o projeto, o tamanho da tela e o que saiu diferente do Stitch."
     },

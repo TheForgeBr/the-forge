@@ -93,10 +93,12 @@ describe('projetos', () => {
     ]);
   });
 
-  it('o site tem exatamente os 10 projetos aprovados na 2.2', () => {
+  it('o site tem exatamente os 12 projetos aprovados', () => {
     expect(projetos.map((p) => p.id).sort()).toEqual(
       [
         'memento',
+        'centrum',
+        'informaition',
         'morpheus',
         'rumo',
         'sakura-shop',
