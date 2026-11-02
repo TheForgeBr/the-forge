@@ -50,6 +50,12 @@ services:
       # Rotas sem arquivo pré-renderizado caem na 404 da forja (issue 4.6),
       # pré-renderizada em cada idioma. Arquivos existentes têm prioridade.
       - type: rewrite
+        source: /posts/bem-vindo-a-forja
+        destination: /posts/bem-vindo-a-forja/index.html
+      - type: rewrite
+        source: /en/posts/bem-vindo-a-forja
+        destination: /en/posts/bem-vindo-a-forja/index.html
+      - type: rewrite
         source: /en/*
         destination: /en/404/index.html
       - type: rewrite

@@ -634,7 +634,7 @@
       "area": "Posts",
       "issues": [42],
       "passos": [
-        "Abra /posts e /en/posts no site publicado (sem posts publicados ainda).",
+        "Abra /posts e /en/posts no site publicado; o estado vazio só aparece sem posts publicados.",
         "Clique em Assinar o RSS (no celular e no desktop) e cole o endereço num leitor de RSS (Feedly, Inoreader); clique em Voltar à forja.",
         "Rode npm run dev e abra http://localhost:5173/posts para ver os posts de teste (rascunhos).",
         "No celular (390 px) e no desktop, role a lista inteira."
