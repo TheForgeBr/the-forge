@@ -42,7 +42,7 @@
   </g>
 
   <path d="M368 200 H432" fill="none" stroke="#F6A43A" stroke-width="3" marker-end="url(#seta)"/>
-  <text class="destaque" x="400" y="184">summarizes</text>
+  <text class="destaque" x="400" y="184">sums up</text>
 
   <text class="titulo" x="610" y="48">After compaction</text>
   <rect class="painel" x="450" y="66" width="320" height="270" rx="10"/>

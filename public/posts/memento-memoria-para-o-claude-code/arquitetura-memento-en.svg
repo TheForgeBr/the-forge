@@ -62,7 +62,7 @@
 
   <rect class="caixa" x="640" y="245" width="130" height="110" rx="10"/>
   <text class="nome" x="705" y="292">Research</text>
-  <text class="sub" x="705" y="318">databases and bot</text>
+  <text class="sub" x="705" y="318">data and bot</text>
 
   <!-- Dados -->
   <rect class="fonte" x="30" y="450" width="310" height="120" rx="10"/>
