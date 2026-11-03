@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 790" width="800" height="790" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Memento architecture</title>
+  <desc id="descricao">Claude Code and the Centrum dashboard talk to the Memento server over MCP. The server reads and writes to the Markdown vault and searches a SQLite index, which can be rebuilt from the vault.</desc>
+  <defs>
+    <linearGradient id="fundo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1C1613"/>
+      <stop offset="1" stop-color="#0E0B0A"/>
+    </linearGradient>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#C9BBAA"/>
+    </marker>
+    <marker id="seta-ciano" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4FE3E0"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif; text-anchor: middle; }
+      .nome { font-size: 22px; font-weight: 600; fill: #F5ECE1; }
+      .sub { font-size: 17px; fill: #C9BBAA; }
+      .rotulo { font-size: 16px; fill: #C9BBAA; }
+      .caixa { fill: #241C18; stroke: #5E4F44; stroke-width: 2; }
+      .centro { fill: #2E1C10; stroke: #F6A43A; stroke-width: 3; }
+      .fonte { fill: #122523; stroke: #4FE3E0; stroke-width: 2; }
+      .linha { fill: none; stroke: #C9BBAA; stroke-width: 2; }
+      .tracejada { fill: none; stroke: #4FE3E0; stroke-width: 2; stroke-dasharray: 7 6; }
+    </style>
+  </defs>
+
+  <rect width="800" height="790" rx="12" fill="url(#fundo)"/>
+
+  <!-- Linhas -->
+  <path class="linha" d="M90 150 V450" marker-end="url(#seta)"/>
+  <path class="linha" d="M240 90 H278" marker-end="url(#seta)"/>
+  <path class="linha" d="M400 152 V248" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <path class="linha" d="M580 152 V248" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <path class="linha" d="M640 300 H602" marker-end="url(#seta)"/>
+  <path class="linha" d="M250 352 V448" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <path class="linha" d="M520 352 V448" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <path class="tracejada" d="M342 505 H458" marker-end="url(#seta-ciano)"/>
+  <path class="linha" d="M110 572 V648" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <path class="linha" d="M270 572 V648" marker-end="url(#seta)"/>
+  <path class="linha" d="M530 648 V572" marker-end="url(#seta)"/>
+  <path class="linha" d="M690 648 V572" marker-end="url(#seta)"/>
+
+  <!-- Clientes -->
+  <rect class="caixa" x="30" y="30" width="210" height="120" rx="10"/>
+  <text class="nome" x="135" y="80">Hook</text>
+  <text class="sub" x="135" y="108">session start</text>
+
+  <rect class="caixa" x="280" y="30" width="240" height="120" rx="10"/>
+  <text class="nome" x="400" y="72">Claude Code</text>
+  <text class="sub" x="400" y="100">5 subagents</text>
+  <text class="sub" x="400" y="124">3 skills</text>
+
+  <rect class="caixa" x="560" y="30" width="210" height="120" rx="10"/>
+  <text class="nome" x="665" y="80">Centrum</text>
+  <text class="sub" x="665" y="108">home dashboard</text>
+
+  <!-- Servidor -->
+  <rect class="centro" x="150" y="250" width="450" height="100" rx="10"/>
+  <text class="nome" x="375" y="292">Memento server</text>
+  <text class="sub" x="375" y="322">20 tools, no language model</text>
+
+  <rect class="caixa" x="640" y="245" width="130" height="110" rx="10"/>
+  <text class="nome" x="705" y="292">Research</text>
+  <text class="sub" x="705" y="318">databases and bot</text>
+
+  <!-- Dados -->
+  <rect class="fonte" x="30" y="450" width="310" height="120" rx="10"/>
+  <text class="nome" x="185" y="500">Markdown vault</text>
+  <text class="sub" x="185" y="530">source of truth</text>
+
+  <rect class="caixa" x="460" y="450" width="310" height="120" rx="10"/>
+  <text class="nome" x="615" y="500">SQLite index</text>
+  <text class="sub" x="615" y="530">text, vectors and usage</text>
+
+  <!-- Periferia -->
+  <rect class="caixa" x="30" y="650" width="150" height="110" rx="10"/>
+  <text class="nome" x="105" y="698">MacBook</text>
+  <text class="sub" x="105" y="726">own index</text>
+
+  <rect class="caixa" x="195" y="650" width="150" height="110" rx="10"/>
+  <text class="nome" x="270" y="698">Backup</text>
+  <text class="sub" x="270" y="726">local Git</text>
+
+  <rect class="caixa" x="455" y="650" width="150" height="110" rx="10"/>
+  <text class="nome" x="530" y="698">Documents</text>
+  <text class="sub" x="530" y="726">and papers</text>
+
+  <rect class="caixa" x="620" y="650" width="150" height="110" rx="10"/>
+  <text class="nome" x="695" y="698">Ollama</text>
+  <text class="sub" x="695" y="726">local vectors</text>
+
+  <!-- Rótulos -->
+  <text class="rotulo" x="46" y="300" transform="rotate(-90 46 300)" dy="6">reads the vault</text>
+  <text class="rotulo" x="440" y="205">MCP</text>
+  <text class="rotulo" x="620" y="205">MCP</text>
+  <text class="rotulo" x="185" y="405">reads and writes</text>
+  <text class="rotulo" x="565" y="405">search</text>
+  <text class="rotulo" x="400" y="492" style="fill:#4FE3E0">rebuilds</text>
+  <text class="rotulo" x="62" y="616">sync</text>
+</svg>

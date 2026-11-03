@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">The context table</title>
+  <desc id="descricao">A stone table covered with stacks of parchment. The width of the table is the context window; whatever goes past the limit falls over the edge.</desc>
+  <defs>
+    <linearGradient id="fundo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1C1613"/>
+      <stop offset="1" stop-color="#0E0B0A"/>
+    </linearGradient>
+    <linearGradient id="pedra" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5E4F44"/>
+      <stop offset="1" stop-color="#3A302A"/>
+    </linearGradient>
+    <radialGradient id="brasa" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#E8661E" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#E8661E" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      text { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif; text-anchor: middle; }
+      .rotulo { font-size: 20px; font-weight: 600; fill: #EDE3D3; }
+      .aviso { font-size: 18px; font-weight: 600; fill: #F6A43A; }
+      .folha { fill: #EDE3D3; stroke: #A89A8A; stroke-width: 1.5; }
+      .velha { fill: #C9A777; stroke: #8A6E4A; stroke-width: 1.5; }
+      .medida { fill: none; stroke: #4FE3E0; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="450" rx="12" fill="url(#fundo)"/>
+  <ellipse cx="350" cy="300" rx="320" ry="150" fill="url(#brasa)"/>
+
+  <!-- Medida da janela -->
+  <path class="medida" d="M60 60 V84 M60 72 H590 M590 60 V84"/>
+  <text x="325" y="50" style="font-size:20px;font-weight:600;fill:#4FE3E0">context window</text>
+
+  <!-- Pilhas -->
+  <g>
+    <rect class="velha" x="80" y="244" width="96" height="16" rx="2"/>
+    <rect class="velha" x="84" y="228" width="92" height="16" rx="2" transform="rotate(-1 130 236)"/>
+    <rect class="velha" x="78" y="212" width="96" height="16" rx="2" transform="rotate(1 126 220)"/>
+    <rect class="velha" x="82" y="196" width="92" height="16" rx="2"/>
+    <rect class="velha" x="80" y="180" width="96" height="16" rx="2" transform="rotate(-1 128 188)"/>
+    <rect class="velha" x="84" y="164" width="90" height="16" rx="2" transform="rotate(1 129 172)"/>
+
+    <rect class="velha" x="196" y="244" width="96" height="16" rx="2"/>
+    <rect class="velha" x="200" y="228" width="90" height="16" rx="2" transform="rotate(1 245 236)"/>
+    <rect class="velha" x="194" y="212" width="96" height="16" rx="2"/>
+    <rect class="velha" x="198" y="196" width="92" height="16" rx="2" transform="rotate(-1 244 204)"/>
+    <rect class="velha" x="196" y="180" width="94" height="16" rx="2"/>
+    <rect class="velha" x="200" y="164" width="90" height="16" rx="2" transform="rotate(-1 245 172)"/>
+    <rect class="velha" x="198" y="148" width="92" height="16" rx="2" transform="rotate(1 244 156)"/>
+
+    <rect class="folha" x="312" y="244" width="96" height="16" rx="2"/>
+    <rect class="folha" x="316" y="228" width="90" height="16" rx="2" transform="rotate(-1 361 236)"/>
+    <rect class="folha" x="310" y="212" width="96" height="16" rx="2"/>
+    <rect class="folha" x="314" y="196" width="92" height="16" rx="2" transform="rotate(1 360 204)"/>
+    <rect class="folha" x="312" y="180" width="94" height="16" rx="2"/>
+
+    <rect class="folha" x="428" y="244" width="96" height="16" rx="2"/>
+    <rect class="folha" x="432" y="228" width="90" height="16" rx="2" transform="rotate(1 477 236)"/>
+    <rect class="folha" x="426" y="212" width="96" height="16" rx="2"/>
+    <rect class="folha" x="430" y="196" width="92" height="16" rx="2" transform="rotate(-1 476 204)"/>
+    <rect class="folha" x="432" y="180" width="90" height="16" rx="2"/>
+    <rect class="folha" x="428" y="164" width="94" height="16" rx="2" transform="rotate(1 475 172)"/>
+    <rect class="folha" x="524" y="244" width="70" height="16" rx="2" transform="rotate(4 560 252)"/>
+  </g>
+
+  <!-- Bancada -->
+  <rect x="50" y="260" width="550" height="30" rx="4" fill="url(#pedra)" stroke="#A89A8A" stroke-width="2"/>
+  <path d="M90 290 H150 L140 400 H100 Z M500 290 H560 L550 400 H510 Z" fill="#3A302A" stroke="#5E4F44" stroke-width="2"/>
+
+  <!-- Folhas caindo -->
+  <rect class="velha" x="620" y="250" width="70" height="14" rx="2" transform="rotate(28 655 257)"/>
+  <rect class="velha" x="660" y="306" width="70" height="14" rx="2" transform="rotate(62 695 313)"/>
+  <rect class="velha" x="630" y="360" width="70" height="14" rx="2" transform="rotate(-20 665 367)"/>
+  <text class="aviso" x="680" y="158">what goes past</text>
+  <text class="aviso" x="680" y="182">the limit falls</text>
+
+  <text class="rotulo" x="325" y="432" style="font-size:18px;font-weight:400;fill:#A89A8A">Everything the agent sees has to fit on the table.</text>
+</svg>

@@ -56,6 +56,12 @@ services:
         source: /en/posts/bem-vindo-a-forja
         destination: /en/posts/bem-vindo-a-forja/index.html
       - type: rewrite
+        source: /posts/memento-memoria-para-o-claude-code
+        destination: /posts/memento-memoria-para-o-claude-code/index.html
+      - type: rewrite
+        source: /en/posts/memento-memoria-para-o-claude-code
+        destination: /en/posts/memento-memoria-para-o-claude-code/index.html
+      - type: rewrite
         source: /en/*
         destination: /en/404/index.html
       - type: rewrite

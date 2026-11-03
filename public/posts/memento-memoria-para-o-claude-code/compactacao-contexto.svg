@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Compactação de contexto</title>
+  <desc id="descricao">Antes da compactação, a janela de contexto está cheia de mensagens antigas e recentes. Depois, as antigas viram um único resumo, as recentes continuam e sobra espaço livre, mas o que ficou fora do resumo se perde.</desc>
+  <defs>
+    <linearGradient id="fundo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1C1613"/>
+      <stop offset="1" stop-color="#0E0B0A"/>
+    </linearGradient>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#F6A43A"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif; text-anchor: middle; }
+      .titulo { font-size: 24px; font-weight: 600; fill: #EDE3D3; }
+      .texto { font-size: 18px; fill: #A89A8A; }
+      .destaque { font-size: 18px; font-weight: 600; fill: #F6A43A; }
+      .painel { fill: #241C18; stroke: #5E4F44; stroke-width: 2; }
+      .antiga { fill: #6B4A33; stroke: #A89A8A; stroke-width: 1.5; }
+      .recente { fill: #17413F; stroke: #4FE3E0; stroke-width: 2; }
+      .resumo { fill: #F6A43A; stroke: #EDE3D3; stroke-width: 2; }
+      .livre { fill: none; stroke: #5E4F44; stroke-width: 2; stroke-dasharray: 7 6; }
+    </style>
+  </defs>
+
+  <rect width="800" height="450" rx="12" fill="url(#fundo)"/>
+
+  <text class="titulo" x="190" y="48">Janela cheia</text>
+  <rect class="painel" x="30" y="66" width="320" height="270" rx="10"/>
+  <g>
+    <rect class="antiga" x="50" y="84" width="60" height="72" rx="6"/>
+    <rect class="antiga" x="125" y="84" width="60" height="72" rx="6"/>
+    <rect class="antiga" x="200" y="84" width="60" height="72" rx="6"/>
+    <rect class="antiga" x="275" y="84" width="60" height="72" rx="6"/>
+    <rect class="antiga" x="50" y="166" width="60" height="72" rx="6"/>
+    <rect class="antiga" x="125" y="166" width="60" height="72" rx="6"/>
+    <rect class="antiga" x="200" y="166" width="60" height="72" rx="6"/>
+    <rect class="antiga" x="275" y="166" width="60" height="72" rx="6"/>
+    <rect class="recente" x="50" y="248" width="60" height="72" rx="6"/>
+    <rect class="recente" x="125" y="248" width="60" height="72" rx="6"/>
+    <rect class="recente" x="200" y="248" width="60" height="72" rx="6"/>
+    <rect class="recente" x="275" y="248" width="60" height="72" rx="6"/>
+  </g>
+
+  <path d="M368 200 H432" fill="none" stroke="#F6A43A" stroke-width="3" marker-end="url(#seta)"/>
+  <text class="destaque" x="400" y="184">resume</text>
+
+  <text class="titulo" x="610" y="48">Depois da compactação</text>
+  <rect class="painel" x="450" y="66" width="320" height="270" rx="10"/>
+  <rect class="resumo" x="470" y="84" width="135" height="72" rx="6"/>
+  <text x="537" y="127" style="font-size:20px;font-weight:600;fill:#1C1613">resumo</text>
+  <rect class="livre" x="620" y="84" width="135" height="154" rx="6"/>
+  <text class="texto" x="687" y="166">espaço livre</text>
+  <rect class="livre" x="470" y="166" width="135" height="72" rx="6"/>
+  <rect class="recente" x="470" y="248" width="60" height="72" rx="6"/>
+  <rect class="recente" x="545" y="248" width="60" height="72" rx="6"/>
+  <rect class="recente" x="620" y="248" width="60" height="72" rx="6"/>
+  <rect class="recente" x="695" y="248" width="60" height="72" rx="6"/>
+
+  <rect class="antiga" x="36" y="368" width="20" height="24" rx="3"/>
+  <text class="texto" x="112" y="386">antigas</text>
+  <rect class="recente" x="176" y="368" width="20" height="24" rx="3"/>
+  <text class="texto" x="245" y="386">recentes</text>
+  <text class="destaque" x="540" y="386">O que fica fora do resumo se perde.</text>
+  <text class="texto" x="400" y="426">Cada carta representa mensagens e arquivos da conversa.</text>
+</svg>
