@@ -62,6 +62,12 @@ services:
         source: /en/posts/memento-memoria-para-o-claude-code
         destination: /en/posts/memento-memoria-para-o-claude-code/index.html
       - type: rewrite
+        source: /posts/falando-sozinho-em-publico
+        destination: /posts/falando-sozinho-em-publico/index.html
+      - type: rewrite
+        source: /en/posts/falando-sozinho-em-publico
+        destination: /en/posts/falando-sozinho-em-publico/index.html
+      - type: rewrite
         source: /en/*
         destination: /en/404/index.html
       - type: rewrite
